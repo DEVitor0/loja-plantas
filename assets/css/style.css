@@ -55,3 +55,7 @@ button > .negrito {
     font-size: 18px;
 }
 
+#menu-inicial-preferencias > div:nth-child(2) > img { 
+    width: 125px;
+    padding-top: 26px;
+}
