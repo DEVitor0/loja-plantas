@@ -5,24 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jardim Exótico</title>
+    <link rel="shortcut icon" href="./assets/img/vasos/icone.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <nav>
+    <nav id="menu-inicial-preferencias">
         <div class="preferencias-menu">
             <div class="itens-preferencias">
-                <button><span>$</span> Moeda</button>
-                <i class="fa-solid fa-angle-down"></i>
                 <div>
+                    <button><span class="negrito">$</span> Moeda</button>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div style="display: none;">
                     <button>R$ Reais</button>
                     <button>$ US dollar</button>
                     <button>&#128; Euro</button>
                 </div>
             </div>
             <div>
-                <button><span>&#x1F1E7;&#x1F1F7;</span> Idioma</button>
-                <i class="fa-solid fa-angle-down"></i>
-                <button><span>&#x1F1E7;&#x1F1F7;</span> Brasil</button>
-                <button><span>&#x1F1FA;&#x1F1F8;</span> USA</button>
+                <div>
+                    <button><span class="negrito">&#x1F1E7;&#x1F1F7;</span> Idioma</button>
+                    <i class="fa-solid fa-angle-down"></i>
+                </div>
+                <div style="display: none;">
+                    <button><span>&#x1F1E7;&#x1F1F7;</span> Brasil</button>
+                    <button><span>&#x1F1FA;&#x1F1F8;</span> USA</button>
+                </div>
             </div>
             <div>
                 <p><i class="fa-solid fa-phone"></i> 987654321</p>
