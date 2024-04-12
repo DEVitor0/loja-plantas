@@ -17,10 +17,11 @@ nav#menu-inicial-preferencias {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-bottom: 0.2px solid var(--cor3);
 }
 
 .preferencias-menu {
-    width: 330px;
+    width: 340px;
     height: auto;
     display: flex;
     justify-content: center;
@@ -28,19 +29,21 @@ nav#menu-inicial-preferencias {
     gap: 20px;
 }
 
-.itens-preferencias > div:first-child{
+.itens-preferencias {
     width: 90px;
     height: auto;
+}
+
+.itens-preferencias:first-child {
     border-right: 1px solid var(--cor3);
 }
 
-.itens-preferencias > div:first-child > button {
-    border: none;
-    background-color: white;
-    font-size: 15px;
+.itens-preferencias:nth-child(2) {
+    width: 100px;
+    border-right: 1px solid var(--cor3);
 }
 
-.preferencias-menu > div:nth-child(2) > div:nth-child(1) > button {
+.botão-abertura {
     border: none;
     background-color: white;
     font-size: 15px;
