@@ -296,3 +296,42 @@ main > section > div:nth-child(2) {
     font-style: normal;
     transform: translate(1vw, 1vw);
 }
+
+#titulo-seção {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+#titulo-seção > h2 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 32px;
+}
+
+#titulo-seção > p {
+    font-family: "Montserrat", sans-serif;
+    font-size: 22px;
+    color: #47941a;
+}
+
+#titulo-seção > div {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4vw;
+    margin-top: 1.5vh;
+}
+
+#titulo-seção > div > button {
+    font-size: 18px;
+}
+
+#titulo-seção > div > button:first-child {
+    color: var(--cor1);
+}
