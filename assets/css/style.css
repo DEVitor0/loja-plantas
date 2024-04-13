@@ -202,3 +202,80 @@ button>.negrito {
     font-size: 15px;
     margin: 3vh;
 }
+
+main > section > div:nth-child(2) {
+    margin-left: 10vw;
+}
+
+#layout-plantas {
+    display: grid;
+    grid-template-areas: 
+    "a b c"
+    "a d e";
+    width: 75%;
+    height: auto;
+    place-items: center;
+}
+
+
+#planta1 {
+    grid-area: a;
+    background-image: url("../img/vasos/planta1.jpg");
+    background-size: cover;
+    height: 56vh;
+    width: 32vw;
+}
+
+#planta2 {
+    grid-area: b;
+    height: 25vh;
+    width: 24vw;
+    transform: translateX(-0.5vw);
+    background-image: url("../img/vasos/planta3.jpg");
+    background-size: cover;
+    margin-bottom: 10px;
+}
+
+#planta3 {
+    grid-area: c;
+    width: 22vw;
+    height: 25vh;
+    background-image: url("../img/vasos/planta2.jpg");
+    background-size: cover;
+    margin-bottom: 10px;
+}
+
+#planta4 {
+    grid-area: d;
+    height: 28vh;
+    width: 27vw;
+    margin-left: 2vw;
+    background-image: url("../img/vasos/planta4.jpg");
+    background-size: cover;
+    transform: translateX(-10px);
+}
+
+#planta5 {
+    grid-area: e;
+    width: 20vw;
+    height: 28vh;
+    margin-left: 2vw;
+    background-image: url("../img/vasos/planta5.jpg");
+    background-size: cover;
+    transform: translateX(2px);
+}
+
+.caixas-layout-plantas {
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+#layout-plantas > div > p {
+    font-size: 18px;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    transform: translate(1vw, 1vw);
+}
