@@ -85,3 +85,19 @@ button > .negrito {
     font-size: 15px;
     font-weight: 400;
 }
+
+.filtragem-planta {
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.botões-limpos {
+    border: none;
+    font-size: 15px;
+    font-weight: 400;
+}
