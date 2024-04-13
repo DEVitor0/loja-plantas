@@ -165,3 +165,40 @@ button>.negrito {
     border-radius: 100%;
     display: inline-block;
 }
+
+#cuidado-plantas {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3vh;
+}
+
+#cuidado-plantas > div > img {
+    width: 100px;
+    height: 100px;
+}
+
+#cuidado-plantas > h2 {
+    padding-top: 5px;
+    font-size: 18px;
+}
+
+#cuidado-plantas > p {
+    width: 1000px;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#cuidado-plantas > button {
+    width: 150px;
+    height: 40px;
+    border: none;
+    background-color: var(--cor1);
+    border-radius: 30px;
+    color: white;
+    font-size: 15px;
+    margin: 3vh;
+}
