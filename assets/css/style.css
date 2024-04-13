@@ -217,6 +217,29 @@ main > section > div:nth-child(2) {
     place-items: center;
 }
 
+.caixas-layout-plantas {
+    width: 300px;
+    height: 150px;
+    border-radius: 5px;
+    display: flex;
+}
+/*! Não se Esqueça de depois adicionar os botões para a visualização
+.caixas-layout-plantas > button {
+    display: none;
+}   
+
+.caixas-layout-plantas:hover > button {
+    display: block;
+    border: none;
+    background-color: var(--cor1);
+    padding: 5px;
+    width: 4vw;
+    color: white;
+    border-radius: 5px;
+    align-self: flex-end;
+    cursor: pointer;
+    transform: translate(-2.5vw, -2vh);
+} */
 
 #planta1 {
     grid-area: a;
@@ -263,12 +286,6 @@ main > section > div:nth-child(2) {
     background-image: url("../img/vasos/planta5.jpg");
     background-size: cover;
     transform: translateX(2px);
-}
-
-.caixas-layout-plantas {
-    width: 300px;
-    height: 150px;
-    border-radius: 5px;
 }
 
 #layout-plantas > div > p {
