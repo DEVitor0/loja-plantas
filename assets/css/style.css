@@ -102,3 +102,66 @@ button>.negrito {
     font-weight: 400;
     background-color: white;
 }
+
+#carrossel-inicio {
+    width: 100%;
+    height: 67vh;
+    background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-top: 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#titulo-carrossel {
+    margin-bottom: 10vh;
+    margin-left: 8vw;
+}
+
+#titulo-carrossel > div > p:first-child {
+    font-family: "Mali", cursive, 'Helvetica Neue', sans-serif;
+    font-size: 6vh;
+    color: var(--cor1);
+}
+
+#titulo-carrossel > div > h1 {
+    font-size: 6.5vh;
+    margin-top: 0px;
+}
+
+#titulo-carrossel > div > p:nth-child(3) {
+    font-size: 1.9vh;
+}
+
+#titulo-carrossel > div > div {
+    width: 1px;
+    height: 6vh;
+    background-color: #646464;
+    transform: translateX(3vw);
+    margin-top: 1.2vh
+}
+
+#titulo-carrossel > div > button {
+    margin-top: 1.2vh;
+    border-radius: 30px;
+    background-color: var(--cor1);
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    border: none;
+}
+
+#carrossel-inicio > div:last-child {
+    align-self: flex-end;
+    transform: translateX(13.2vw);
+}
+
+.pontos { /*!Fazer o efeito do carrosel e ativar os pontos com cor cinza*/
+    width: 15px;
+    height: 15px;
+    background-color: var(--cor3);
+    border-radius: 100%;
+    display: inline-block;
+}
