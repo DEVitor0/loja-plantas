@@ -336,3 +336,86 @@ main > section > div:nth-child(2) {
 #titulo-seção > div > button:first-child {
     color: var(--cor1);
 }
+
+main > section > div:nth-child(4) {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+#seção-produtos {
+    width: 100%;
+    height: auto;
+    display: grid;
+    justify-items: center;
+}
+
+.produtos-plantas {
+    width: 280px;
+    height: 450px;
+    margin: 10px;
+    display: inline-block;
+}
+
+.desconto {
+    width: 35px;
+    padding: 3.5px;
+    border-radius: 5px;
+    background-color: #F0524B;
+    color: white;
+    text-align: center;
+    position: absolute;
+}
+
+.container-acessórios-produtos {
+    width: 100%;
+    height: 1%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.acessórios-produtos {
+    display: none;
+    width: 30px;
+    height: auto;
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+    background-color: white;
+    position: relative;
+    top: -2.5vh;
+}
+
+.produtos-plantas:hover > .container-acessórios-produtos > .acessórios-produtos {
+    display: block;
+}
+
+.container-imagens-produtos {
+    width: 100%;
+    height: 75%;
+}
+
+.container-imagens-produtos > img {
+    width: 100%;
+    height: 100%;
+}
+
+#seção-produtos > div:nth-child(1) > div:nth-child(3) > div.container-imagens-produtos > img {
+    transform: translateY(3vh);
+}
+
+.container-preço-plantas {
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+
+.container-preço-plantas > p {
+    display: inline;
+    margin-right: 8px;
+}
