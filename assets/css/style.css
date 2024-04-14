@@ -495,7 +495,7 @@ main > section > div:nth-child(4) {
 .imagens-promoção {
     width: 40vw;
     height: 50vh;
-    margin: 30px 20px;
+    margin: 30px 20px; /*adicionart talvez uma borda mais redondinha*/
 }
 
 .imagens-promoção:first-child {
