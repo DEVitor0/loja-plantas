@@ -204,7 +204,7 @@ button>.negrito {
 }
 
 main > section > div:nth-child(2) {
-    margin-left: 10vw;
+    margin-left: 8vw;
 }
 
 #layout-plantas {
@@ -243,7 +243,7 @@ main > section > div:nth-child(2) {
 
 #planta1 {
     grid-area: a;
-    background-image: url("../img/vasos/planta1.jpg");
+    background-image: url("../img/vasos/filtros-plantas/planta1.jpg");
     background-size: cover;
     height: 56vh;
     width: 32vw;
@@ -254,7 +254,7 @@ main > section > div:nth-child(2) {
     height: 25vh;
     width: 24vw;
     transform: translateX(-0.5vw);
-    background-image: url("../img/vasos/planta3.jpg");
+    background-image: url("../img/vasos/filtros-plantas/planta3.jpg");
     background-size: cover;
     margin-bottom: 10px;
 }
@@ -263,7 +263,7 @@ main > section > div:nth-child(2) {
     grid-area: c;
     width: 22vw;
     height: 25vh;
-    background-image: url("../img/vasos/planta2.jpg");
+    background-image: url("../img/vasos/filtros-plantas/planta2.jpg");
     background-size: cover;
     margin-bottom: 10px;
 }
@@ -273,7 +273,7 @@ main > section > div:nth-child(2) {
     height: 28vh;
     width: 27vw;
     margin-left: 2vw;
-    background-image: url("../img/vasos/planta4.jpg");
+    background-image: url("../img/vasos/filtros-plantas/planta4.jpg");
     background-size: cover;
     transform: translateX(-10px);
 }
@@ -283,7 +283,7 @@ main > section > div:nth-child(2) {
     width: 20vw;
     height: 28vh;
     margin-left: 2vw;
-    background-image: url("../img/vasos/planta5.jpg");
+    background-image: url("../img/vasos/filtros-plantas/planta5.jpg");
     background-size: cover;
     transform: translateX(2px);
 }
@@ -326,6 +326,7 @@ main > section > div:nth-child(2) {
     align-items: center;
     gap: 4vw;
     margin-top: 1.5vh;
+    margin-bottom: 1.5vh;
 }
 
 #titulo-seção > div > button {
