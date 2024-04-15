@@ -297,7 +297,7 @@ main > section > div:nth-child(2) {
     transform: translate(1vw, 1vw);
 }
 
-#titulo-seção {
+.titulo-seção {
     width: 100%;
     height: auto;
     display: flex;
@@ -307,18 +307,18 @@ main > section > div:nth-child(2) {
     margin-top: 3vh;
 }
 
-#titulo-seção > h2 {
+.titulo-seção > h2 {
     font-family: "Montserrat", sans-serif;
     font-size: 32px;
 }
 
-#titulo-seção > p {
+.titulo-seção > p {
     font-family: "Montserrat", sans-serif;
     font-size: 22px;
     color: var(--cor2);
 }
 
-#titulo-seção > div {
+.titulo-seção > div {
     width: 100%;
     height: auto;
     display: flex;
@@ -329,11 +329,11 @@ main > section > div:nth-child(2) {
     margin-bottom: 1.5vh;
 }
 
-#titulo-seção > div > button {
+.titulo-seção > div > button {
     font-size: 18px;
 }
 
-#titulo-seção > div > button:first-child {
+.titulo-seção > div > button:first-child {
     color: var(--cor1);
 }
 
@@ -531,4 +531,8 @@ main > section > div:nth-child(4) {
 
 .container-informativos > div > p:nth-child(2) {
     color: rgb(97, 96, 96);
+}
+
+.titulo-seção > p:nth-child(2) {
+    color: rgb(0, 133, 0);
 }
