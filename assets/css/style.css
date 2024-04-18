@@ -585,3 +585,56 @@ main > section > div:nth-child(4) {
     color: var(--cor1);
     cursor: pointer;
 }
+
+#container-recomendações { /*!Rever qual imagem ficou melhor para fundo*/
+    width: 100%;
+    height: 50vh;
+    margin: auto;
+    margin-bottom: 3vh;
+    background-image: url("../img/fundos/");
+    background-size: cover;
+    background-position: bottom;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 3;
+}
+
+.imagem-perfil {
+    width: 100px;
+    height: 100px;
+    background-image: url("../img/pessoas/vitor.jpeg");
+    background-size: cover;
+    background-position: center;
+    border-radius: 100%;
+    z-index: 5;
+}
+
+#container-recomendações > div:nth-child(2) > p:first-child {
+    margin-top: 1.5vh;
+    font-size: 20px;
+    text-align: center;
+    color: var(--cor2);
+}
+
+#container-recomendações > div:nth-child(2) > p:nth-child(2) {
+    font-size: 17px;
+    text-align: center;
+    color: var(--cor4);
+}
+
+#container-recomendações > div:nth-child(3) > p{
+    margin-top: 2vh;
+    width: 600px;
+    text-align: center;
+}
+
+.container-pontos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: -6.5vh;
+}
