@@ -8,7 +8,7 @@
     --cor1: #518432;
     --cor2: #47941a;
     --cor3: #AAAAAA;
-    --cor4: black;
+    --cor4: rgb(97, 96, 96);
 }
 
 nav#menu-inicial-preferencias {
@@ -535,4 +535,50 @@ main > section > div:nth-child(4) {
 
 .titulo-seção > p:nth-child(2) {
     color: rgb(0, 133, 0);
+}
+
+#container-maior-categorias {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+
+#container-categorias {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-plantas {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-plantas:nth-child(2) {
+    gap: 1.5vw;
+}
+
+#navegação-filtros {
+    width: 10vw;
+    height: auto;
+}
+
+.filtros-produtos {
+    padding: 0.5vw 2vh;
+    color: var(--cor4);
+    text-align: left;
+}
+
+.filtros-produtos:first-child { 
+    color: var(--cor2);
 }
