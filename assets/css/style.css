@@ -633,9 +633,8 @@ main > section > div:nth-child(4) {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     position: relative;
-    top: -6.5vh;
+    top: 3vh;
 }
 
 main > section > div:nth-child(12) {
