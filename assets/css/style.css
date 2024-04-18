@@ -101,6 +101,7 @@ button>.negrito {
     font-size: 15px;
     font-weight: 400;
     background-color: white;
+    cursor: pointer;
 }
 
 #carrossel-inicio {
@@ -543,7 +544,8 @@ main > section > div:nth-child(4) {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 2vh;
+    margin-bottom: 3vh;
+    margin-top: 3vh;
 }
 
 
@@ -551,7 +553,7 @@ main > section > div:nth-child(4) {
     width: auto;
     height: auto;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 }
 
@@ -562,10 +564,6 @@ main > section > div:nth-child(4) {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.container-plantas:nth-child(2) {
-    gap: 1.5vw;
 }
 
 #navegação-filtros {
@@ -581,4 +579,9 @@ main > section > div:nth-child(4) {
 
 .filtros-produtos:first-child { 
     color: var(--cor2);
+}
+
+.navegação-produtos:hover {
+    color: var(--cor1);
+    cursor: pointer;
 }
