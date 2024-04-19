@@ -640,3 +640,40 @@ main > section > div:nth-child(4) {
 main > section > div:nth-child(12) {
     margin-top: 0;
 }
+
+#container-blogs-maior {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-blogs {
+    width: 80%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+.blogs { /*!Criar uma responsividade exclusiva para monitor da caixa vermelha*/
+    width: 80%;
+    height: 220px;
+    margin: 0px 15px;
+    display: flex;
+    flex-direction: row;
+    background-color: red;
+}
+
+.imagens-caixa-blogs {
+    width: 50%;
+    height: auto;
+}
+
+.texto-caixa-blogs {
+    width: 50%;
+    height: auto;
+    padding: 10px;
+}
