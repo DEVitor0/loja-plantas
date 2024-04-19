@@ -421,7 +421,7 @@ main > section > div:nth-child(4) {
     margin-right: 8px;
 }
 
-#mover-produtos-principais {
+.mover-produtos-principais {
     width: 100%;
     height: 1px;
     display: flex;
@@ -664,11 +664,10 @@ main > section > div:nth-child(12) {
     margin: 0px 15px;
     display: flex;
     flex-direction: row;
-    background-color: red;
 }
 
 .imagens-caixa-blogs {
-    width: 50%;
+    width: 45%;
     height: auto;
 }
 
@@ -676,4 +675,70 @@ main > section > div:nth-child(12) {
     width: 50%;
     height: auto;
     padding: 10px;
+}
+
+.data-publicação-blogs {
+    width: 100%;
+    height: auto;
+}
+
+.data-publicação-blogs > p {
+    display: inline-block;
+    color: var(--cor4);
+    margin-bottom: 8px;
+}
+
+.data-publicação-blogs > i {
+    color: var(--cor4);
+}
+
+.resumo-caixa-blog { /*!Verificar Como ficou na versão de monitor o epsaçamento entre os textos*/
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.resumo-caixa-blog> p:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.botão-blog > button {
+    border: 1px solid var(--cor1);
+    background-color: transparent;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+.botão-blog > button:hover {
+    background-color: var(--cor2);
+    color: white;
+    transition: 0.2s linear;
+}
+
+.imagens-caixa-blogs {
+    background-size: cover;
+    border-radius: 5px;
+}
+
+.imagens-caixa-blogs:first-child {
+    background-image: url("../img/fundos/pexels-cottonbro-4505144.jpg");
+    background-position: center;
+}
+
+#container-blogs > div:nth-child(2) > div.imagens-caixa-blogs{
+    background-image: url("../img/fundos/pexels-cottonbro-4507712.jpg");
+}
+
+#mover-elementos-blog {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3vh;
+}
+
+.setas-carrossel-blog {
+    padding: 0px 15px;
 }
