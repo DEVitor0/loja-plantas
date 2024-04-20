@@ -27,10 +27,12 @@
                     <button class="botão-abertura"><span class="negrito">$</span> Moeda</button>
                     <i class="fa-solid fa-angle-down"></i>
                 </div>
-                <div style="display: none;">
-                    <button>R$ Reais</button> <!--!Fazer script do menu abrindo-->
-                    <button>$ US dollar</button> <!--!Fazer script do menu abrindo-->
-                    <button>&#128; Euro</button> <!--!Fazer script do menu abrindo-->
+                <div id="moeda">
+                    <div class="container-abertura">
+                        <button>R$ Reais</button> <!--!Fazer script do menu abrindo-->
+                        <button>$ Dollar</button> <!--!Fazer script do menu abrindo-->
+                        <button>&#128; Euro</button> <!--!Fazer script do menu abrindo-->
+                    </div>
                 </div>
             </div>
             <div class="itens-preferencias">
@@ -38,7 +40,7 @@
                     <button class="botão-abertura"><span class="negrito">&#x1F1E7;&#x1F1F7;</span> Idioma</button>
                     <i class="fa-solid fa-angle-down"></i>
                 </div>
-                <div style="display: none;">
+                <div class="container-abertura">
                     <button><span>&#x1F1E7;&#x1F1F7;</span> Brasil</button> <!--!Fazer script do menu abrindo-->
                     <button><span>&#x1F1FA;&#x1F1F8;</span> USA</button> <!--!Fazer script do menu abrindo-->
                 </div>
@@ -51,29 +53,29 @@
             <img src="./assets/img/icones/logo.webp" alt="Jardim Exótico">
         </div>
         <div class="informações-menu">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <p><i class="fa-solid fa-user"></i>Login</p>
-            <i class="fa-solid fa-basket-shopping"></i>
+            <i class="fa-solid fa-magnifying-glass clicavel"></i>
+            <p class="clicavel"><i class="fa-solid fa-user"></i>Login</p>
+            <i class="fa-solid fa-basket-shopping clicavel"></i>
         </div>
     </nav>
     <nav class="filtragem-planta">
         <div>
-            <div>
+            <div class="clicavel">
                 <button class="botão-abertura">Tamanhos</button>
                 <i class="fa-solid fa-angle-down"></i>
             </div>
-            <div style="display: none;"> <!--!Fazer script do menu abrindo-->
+            <div class="container-abertura"> <!--!Fazer script do menu abrindo-->
                 <button>Plantas pequenas</button>
                 <button>Plantas médias</button>
                 <button>Plantas grandes</button>
             </div>
         </div>
         <div>
-            <div>
+            <div class="clicavel">
                 <button class="botões-limpos">Preços</button>
                 <i class="fa-solid fa-angle-down"></i>
             </div>
-            <div style="display: none;">
+            <div class="container-abertura">
                 <button class="botões-limpos">Por menos de R$ 20,00</button>
                 <button class="botões-limpos">Entre R$ 20,00 e R$ 30,00</button>
                 <button class="botões-limpos">Entre R$ 30,00 e R$ 40,00</button>
@@ -99,13 +101,13 @@
                     <h1>Plantas Naturais</h1>
                     <p>Lorem ipsum dolor provident, laboriosam ducimus vitae</p>
                     <div></div>
-                    <button>Comprar Agora</button>
+                    <button class="clicavel">Comprar Agora</button>
                 </div>
             </div>
         </div>
         <div id="container-pontos-carrossel">
-            <div class="pontos"></div>
-            <div class="pontos"></div>
+            <div class="pontos clicavel"></div>
+            <div class="pontos clicavel"></div>
         </div>
         <section>
             <div id="cuidado-plantas">
@@ -116,7 +118,7 @@
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur ullam minima rerum eius quisquam
                     quaerat illo quis explicabo! Consequatur laborum ad nihil veritatis, molestias voluptatibus earum
                     unde veniam neque aspernatur</p>
-                <button>Ler Mais</button>
+                <button class="clicavel">Ler Mais</button>
             </div>
             <div>
                 <div id="layout-plantas">
@@ -155,13 +157,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -178,13 +180,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -202,13 +204,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -223,13 +225,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -248,13 +250,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -272,13 +274,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -293,13 +295,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -313,13 +315,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -338,13 +340,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -362,13 +364,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -382,10 +384,10 @@
             </div>
             <div class="mover-produtos-principais">
                 <div class="setas-carrossel">
-                    <i class="fa-solid fa-angle-left"></i>
+                    <i class="fa-solid fa-angle-left clicavel"></i>
                 </div>
                 <div class="setas-carrossel">
-                    <i class="fa-solid fa-angle-right"></i>
+                    <i class="fa-solid fa-angle-right clicavel"></i>
                 </div>
             </div>
             <div id="promoção">
@@ -474,13 +476,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -495,13 +497,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -515,13 +517,13 @@
                             </div>
                             <div class="container-acessórios-produtos">
                                 <div class="acessórios-produtos">
-                                    <i class="fa-solid fa-basket-shopping"></i>
+                                    <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-heart"></i>
+                                    <i class="fa-regular fa-heart clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos">
-                                    <i class="fa-regular fa-eye"></i>
+                                    <i class="fa-regular fa-eye clicavel"></i>
                                 </div>
                             </div>
                             <div class="container-preço-plantas">
@@ -547,9 +549,9 @@
                 </div>
                 <div class="container-pontos">
                     <div>
-                        <div class="pontos"></div>
-                        <div class="pontos"></div>
-                        <div class="pontos"></div>
+                        <div class="pontos clicavel"></div>
+                        <div class="pontos clicavel"></div>
+                        <div class="pontos clicavel"></div>
                     </div>
                 </div>
             </div>
@@ -575,7 +577,7 @@
                                 consectetur adipisicing elit ...</p>
                         </div>
                         <div class="botão-blog">
-                            <button>LER MAIS</button>
+                            <button class="clicavel">LER MAIS</button>
                         </div>
                     </div>
                 </div>
@@ -592,7 +594,7 @@
                                 consectetur adipisicing elit ...</p>
                         </div>
                         <div class="botão-blog">
-                            <button>LER MAIS</button>
+                            <button class="clicavel">LER MAIS</button>
                         </div>
                     </div>
                 </div>
@@ -600,10 +602,10 @@
         </div>
         <div id="mover-elementos-blog">
             <div class="setas-carrossel-blog">
-                <i class="fa-solid fa-angle-left"></i>
+                <i class="fa-solid fa-angle-left clicavel"></i>
             </div>
             <div class="setas-carrossel-blog">
-                <i class="fa-solid fa-angle-right"></i>
+                <i class="fa-solid fa-angle-right clicavel"></i>
             </div>
         </div>
     </aside>

@@ -53,6 +53,11 @@ nav#menu-inicial-preferencias {
 .itens-preferencias {
     width: 90px;
     height: auto;
+    cursor: pointer;
+}
+
+.clicavel {
+    cursor: pointer;
 }
 
 .itens-preferencias:first-child {
@@ -64,22 +69,45 @@ nav#menu-inicial-preferencias {
     border-right: 1px solid var(--cor3);
 }
 
+.container-abertura {
+    position: absolute;
+    display: none; /*!Adicionar com js display flex e animação*/
+    flex-direction: column;
+    margin-top: 24px;
+    padding: 10px 100px 10px 0px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid var(--cor2);
+    gap: 5px;
+}
+
+.container-abertura > button {
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.fa-angle-down{
+    cursor: pointer;
+}
+
 .botão-abertura {
     border: none;
     background-color: white;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .negrito {
     font-weight: bold;
 }
 
-button>.negrito {
+button > .negrito {
     font-weight: bold;
     font-size: 18px;
 }
 
-#menu-inicial-preferencias>div:nth-child(2)>img {
+#menu-inicial-preferencias>div:nth-child(2) > img {
     width: 125px;
     padding-top: 26px;
 }
@@ -92,16 +120,16 @@ button>.negrito {
     gap: 25px;
 }
 
-.informações-menu>i {
+.informações-menu > i {
     font-size: 20px;
 }
 
-.informações-menu>p>i {
+.informações-menu > p > i {
     font-size: 20px;
     padding-right: 8px;
 }
 
-.informações-menu>p {
+.informações-menu > p {
     display: inline;
     font-size: 15px;
     font-weight: 400;
