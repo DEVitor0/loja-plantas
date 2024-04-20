@@ -767,7 +767,7 @@ main > section > div:nth-child(12) {
 #conatiner-contato {
     width: 100%;
     height: auto;
-    margin-top: 3.5vh;
+    margin-top: 5vh;
     margin-bottom: 2.5vh;
     display: flex;
     justify-content: space-around;
@@ -801,3 +801,14 @@ main > section > div:nth-child(12) {
     border-radius: 5px;
     padding: 6px;
 }
+
+#container-detalhes-rodapé {
+    margin-top: 6vh;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+}
+
