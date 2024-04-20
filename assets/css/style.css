@@ -2,6 +2,27 @@
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+    scrollbar-width: 10px;
+    scrollbar-color: #919191;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: #919191;
+    border-radius: 10px;
+    border: 1px solid white;
+}
+
+::selection {
+    background-color: #47941a;
+    color: white;
 }
 
 :root {
@@ -766,7 +787,6 @@ main > section > div:nth-child(12) {
 
 #conatiner-contato > div:nth-child(2) > input[type="text"]{
     border: none;
-    caret-color: #4fc20d;
     font-size: 18px;
 }
 
