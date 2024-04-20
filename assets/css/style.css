@@ -810,5 +810,43 @@ main > section > div:nth-child(12) {
     justify-content: space-evenly;
     align-items: center;
     flex-direction: row;
+    font-size: 18px;
 }
 
+#container-detalhes-rodapé {
+    width: 100%;
+    height: auto;
+    margin-top: 1.5vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.contato-elementos {
+    padding-bottom: 10px;
+    margin-left: 30px;
+}
+
+.contato-elementos > p {
+    display: inline-block;
+}
+
+.contato-elementos > i {
+    font-size: 18px;
+    color: var(--cor1);
+}
+
+#Informações > div {
+    padding-bottom: 5px;
+    transform: translateX(-50px);
+}
+
+#Serviço > div {
+    padding-bottom: 5px;
+    transform: translateX(-50px);
+}
+
+#Conta > div {
+    padding-bottom: 5px;
+    transform: translateX(-5px);
+}
