@@ -742,3 +742,42 @@ main > section > div:nth-child(12) {
 .setas-carrossel-blog {
     padding: 0px 15px;
 }
+
+#conatiner-contato {
+    width: 100%;
+    height: auto;
+    margin-top: 3.5vh;
+    margin-bottom: 2.5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+
+#conatiner-contato > div:first-child > i {
+    font-size: 20px;
+    padding-right: 5px;
+}
+
+#conatiner-contato > div:first-child > p{
+    display: inline;
+    font-size: 20px;
+}
+
+#conatiner-contato > div:nth-child(2) > input[type="text"]{
+    border: none;
+    caret-color: #4fc20d;
+    font-size: 18px;
+}
+
+#conatiner-contato > div:nth-child(2) > input[type="text"]:focus {
+    outline: none;
+}
+
+#conatiner-contato > div:nth-child(2) > button {
+    border: none;
+    background-color: var(--cor1);
+    color: white;
+    border-radius: 5px;
+    padding: 6px;
+}
