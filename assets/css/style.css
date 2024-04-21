@@ -74,7 +74,7 @@ nav#menu-inicial-preferencias {
     display: none; 
     flex-direction: column;
     margin-top: 24px;
-    padding: 10px 100px 10px 0px;
+    padding: 10px 100px 10px 5px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     background-color: white;
     border-bottom: 2px solid var(--cor2);
@@ -87,6 +87,7 @@ nav#menu-inicial-preferencias {
     background-color: transparent;
     font-size: 15px;
     cursor: pointer;
+    text-align: left;
 }
 
 @keyframes abrindo {
