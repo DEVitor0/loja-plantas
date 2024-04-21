@@ -79,7 +79,7 @@ nav#menu-inicial-preferencias {
     background-color: white;
     border-bottom: 2px solid var(--cor2);
     gap: 5px;
-    animation: slideIn 0.3s ease;
+    animation: abrindo 0.3s ease;
 }
 
 .container-abertura > button {
@@ -89,7 +89,7 @@ nav#menu-inicial-preferencias {
     cursor: pointer;
 }
 
-@keyframes slideIn {
+@keyframes abrindo {
     from {
         opacity: 0;
         transform: translateY(-20px);
@@ -181,6 +181,22 @@ button > .negrito {
 #titulo-carrossel {
     margin-bottom: 10vh;
     margin-left: 8vw;
+    opacity: 0;
+}
+
+.slideAnimation {
+    animation: slideParaEsquerda 1.5s ease forwards;
+}
+
+@keyframes slideParaEsquerda {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 #titulo-carrossel > div > p:first-child {
