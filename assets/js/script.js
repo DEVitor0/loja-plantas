@@ -24,6 +24,68 @@
     meuObservador.observe(containerTitulo);
 })();
 
+function navegaçãoMenus() {
+    const populares = window.document.querySelector('#populares');
+    const containerPopulares = window.document.querySelectorAll('.container-populares');
+
+    const novidades = window.document.querySelector('#novidades');
+    const containerNovidades = window.document.querySelector('#container-novidades');
+    containerNovidades.style.display = 'none';
+
+    const ofertas = window.document.querySelector('#ofertas');
+    const containerOfertas = window.document.querySelector('#container-ofertas');
+    containerOfertas.style.display = 'none';
+
+    const setaEsquerda = window.document.querySelector(".fa-angle-left");
+    const setaDireita = window.document.querySelector(".fa-angle-right");
+
+    populares.addEventListener('click', () => {
+        containerPopulares.forEach((element) => {
+            element.style.display = 'flex';
+        })
+        populares.style.color = '#518432';
+        novidades.style.color = 'black';
+        ofertas.style.color = 'black';
+
+        containerNovidades.style.display = 'none';
+        containerOfertas.style.display = 'none';
+
+        setaDireita.style.display = 'flex';
+        setaEsquerda.style.display = 'flex';
+    });
+
+    novidades.addEventListener('click', () => {
+        containerPopulares.forEach((elements) => {
+            elements.style.display = 'none';
+        });
+        populares.style.color = 'black';
+        novidades.style.color = '#518432';
+        ofertas.style.color = 'black';
+
+        containerNovidades.style.display = 'flex';
+        containerOfertas.style.display = 'none';
+
+        setaDireita.style.display = 'none';
+        setaEsquerda.style.display = 'none';
+    })
+
+    ofertas.addEventListener('click', () => {
+        containerPopulares.forEach((elements) => {
+            elements.style.display = 'none';
+        });
+        populares.style.color = 'black';
+        novidades.style.color = 'black';
+        ofertas.style.color = '#518432';
+
+        containerNovidades.style.display = 'none';
+        containerOfertas.style.display = 'flex';
+
+        setaDireita.style.display = 'none';
+        setaEsquerda.style.display = 'none';
+    })
+}
+navegaçãoMenus()
+
 function carrossel() {
     const plantasEsquerdas = window.document.querySelectorAll(".esquerda");
     const setaEsquerda = window.document.querySelector(".fa-angle-left");

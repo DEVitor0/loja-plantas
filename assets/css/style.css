@@ -514,10 +514,6 @@ main > section > div:nth-child(4) {
     height: 100%;
 }
 
-#seção-produtos > div:nth-child(1) > div:nth-child(3) > div.container-imagens-produtos > img {
-    transform: translateY(3vh);
-}
-
 .container-preço-plantas {
     width: 100%;
     height: auto;
@@ -537,6 +533,12 @@ main > section > div:nth-child(4) {
     position: relative;
     top: -4vh;
     margin-bottom: 3vh;
+}
+
+#container-novidades {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .setas-carrossel {
