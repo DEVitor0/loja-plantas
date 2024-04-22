@@ -425,11 +425,42 @@ main > section > div:nth-child(4) {
     justify-items: center;
 }
 
+@keyframes slideInRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 .produtos-plantas {
     width: 280px;
     height: 450px;
     margin: 10px;
     display: inline-block;
+    animation: slideInRight 0.5s ease forwards; /* Animação padrão */
+}
+
+.direita .produtos-plantas {
+    animation-name: slideInRight; /* Animação para os elementos da direita */
+}
+
+.esquerda .produtos-plantas {
+    animation-name: slideInLeft; /* Animação para os elementos da esquerda */
 }
 
 .desconto {
@@ -525,7 +556,7 @@ main > section > div:nth-child(4) {
 }
 
 #container-promoção {
-    width: 19vw;
+    width: 350px;
     height: 21vh;
     padding: 15px;
     border: 2px solid white;
