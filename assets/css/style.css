@@ -887,6 +887,26 @@ main > section > div:nth-child(12) {
     margin-left: 15px;
 }
 
+#sem-conteudo {
+    height: 74%;
+    width: 87%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#sem-conteudo > div:first-child > p {
+    font-size: 22px;
+    color: var(--cor1);
+    margin-bottom: 30px;
+}
+
+#sem-conteudo > div:nth-child(2) > p {
+    text-align: center;
+}
+
 .container-produtos {
     border-bottom: 1px solid var(--cor3);
     padding: 20px 0px;
@@ -956,7 +976,7 @@ main > section > div:nth-child(12) {
     color: #388809;
 }
 
-#carrinho > div:nth-child(3) {
+#exclusão {
     width: 100%;
     color: rgb(173, 16, 16);
     display: flex;
@@ -965,13 +985,13 @@ main > section > div:nth-child(12) {
     margin: 20px 0px;
 }
 
-#carrinho > div:nth-child(3) > p {
+#exclusão > p {
     display: inline;
     padding-right: 8px;
     font-size: 16px;
 }
 
-#carrinho > div:nth-child(3) > i {
+#exclusão  > i {
     font-size: 16px;
 }
 
@@ -1031,7 +1051,7 @@ main > section > div:nth-child(12) {
     margin-top: 10px;
 }
 
-#carrinho > div:last-child {
+#conteudo-carrinho > div:last-child {
     width: 100%;
     height: auto;
     display: flex;
@@ -1040,7 +1060,7 @@ main > section > div:nth-child(12) {
     margin-top: 20px;
 }
 
-#carrinho > div:last-child > button {
+#conteudo-carrinho > div:last-child > button {
     width: 84%;
     padding: 5px;
     color: white;

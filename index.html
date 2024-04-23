@@ -780,7 +780,15 @@
             <i class="fa-solid fa-xmark"></i>
             <p>Carrinho</p>
         </div>
-        <div>
+        <div id="sem-conteudo">
+            <div>
+                <p>Seu carrinho está vazio :(</p>
+            </div>
+            <div>
+                <p>Para continuar comprando, navegue pelas categorias do site ou faça uma busca pelo seu produto.</p>
+            </div>
+        </div>
+        <div id="conteudo-carrinho" style="display: none;">
             <div class="container-produtos">
                 <div class="container-vaso-carrinho"> <!--Imagem-->
                     <div class="imagem-vaso-carrinho"></div>
@@ -808,33 +816,33 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div>
-            <p class="clicavel">Excluir todos os itens do carrinho</p>
-            <i class="fa-regular fa-trash-can clicavel"></i>
-        </div>
-        <div id="preço-total">
-            <p>Resumo da compra</p>
-            <div id="cupom-desconto">
-                <i class="fa-solid fa-plus"></i> 
-                <p>Adicionar cupom de desconto</p>
+            <div id="exclusão">
+                <p class="clicavel">Excluir todos os itens do carrinho</p>
+                <i class="fa-regular fa-trash-can clicavel"></i>
             </div>
-            <div id="container-informativos-carrinho">
-                <div class="informativos-compras">
-                    <p>Subtotal</p>
-                    <p class="preço-final">R$ 16,00</p>
+            <div id="preço-total">
+                <p>Resumo da compra</p>
+                <div id="cupom-desconto">
+                    <i class="fa-solid fa-plus"></i> 
+                    <p>Adicionar cupom de desconto</p>
                 </div>
-                <div class="informativos-compras">
-                    <p>Entrega</p>
-                    <p>Grátis</p>
+                <div id="container-informativos-carrinho">
+                    <div class="informativos-compras">
+                        <p>Subtotal</p>
+                        <p class="preço-final">R$ 16,00</p>
+                    </div>
+                    <div class="informativos-compras">
+                        <p>Entrega</p>
+                        <p>Grátis</p>
+                    </div>
                 </div>
             </div>
+            <div id="preço-final-container">
+                <p>Total</p>
+                <p>R$ 16,00</p>
+            </div>
+            <div><button>Finalizar compra</button></div>
         </div>
-        <div id="preço-final-container">
-            <p>Total</p>
-            <p>R$ 16,00</p>
-        </div>
-        <div><button>Finalizar compra</button></div>
     </aside>
     <footer>
         <div id="conatiner-contato">
