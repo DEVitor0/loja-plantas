@@ -32,7 +32,6 @@
     --cor4: rgb(97, 96, 96);
 }
 
-
 nav#menu-inicial-preferencias {
     width: 100%;
     height: 70px;
@@ -858,6 +857,105 @@ main > section > div:nth-child(12) {
 .setas-carrossel-blog {
     padding: 0px 15px;
 }
+
+#carrinho {
+    width: 320px;
+    height: 100vh;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#carrinho > div:first-child {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+#carrinho > div:first-child > p {
+    display: inline;
+    font-size: 22px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+#carrinho > div:first-child > i {
+    font-size: 22px;
+    color: rgb(97, 96, 96);
+    margin-left: 15px;
+}
+
+.container-produtos {
+    border-top: 1px solid var(--cor3);
+    border-bottom: 1px solid var(--cor3);
+    padding: 20px 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.container-vaso-carrinho {
+    width: 30%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem-vaso-carrinho {
+    width: 100px;
+    height: 100px;
+    background-image: url("../img/vasos/produtos-principais/plantax.png");
+    background-size: cover;
+}
+
+.container-texto-carrinho {
+    width: 70%;
+    height: auto;
+    color: #525050;
+}
+
+.container-texto-carrinho > div:first-child {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: var(--cor2);
+}
+
+.container-texto-carrinho > div:first-child > p {
+    margin-bottom: 6px;
+}
+
+.container-texto-carrinho > div:first-child > i {
+    transform: translate(-25px);
+    color: #525050;
+}
+
+.container-quantidade-produto {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+.adiconar-quantidades {
+    width: 110px;
+    height: 23px;
+    border: 2px solid var(--cor2);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.container-quantidade-produto > p {
+    transform: translateX(-25px);
+    color: #388809;
+}
+
+
 
 #conatiner-contato {
     width: 100%;
