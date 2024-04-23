@@ -869,8 +869,9 @@ main > section > div:nth-child(12) {
 
 #carrinho > div:first-child {
     width: 100%;
-    margin-bottom: 20px;
     margin-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--cor3);
 }
 
 #carrinho > div:first-child > p {
@@ -887,7 +888,6 @@ main > section > div:nth-child(12) {
 }
 
 .container-produtos {
-    border-top: 1px solid var(--cor3);
     border-bottom: 1px solid var(--cor3);
     padding: 20px 0px;
     display: flex;
@@ -917,6 +917,7 @@ main > section > div:nth-child(12) {
 
 .container-texto-carrinho > div:first-child {
     display: flex;
+    align-items: center;
     flex-direction: row;
     justify-content: space-between;
     color: var(--cor2);
@@ -951,11 +952,102 @@ main > section > div:nth-child(12) {
 }
 
 .container-quantidade-produto > p {
-    transform: translateX(-25px);
+    transform: translateX(-21px);
     color: #388809;
 }
 
+#carrinho > div:nth-child(3) {
+    width: 100%;
+    color: rgb(173, 16, 16);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+}
 
+#carrinho > div:nth-child(3) > p {
+    display: inline;
+    padding-right: 8px;
+    font-size: 16px;
+}
+
+#carrinho > div:nth-child(3) > i {
+    font-size: 16px;
+}
+
+#preço-total {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#preço-total > p {
+    font-size: 22px;
+    font-weight: 600;
+    margin-left: 24px;
+}
+
+#cupom-desconto {
+    width: 100%;
+    height: auto;
+    color: var(--cor2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#cupom-desconto > p {
+    display: inline;
+}
+
+#cupom-desconto > i {
+    padding-right: 7px;
+}
+
+#container-informativos-carrinho {
+    padding: 0px 24px;
+}
+
+.informativos-compras {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#preço-final-container {
+    margin: 0px 24px;
+    border-top: 1px solid var(--cor3);
+    display: flex;
+    justify-content: space-between;
+}
+
+#preço-final-container > p{
+    margin-top: 10px;
+}
+
+#carrinho > div:last-child {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+#carrinho > div:last-child > button {
+    width: 84%;
+    padding: 5px;
+    color: white;
+    background-color: #27AC22;
+    border: none;
+    border-radius: 5px;
+}
 
 #conatiner-contato {
     width: 100%;
