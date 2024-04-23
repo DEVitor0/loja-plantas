@@ -20,37 +20,6 @@
 </head>
 
 <body>
-    <div id="carrinho">
-        <div>
-            <i class="fa-solid fa-xmark"></i>
-            <p>Carrinho</p>
-        </div>
-        <div id="produtos-carrinho">
-
-        </div>
-        <div>
-            <p>Excluir todos os itens do carrinho <i class="fa-regular fa-trash-can"></i></p>
-        </div>
-        <div id="preço-total">
-            <p>Resumo da compra</p>
-            <div id="cupom-desconto">
-                <p><i class="fa-solid fa-plus"></i> Adicionar cupom de desconto</p>
-            </div>
-            <div class="informativos-compras">
-                <p>Subtotal</p>
-                <p class="preço-final"></p>
-            </div>
-            <div class="informativos-compras">
-                <p>Entrega</p>
-                <p>Grátis</p>
-            </div>
-        </div>
-        <div id="preço-final-container">
-            <p>Total</p>
-            <p></p>
-        </div>
-        <button>Finalizar compra</button>
-    </div>
     <nav id="menu-inicial-preferencias">
         <div class="preferencias-menu">
             <div class="itens-preferencias">
@@ -805,6 +774,63 @@
                 <i class="fa-solid fa-angle-right clicavel"></i>
             </div>
         </div>
+    </aside>
+    <aside id="carrinho">
+        <div>
+            <i class="fa-solid fa-xmark"></i>
+            <p>Carrinho</p>
+        </div>
+        <div id="produtos-carrinho">
+            <div class="container-produtos">
+                <div class="container-vaso-carrinho"> <!--Imagem-->
+                    
+                </div>
+                <div class="container-texto-carrinho"> <!--textos-->
+                    <div> <!--Nome e lixeira (flex)-->
+                        <p>Abacate Kg</p>
+                        <i class="fa-regular fa-trash-can"></i>
+                    </div>
+                    <div class="container-promoção-carrinho">
+                        <del class="valor-incial"></del>
+                    </div>
+                    <div class="container-valor-produto">
+                        <p class="valor-produto"></p>
+                    </div>
+                    <div class="container-quantidade-produto"> <!--Adicionar um display flex para ambos-->
+                        <div class="adiconar-quantidades"> <!--talvez adicionar um display inline-block-->
+                            <div class="diminuir"><i class="fa-solid fa-minus"></i></div>
+                            <div>
+                                <p class="quantidade-produto">1</p>
+                            </div>
+                            <div class="aumentar"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <p class="valor-quantia"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p>Excluir todos os itens do carrinho <i class="fa-regular fa-trash-can"></i></p>
+        </div>
+        <div id="preço-total">
+            <p>Resumo da compra</p>
+            <div id="cupom-desconto">
+                <p><i class="fa-solid fa-plus"></i> Adicionar cupom de desconto</p>
+            </div>
+            <div class="informativos-compras">
+                <p>Subtotal</p>
+                <p class="preço-final"></p>
+            </div>
+            <div class="informativos-compras">
+                <p>Entrega</p>
+                <p>Grátis</p>
+            </div>
+        </div>
+        <div id="preço-final-container">
+            <p>Total</p>
+            <p></p>
+        </div>
+        <button>Finalizar compra</button>
     </aside>
     <footer>
         <div id="conatiner-contato">
