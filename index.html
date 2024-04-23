@@ -20,6 +20,37 @@
 </head>
 
 <body>
+    <div id="carrinho">
+        <div>
+            <i class="fa-solid fa-xmark"></i>
+            <p>Carrinho</p>
+        </div>
+        <div id="produtos-carrinho">
+
+        </div>
+        <div>
+            <p>Excluir todos os itens do carrinho <i class="fa-regular fa-trash-can"></i></p>
+        </div>
+        <div id="preço-total">
+            <p>Resumo da compra</p>
+            <div id="cupom-desconto">
+                <p><i class="fa-solid fa-plus"></i> Adicionar cupom de desconto</p>
+            </div>
+            <div class="informativos-compras">
+                <p>Subtotal</p>
+                <p class="preço-final"></p>
+            </div>
+            <div class="informativos-compras">
+                <p>Entrega</p>
+                <p>Grátis</p>
+            </div>
+        </div>
+        <div id="preço-final-container">
+            <p>Total</p>
+            <p></p>
+        </div>
+        <button>Finalizar compra</button>
+    </div>
     <nav id="menu-inicial-preferencias">
         <div class="preferencias-menu">
             <div class="itens-preferencias">
@@ -55,7 +86,7 @@
         <div class="informações-menu">
             <i class="fa-solid fa-magnifying-glass clicavel"></i>
             <p class="clicavel"><i class="fa-solid fa-user"></i>Login</p>
-            <i class="fa-solid fa-basket-shopping clicavel"></i>
+            <i class="fa-solid fa-basket-shopping clicavel" id="abrir-carrinho"></i>
         </div>
     </nav>
     <nav class="filtragem-planta">

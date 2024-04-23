@@ -32,6 +32,7 @@
     --cor4: rgb(97, 96, 96);
 }
 
+
 nav#menu-inicial-preferencias {
     width: 100%;
     height: 70px;
@@ -136,6 +137,10 @@ button > .negrito {
 
 .informações-menu > i {
     font-size: 20px;
+}
+
+.informações-menu > i:hover, .informações-menu > p:hover {
+    color: var(--cor1);
 }
 
 .informações-menu > p > i {
