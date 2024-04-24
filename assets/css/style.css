@@ -429,7 +429,7 @@ main > section > div:nth-child(4) {
     justify-items: center;
 }
 
-@keyframes slideInRight {
+@keyframes slideDireita {
     0% {
         transform: translateX(100%);
         opacity: 0;
@@ -440,7 +440,7 @@ main > section > div:nth-child(4) {
     }
 }
 
-@keyframes slideInLeft {
+@keyframes slideEsquerda {
     0% {
         transform: translateX(-100%);
         opacity: 0;
@@ -456,15 +456,15 @@ main > section > div:nth-child(4) {
     height: 450px;
     margin: 10px;
     display: inline-block;
-    animation: slideInRight 0.5s ease forwards; /* Animação padrão */
+    animation: slideDireita 0.5s ease forwards; 
 }
 
 .direita .produtos-plantas {
-    animation-name: slideInRight; /* Animação para os elementos da direita */
+    animation-name: slideEsquerda; 
 }
 
 .esquerda .produtos-plantas {
-    animation-name: slideInLeft; /* Animação para os elementos da esquerda */
+    animation-name: slideDireita; 
 }
 
 .desconto {
@@ -865,6 +865,17 @@ main > section > div:nth-child(12) {
     position: absolute;
     right: 0;
     top: 0;
+    display: none;
+    animation: slideAbertoCarrinho 0.3s forwards;
+}
+
+@keyframes slideAbertoCarrinho {
+    from {
+      right: -200px;
+    }
+    to {
+      right: 0; 
+    }
 }
 
 #carrinho > div:first-child {

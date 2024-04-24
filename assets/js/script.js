@@ -117,3 +117,25 @@ function carrossel() {
 }
 carrossel()
 
+function abreMenu() {
+    const iconeCarrinho = window.document.querySelector('#abrir-carrinho');
+    const carrinho = window.document.querySelector('#carrinho');
+    const body = window.document.querySelector('body');
+    iconeCarrinho.addEventListener('click', () => {
+        carrinho.style.display = 'block';
+        body.style.overflowY = 'hidden';
+    });
+}
+abreMenu()
+
+function fechaMenu() {
+    const carrinho = window.document.querySelector('#carrinho');
+    const icone = window.document.querySelector('.fa-xmark');
+    const body = window.document.querySelector('body');
+
+    icone.addEventListener('click', () => {
+        body.style.overflow = 'auto';
+        carrinho.style.display = 'none';
+    });
+}
+fechaMenu() 
