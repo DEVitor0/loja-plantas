@@ -780,7 +780,7 @@
             <i class="fa-solid fa-xmark"></i>
             <p>Carrinho</p>
         </div>
-        <div id="sem-conteudo">
+        <div id="sem-conteudo" style="display: none;">
             <div>
                 <p>Seu carrinho está vazio :(</p>
             </div>
@@ -788,31 +788,33 @@
                 <p>Para continuar comprando, navegue pelas categorias do site ou faça uma busca pelo seu produto.</p>
             </div>
         </div>
-        <div id="conteudo-carrinho" style="display: none;">
-            <div class="container-produtos">
-                <div class="container-vaso-carrinho"> <!--Imagem-->
-                    <div class="imagem-vaso-carrinho"></div>
-                </div>
-                <div class="container-texto-carrinho"> <!--textos-->
-                    <div> <!--Nome e lixeira (flex)-->
-                        <p class="nome-produto">Yekutsa</p>
-                        <i class="fa-regular fa-trash-can clicavel"></i>
+        <div id="conteudo-carrinho">
+            <div id="container-produtos">
+                <div class="container-produtos">
+                    <div class="container-vaso-carrinho"> <!--Imagem-->
+                        <div class="imagem-vaso-carrinho"></div>
                     </div>
-                    <div class="container-promoção-carrinho">
-                        <del class="valor-incial">De: R$ 22,00</del>
-                    </div>
-                    <div class="container-valor-produto">
-                        <p class="valor-produto">Por: R$ 16,00</p>
-                    </div>
-                    <div class="container-quantidade-produto"> <!--Adicionar um display flex para ambos-->
-                        <div class="adiconar-quantidades"> <!--talvez adicionar um display inline-block-->
-                            <div class="diminuir"><i class="fa-solid fa-minus clicavel"></i></div>
-                            <div>
-                                <p class="quantidade-produto">1</p>
-                            </div>
-                            <div class="aumentar"><i class="fa-solid fa-plus clicavel"></i></div>
+                    <div class="container-texto-carrinho"> <!--textos-->
+                        <div> <!--Nome e lixeira (flex)-->
+                            <p class="nome-produto">Yekutsa</p>
+                            <i class="fa-regular fa-trash-can clicavel"></i>
                         </div>
-                        <p class="valor-quantia">R$ 16,00</p>
+                        <div class="container-promoção-carrinho">
+                            <del class="valor-incial">De: R$ 22,00</del>
+                        </div>
+                        <div class="container-valor-produto">
+                            <p class="valor-produto">Por: R$ 16,00</p>
+                        </div>
+                        <div class="container-quantidade-produto"> <!--Adicionar um display flex para ambos-->
+                            <div class="adiconar-quantidades"> <!--talvez adicionar um display inline-block-->
+                                <div class="diminuir"><i class="fa-solid fa-minus clicavel"></i></div>
+                                <div>
+                                    <p class="quantidade-produto">1</p>
+                                </div>
+                                <div class="aumentar"><i class="fa-solid fa-plus clicavel"></i></div>
+                            </div>
+                            <p class="valor-quantia">R$ 16,00</p>
+                        </div>
                     </div>
                 </div>
             </div>

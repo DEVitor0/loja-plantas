@@ -901,7 +901,7 @@ main > section > div:nth-child(12) {
 #sem-conteudo {
     height: 74%;
     width: 87%;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;

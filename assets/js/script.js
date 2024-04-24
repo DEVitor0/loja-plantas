@@ -24,17 +24,21 @@
     meuObservador.observe(containerTitulo);
 })();
 
+function displayNone(element) {
+    element.style.display = 'none';
+}
+
 function navegaçãoMenus() {
     const populares = window.document.querySelector('#populares');
     const containerPopulares = window.document.querySelectorAll('.container-populares');
 
     const novidades = window.document.querySelector('#novidades');
     const containerNovidades = window.document.querySelector('#container-novidades');
-    containerNovidades.style.display = 'none';
+    displayNone(containerNovidades);
 
     const ofertas = window.document.querySelector('#ofertas');
     const containerOfertas = window.document.querySelector('#container-ofertas');
-    containerOfertas.style.display = 'none';
+    displayNone(containerOfertas);
 
     const setaEsquerda = window.document.querySelector(".fa-angle-left");
     const setaDireita = window.document.querySelector(".fa-angle-right");
@@ -47,8 +51,8 @@ function navegaçãoMenus() {
         novidades.style.color = 'black';
         ofertas.style.color = 'black';
 
-        containerNovidades.style.display = 'none';
-        containerOfertas.style.display = 'none';
+        displayNone(containerNovidades);
+        displayNone(containerOfertas);
 
         setaDireita.style.display = 'flex';
         setaEsquerda.style.display = 'flex';
@@ -63,10 +67,10 @@ function navegaçãoMenus() {
         ofertas.style.color = 'black';
 
         containerNovidades.style.display = 'flex';
-        containerOfertas.style.display = 'none';
+        displayNone(containerOfertas);
 
-        setaDireita.style.display = 'none';
-        setaEsquerda.style.display = 'none';
+        displayNone(setaDireita);
+        displayNone(setaEsquerda);
     })
 
     ofertas.addEventListener('click', () => {
@@ -77,11 +81,11 @@ function navegaçãoMenus() {
         novidades.style.color = 'black';
         ofertas.style.color = '#518432';
 
-        containerNovidades.style.display = 'none';
+        displayNone(containerNovidades)
         containerOfertas.style.display = 'flex';
 
-        setaDireita.style.display = 'none';
-        setaEsquerda.style.display = 'none';
+        displayNone(setaDireita);
+        displayNone(setaEsquerda);
     })
 }
 navegaçãoMenus()
@@ -94,7 +98,7 @@ function carrossel() {
     const setaDireita = window.document.querySelector(".fa-angle-right");
 
     plantasDireitas.forEach((element) => {
-        element.style.display = 'none';
+        displayNone(element);
     });
 
     setaDireita.addEventListener('click', () => {
@@ -102,13 +106,13 @@ function carrossel() {
             element.style.display = 'block';
         });
         plantasEsquerdas.forEach((element) => {
-            element.style.display = 'none';
+            displayNone(element);
         })
     });
 
     setaEsquerda.addEventListener('click', () => {
         plantasDireitas.forEach((element) => {
-            element.style.display = 'none';
+            displayNone(element)
         });
         plantasEsquerdas.forEach((element) => {
             element.style.display = 'block';
@@ -135,7 +139,27 @@ function fechaMenu() {
 
     icone.addEventListener('click', () => {
         body.style.overflow = 'auto';
-        carrinho.style.display = 'none';
+        displayNone(carrinho);
     });
 }
 fechaMenu() 
+
+function mensagemCarrinho() {
+    const conteudoCarrinho = window.document.querySelector('#container-produtos');
+    const semConteudo = window.document.querySelector('#sem-conteudo');
+
+    if (!conteudoCarrinho.children.length) {
+        semConteudo.style.display = 'flex';
+
+        const exclusão = window.document.querySelector('#exclusão');
+        const preçoTotal = window.document.querySelector('#preço-total');
+        const preçoFinalContainer = window.document.querySelector('#preço-final-container');
+        const botão = window.document.querySelector("#conteudo-carrinho > div:nth-child(5)");
+
+        displayNone(exclusão);
+        displayNone(preçoTotal);
+        displayNone(preçoFinalContainer);
+        displayNone(botão);
+    }
+}
+mensagemCarrinho();
