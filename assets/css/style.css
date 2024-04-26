@@ -11,7 +11,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: transparent; 
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -71,7 +71,7 @@ nav#menu-inicial-preferencias {
 
 .container-abertura {
     position: absolute;
-    display: none; 
+    display: none;
     flex-direction: column;
     margin-top: 24px;
     padding: 10px 100px 10px 5px;
@@ -82,7 +82,7 @@ nav#menu-inicial-preferencias {
     animation: abrindo 0.3s ease;
 }
 
-.container-abertura > button {
+.container-abertura>button {
     border: none;
     background-color: transparent;
     font-size: 15px;
@@ -95,13 +95,14 @@ nav#menu-inicial-preferencias {
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-.fa-angle-down{
+.fa-angle-down {
     cursor: pointer;
 }
 
@@ -116,12 +117,12 @@ nav#menu-inicial-preferencias {
     font-weight: bold;
 }
 
-button > .negrito {
+button>.negrito {
     font-weight: bold;
     font-size: 18px;
 }
 
-#menu-inicial-preferencias>div:nth-child(2) > img {
+#menu-inicial-preferencias>div:nth-child(2)>img {
     width: 125px;
     padding-top: 26px;
 }
@@ -134,20 +135,21 @@ button > .negrito {
     gap: 25px;
 }
 
-.informações-menu > i {
+.informações-menu>i {
     font-size: 20px;
 }
 
-.informações-menu > i:hover, .informações-menu > p:hover {
+.informações-menu>i:hover,
+.informações-menu>p:hover {
     color: var(--cor1);
 }
 
-.informações-menu > p > i {
+.informações-menu>p>i {
     font-size: 20px;
     padding-right: 8px;
 }
 
-.informações-menu > p {
+.informações-menu>p {
     display: inline;
     font-size: 15px;
     font-weight: 400;
@@ -198,28 +200,29 @@ button > .negrito {
         transform: translateX(-100%);
         opacity: 0;
     }
+
     to {
         transform: translateX(0);
         opacity: 1;
     }
 }
 
-#titulo-carrossel > div > p:first-child {
+#titulo-carrossel>div>p:first-child {
     font-family: "Mali", cursive, 'Helvetica Neue', sans-serif;
     font-size: 6vh;
     color: var(--cor1);
 }
 
-#titulo-carrossel > div > h1 {
+#titulo-carrossel>div>h1 {
     font-size: 6.5vh;
     margin-top: 0px;
 }
 
-#titulo-carrossel > div > p:nth-child(3) {
+#titulo-carrossel>div>p:nth-child(3) {
     font-size: 1.9vh;
 }
 
-#titulo-carrossel > div > div {
+#titulo-carrossel>div>div {
     width: 1px;
     height: 6vh;
     background-color: #646464;
@@ -227,7 +230,7 @@ button > .negrito {
     margin-top: 1.2vh
 }
 
-#titulo-carrossel > div > button {
+#titulo-carrossel>div>button {
     margin-top: 1.2vh;
     border-radius: 30px;
     background-color: var(--cor1);
@@ -246,12 +249,13 @@ button > .negrito {
     transform: translateY(-25px);
 }
 
-#container-pontos-carrossel > div:nth-child(1) {
+#container-pontos-carrossel>div:nth-child(1) {
     margin-right: 5px;
     margin-left: 10px;
 }
 
-.pontos { /*!Fazer o efeito do carrosel e ativar os pontos com cor cinza*/
+.pontos {
+    /*!Fazer o efeito do carrosel e ativar os pontos com cor cinza*/
     width: 15px;
     height: 15px;
     background-color: var(--cor3);
@@ -269,23 +273,23 @@ button > .negrito {
     margin-top: 3vh;
 }
 
-#cuidado-plantas > div > img {
+#cuidado-plantas>div>img {
     width: 100px;
     height: 100px;
 }
 
-#cuidado-plantas > h2 {
+#cuidado-plantas>h2 {
     padding-top: 5px;
     font-size: 18px;
 }
 
-#cuidado-plantas > p {
+#cuidado-plantas>p {
     width: 1000px;
     text-align: center;
     padding-top: 5px;
 }
 
-#cuidado-plantas > button {
+#cuidado-plantas>button {
     width: 150px;
     height: 40px;
     border: none;
@@ -296,15 +300,15 @@ button > .negrito {
     margin: 3vh;
 }
 
-main > section > div:nth-child(2) {
+main>section>div:nth-child(2) {
     margin-left: 8vw;
 }
 
 #layout-plantas {
     display: grid;
-    grid-template-areas: 
-    "a b c"
-    "a d e";
+    grid-template-areas:
+        "a b c"
+        "a d e";
     width: 75%;
     height: auto;
     place-items: center;
@@ -364,7 +368,7 @@ main > section > div:nth-child(2) {
     transform: translateX(2px);
 }
 
-#layout-plantas > div > p {
+#layout-plantas>div>p {
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
@@ -383,18 +387,18 @@ main > section > div:nth-child(2) {
     margin-top: 3vh;
 }
 
-.titulo-seção > h2 {
+.titulo-seção>h2 {
     font-family: "Montserrat", sans-serif;
     font-size: 32px;
 }
 
-.titulo-seção > p {
+.titulo-seção>p {
     font-family: "Montserrat", sans-serif;
     font-size: 22px;
     color: var(--cor2);
 }
 
-.titulo-seção > div {
+.titulo-seção>div {
     width: 100%;
     height: auto;
     display: flex;
@@ -405,15 +409,15 @@ main > section > div:nth-child(2) {
     margin-bottom: 1.5vh;
 }
 
-.titulo-seção > div > button {
+.titulo-seção>div>button {
     font-size: 18px;
 }
 
-.titulo-seção > div > button:first-child {
+.titulo-seção>div>button:first-child {
     color: var(--cor1);
 }
 
-main > section > div:nth-child(4) {
+main>section>div:nth-child(4) {
     width: 100%;
     height: auto;
     display: flex;
@@ -434,6 +438,7 @@ main > section > div:nth-child(4) {
         transform: translateX(100%);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -445,6 +450,7 @@ main > section > div:nth-child(4) {
         transform: translateX(-100%);
         opacity: 0;
     }
+
     100% {
         transform: translateX(0);
         opacity: 1;
@@ -456,15 +462,15 @@ main > section > div:nth-child(4) {
     height: 450px;
     margin: 10px;
     display: inline-block;
-    animation: slideDireita 0.5s ease forwards; 
+    animation: slideDireita 0.5s ease forwards;
 }
 
 .direita .produtos-plantas {
-    animation-name: slideEsquerda; 
+    animation-name: slideEsquerda;
 }
 
 .esquerda .produtos-plantas {
-    animation-name: slideDireita; 
+    animation-name: slideDireita;
 }
 
 .desconto {
@@ -498,11 +504,11 @@ main > section > div:nth-child(4) {
     top: -2.5vh;
 }
 
-.produtos-plantas:hover > .container-acessórios-produtos > .acessórios-produtos {
+.produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos {
     display: block;
 }
 
-.produtos-plantas:hover > .container-acessórios-produtos > .acessórios-produtos:hover {
+.produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos:hover {
     background-color: var(--cor2);
     color: white;
     transition: 0.2s ease-in;
@@ -513,7 +519,7 @@ main > section > div:nth-child(4) {
     height: 75%;
 }
 
-.container-imagens-produtos > img {
+.container-imagens-produtos>img {
     width: 100%;
     height: 100%;
 }
@@ -524,7 +530,7 @@ main > section > div:nth-child(4) {
     text-align: center;
 }
 
-.container-preço-plantas > p {
+.container-preço-plantas>p {
     display: inline;
     margin-right: 8px;
 }
@@ -569,7 +575,7 @@ main > section > div:nth-child(4) {
     position: absolute;
 }
 
-#container-promoção > div {
+#container-promoção>div {
     width: 100%;
     height: 100%;
     background-color: white;
@@ -579,22 +585,22 @@ main > section > div:nth-child(4) {
     flex-direction: column;
 }
 
-#container-promoção > div > h3 {
+#container-promoção>div>h3 {
     font-family: "Montserrat", sans-serif;
     font-size: 4vh;
 }
 
-#container-promoção > div > p:nth-child(2) {
+#container-promoção>div>p:nth-child(2) {
     font-family: "Montserrat", sans-serif;
     font-size: 3vh;
     margin-bottom: 0.5vh;
 }
 
-#container-promoção > div > p:nth-child(3) {
+#container-promoção>div>p:nth-child(3) {
     font-size: 1.7vh;
 }
 
-#container-promoção > div > p > span {
+#container-promoção>div>p>span {
     font-family: "Montserrat", sans-serif;
     font-size: 3vh;
     color: var(--cor2);
@@ -603,7 +609,8 @@ main > section > div:nth-child(4) {
 .imagens-promoção {
     width: 40vw;
     height: 50vh;
-    margin: 30px 20px; /*adicionart talvez uma borda mais redondinha*/
+    margin: 30px 20px;
+    /*adicionart talvez uma borda mais redondinha*/
 }
 
 .imagens-promoção:first-child {
@@ -633,22 +640,22 @@ main > section > div:nth-child(4) {
     border-right: 1px solid var(--cor3);
 }
 
-.container-informativos > div > i {
+.container-informativos>div>i {
     font-size: 26px;
     padding-right: 10px;
     padding-left: 10px;
     color: var(--cor2);
 }
 
-.container-informativos > div > p:first-child {
+.container-informativos>div>p:first-child {
     font-size: 18px;
 }
 
-.container-informativos > div > p:nth-child(2) {
+.container-informativos>div>p:nth-child(2) {
     color: rgb(97, 96, 96);
 }
 
-.titulo-seção > p:nth-child(2) {
+.titulo-seção>p:nth-child(2) {
     color: rgb(0, 133, 0);
 }
 
@@ -691,7 +698,7 @@ main > section > div:nth-child(4) {
     text-align: left;
 }
 
-.filtros-produtos:first-child { 
+.filtros-produtos:first-child {
     color: var(--cor2);
 }
 
@@ -700,7 +707,7 @@ main > section > div:nth-child(4) {
     cursor: pointer;
 }
 
-#container-recomendações { 
+#container-recomendações {
     width: 100%;
     height: 50vh;
     margin: auto;
@@ -724,20 +731,20 @@ main > section > div:nth-child(4) {
     z-index: 5;
 }
 
-#container-recomendações > div:nth-child(2) > p:first-child {
+#container-recomendações>div:nth-child(2)>p:first-child {
     margin-top: 1.5vh;
     font-size: 20px;
     text-align: center;
     color: var(--cor2);
 }
 
-#container-recomendações > div:nth-child(2) > p:nth-child(2) {
+#container-recomendações>div:nth-child(2)>p:nth-child(2) {
     font-size: 17px;
     text-align: center;
     color: var(--cor4);
 }
 
-#container-recomendações > div:nth-child(3) > p{
+#container-recomendações>div:nth-child(3)>p {
     margin-top: 2vh;
     width: 600px;
     text-align: center;
@@ -751,7 +758,7 @@ main > section > div:nth-child(4) {
     top: 3vh;
 }
 
-main > section > div:nth-child(12) {
+main>section>div:nth-child(12) {
     margin-top: 0;
 }
 
@@ -772,7 +779,8 @@ main > section > div:nth-child(12) {
     margin-top: 3vh;
 }
 
-.blogs { /*!Criar uma responsividade exclusiva para monitor da caixa vermelha*/
+.blogs {
+    /*!Criar uma responsividade exclusiva para monitor da caixa vermelha*/
     width: 80%;
     height: 220px;
     margin: 0px 15px;
@@ -797,35 +805,36 @@ main > section > div:nth-child(12) {
     height: auto;
 }
 
-.data-publicação-blogs > p {
+.data-publicação-blogs>p {
     display: inline-block;
     color: var(--cor4);
     margin-bottom: 8px;
 }
 
-.data-publicação-blogs > i {
+.data-publicação-blogs>i {
     color: var(--cor4);
 }
 
-.resumo-caixa-blog { /*!Verificar Como ficou na versão de monitor o epsaçamento entre os textos*/
+.resumo-caixa-blog {
+    /*!Verificar Como ficou na versão de monitor o epsaçamento entre os textos*/
     text-align: left;
     margin-bottom: 10px;
 }
 
-.resumo-caixa-blog> p:first-child {
+.resumo-caixa-blog>p:first-child {
     font-weight: bold;
     margin-bottom: 10px;
     text-align: left;
 }
 
-.botão-blog > button {
+.botão-blog>button {
     border: 1px solid var(--cor1);
     background-color: transparent;
     padding: 5px 10px;
     border-radius: 20px;
 }
 
-.botão-blog > button:hover {
+.botão-blog>button:hover {
     background-color: var(--cor2);
     color: white;
     transition: 0.2s linear;
@@ -841,7 +850,7 @@ main > section > div:nth-child(12) {
     background-position: center;
 }
 
-#container-blogs > div:nth-child(2) > div.imagens-caixa-blogs{
+#container-blogs>div:nth-child(2)>div.imagens-caixa-blogs {
     background-image: url("../img/fundos/pexels-cottonbro-4507712.jpg");
 }
 
@@ -871,28 +880,29 @@ main > section > div:nth-child(12) {
 
 @keyframes slideAbertoCarrinho {
     from {
-      right: -200px;
+        right: -200px;
     }
+
     to {
-      right: 0; 
+        right: 0;
     }
 }
 
-#carrinho > div:first-child {
+#carrinho>div:first-child {
     width: 100%;
     margin-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid var(--cor3);
 }
 
-#carrinho > div:first-child > p {
+#carrinho>div:first-child>p {
     display: inline;
     font-size: 22px;
     font-weight: bold;
     padding-left: 10px;
 }
 
-#carrinho > div:first-child > i {
+#carrinho>div:first-child>i {
     font-size: 22px;
     color: rgb(97, 96, 96);
     margin-left: 15px;
@@ -908,13 +918,13 @@ main > section > div:nth-child(12) {
     padding: 20px;
 }
 
-#sem-conteudo > div:first-child > p {
+#sem-conteudo>div:first-child>p {
     font-size: 22px;
     color: var(--cor1);
     margin-bottom: 30px;
 }
 
-#sem-conteudo > div:nth-child(2) > p {
+#sem-conteudo>div:nth-child(2)>p {
     text-align: center;
 }
 
@@ -946,7 +956,7 @@ main > section > div:nth-child(12) {
     color: #525050;
 }
 
-.container-texto-carrinho > div:first-child {
+.container-texto-carrinho>div:first-child {
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -954,11 +964,11 @@ main > section > div:nth-child(12) {
     color: var(--cor2);
 }
 
-.container-texto-carrinho > div:first-child > p {
+.container-texto-carrinho>div:first-child>p {
     margin-bottom: 6px;
 }
 
-.container-texto-carrinho > div:first-child > i {
+.container-texto-carrinho>div:first-child>i {
     transform: translate(-25px);
     color: #525050;
 }
@@ -982,7 +992,7 @@ main > section > div:nth-child(12) {
     align-items: center;
 }
 
-.container-quantidade-produto > p {
+.container-quantidade-produto>p {
     transform: translateX(-21px);
     color: #388809;
 }
@@ -996,13 +1006,13 @@ main > section > div:nth-child(12) {
     margin: 20px 0px;
 }
 
-#exclusão > p {
+#exclusão>p {
     display: inline;
     padding-right: 8px;
     font-size: 16px;
 }
 
-#exclusão  > i {
+#exclusão>i {
     font-size: 16px;
 }
 
@@ -1013,7 +1023,7 @@ main > section > div:nth-child(12) {
     flex-direction: column;
 }
 
-#preço-total > p {
+#preço-total>p {
     font-size: 22px;
     font-weight: 600;
     margin-left: 24px;
@@ -1030,11 +1040,11 @@ main > section > div:nth-child(12) {
     margin-bottom: 20px;
 }
 
-#cupom-desconto > p {
+#cupom-desconto>p {
     display: inline;
 }
 
-#cupom-desconto > i {
+#cupom-desconto>i {
     padding-right: 7px;
 }
 
@@ -1058,11 +1068,11 @@ main > section > div:nth-child(12) {
     justify-content: space-between;
 }
 
-#preço-final-container > p{
+#preço-final-container>p {
     margin-top: 10px;
 }
 
-#conteudo-carrinho > div:last-child {
+#conteudo-carrinho>div:last-child {
     width: 100%;
     height: auto;
     display: flex;
@@ -1071,7 +1081,7 @@ main > section > div:nth-child(12) {
     margin-top: 20px;
 }
 
-#conteudo-carrinho > div:last-child > button {
+#conteudo-carrinho>div:last-child>button {
     width: 84%;
     padding: 5px;
     color: white;
@@ -1079,6 +1089,7 @@ main > section > div:nth-child(12) {
     border: none;
     border-radius: 5px;
 }
+
 
 #conatiner-contato {
     width: 100%;
@@ -1091,26 +1102,26 @@ main > section > div:nth-child(12) {
     flex-direction: row;
 }
 
-#conatiner-contato > div:first-child > i {
+#conatiner-contato>div:first-child>i {
     font-size: 20px;
     padding-right: 5px;
 }
 
-#conatiner-contato > div:first-child > p{
+#conatiner-contato>div:first-child>p {
     display: inline;
     font-size: 20px;
 }
 
-#conatiner-contato > div:nth-child(2) > input[type="text"]{
+#conatiner-contato>div:nth-child(2)>input[type="text"] {
     border: none;
     font-size: 18px;
 }
 
-#conatiner-contato > div:nth-child(2) > input[type="text"]:focus {
+#conatiner-contato>div:nth-child(2)>input[type="text"]:focus {
     outline: none;
 }
 
-#conatiner-contato > div:nth-child(2) > button {
+#conatiner-contato>div:nth-child(2)>button {
     border: none;
     background-color: var(--cor1);
     color: white;
@@ -1143,26 +1154,26 @@ main > section > div:nth-child(12) {
     margin-left: 30px;
 }
 
-.contato-elementos > p {
+.contato-elementos>p {
     display: inline-block;
 }
 
-.contato-elementos > i {
+.contato-elementos>i {
     font-size: 18px;
     color: var(--cor1);
 }
 
-#Informações > div {
+#Informações>div {
     padding-bottom: 5px;
     transform: translateX(-50px);
 }
 
-#Serviço > div {
+#Serviço>div {
     padding-bottom: 5px;
     transform: translateX(-50px);
 }
 
-#Conta > div {
+#Conta>div {
     padding-bottom: 5px;
     transform: translateX(-5px);
 }

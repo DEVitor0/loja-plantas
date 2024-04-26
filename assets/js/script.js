@@ -145,7 +145,7 @@ function fechaMenu() {
         displayNone(carrinho);
     });
 }
-fechaMenu() 
+fechaMenu()
 
 function mensagemCarrinho() {
     const conteudoCarrinho = window.document.querySelector('#container-produtos');
