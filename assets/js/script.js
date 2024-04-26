@@ -5,6 +5,9 @@
     abertura.forEach((element, index) => {
         element.addEventListener('click', function () {
             const display = exibir[index].style.display;
+            exibir.forEach((element2) => {
+                displayNone(element2)
+            });
             exibir[index].style.display = (display === 'flex') ? 'none' : 'flex';
         });
     });
