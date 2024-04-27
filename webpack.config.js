@@ -1,7 +1,7 @@
 const path = require('path');
 module.exports = {
     mode: 'production',
-    entry: './src/assets/js/script.js', 
+    entry: ['./src/assets/js/script.js', './src/assets/js/carrinho.js'], 
     output: {
         path: path.resolve(__dirname, 'public', 'assets', 'js'),
         filename: 'bundle.js'

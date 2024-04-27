@@ -4,7 +4,7 @@
   "description": "<h1 align=\"center\">    &#x1FAB4; Jardim Exótico </h1>",
   "main": "index.js",
   "scripts": {
-    "gera": "webpack -w"
+    "dev": "webpack -w"
   },
   "keywords": [],
   "author": "",

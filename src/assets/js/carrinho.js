@@ -1,4 +1,4 @@
-import { removeElemento, displayNone, mensagemTela } from "../../../public/assets/js/script";
+import { displayNone, removeElemento } from "./script";
 
 function abreMenu() {
     const iconeCarrinho = window.document.querySelector('#abrir-carrinho');
