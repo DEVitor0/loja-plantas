@@ -167,7 +167,33 @@ function mensagemCarrinho() {
 }
 mensagemCarrinho();
 
-function adionaFavorito() {
+export function removeElemento(item, posição) {
+    const elemento = Array.from(item);
+    elemento.splice(posição, 1);
+    return elemento;
+}
+
+function escurecerTela() {
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    overlay.style.position = 'fixed';
+    overlay.style.top = '0';
+    overlay.style.left = '0';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+    overlay.style.zIndex = '99'; 
+    document.body.appendChild(overlay);
+}
+
+
+function fazForEach(item) {
+    item.forEach((element) => {
+        recebeOpacidade(element)
+    })
+}
+
+function abreFavorito() {
     const coração = window.document.querySelectorAll('.coração');
     const containerMensagem = window.document.querySelector('#container-mensagem');
 
@@ -175,8 +201,19 @@ function adionaFavorito() {
         element.addEventListener('click', () => {
             containerMensagem.style.display = 'flex';
             containerMensagem.style.position = 'fixed';
-        })
-    })
+            escurecerTela()
+        });
+    });
 }
-adionaFavorito()
 
+abreFavorito();
+
+function fechaFavorito() {
+    const iconeFechar = window.document.querySelector("#container-mensagem > div:nth-child(1) > i");
+    const containerMensagem = window.document.querySelector('#container-mensagem');
+    iconeFechar.addEventListener('click', () => {
+        containerMensagem.style.display = 'none';
+    });
+}
+
+fechaFavorito();
