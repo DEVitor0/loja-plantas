@@ -1094,21 +1094,25 @@ main>section>div:nth-child(12) {
     width: 450px;
     height: 250px;
     background-color: white;
-    display: none;
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 15px;
-    display: flex;
+    display: none;
     flex-direction: column;
-    opacity: 0; 
-    transition: opacity 0.5s ease; 
+    animation: aparecer 0.5s ease forwards;
+    z-index: 100;
 }
 
-#container-mensagem.mostrar {
-    opacity: 1; 
+@keyframes aparecer {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
 }
 
 #container-mensagem > div:first-child {

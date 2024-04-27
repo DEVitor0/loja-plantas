@@ -166,3 +166,17 @@ function mensagemCarrinho() {
     }
 }
 mensagemCarrinho();
+
+function adionaFavorito() {
+    const coração = window.document.querySelectorAll('.coração');
+    const containerMensagem = window.document.querySelector('#container-mensagem');
+
+    coração.forEach((element) => {
+        element.addEventListener('click', () => {
+            containerMensagem.style.display = 'flex';
+            containerMensagem.style.position = 'fixed';
+        })
+    })
+}
+adionaFavorito()
+
