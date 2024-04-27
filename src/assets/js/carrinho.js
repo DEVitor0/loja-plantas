@@ -1,4 +1,4 @@
-import { displayNone } from "./script";
+import { displayNone, utilidades } from "./script";
 
 function abreMenu() {
     const iconeCarrinho = window.document.querySelector('#abrir-carrinho');
@@ -7,6 +7,7 @@ function abreMenu() {
     iconeCarrinho.addEventListener('click', () => {
         carrinho.style.display = 'block';
         body.style.overflowY = 'hidden';
+        utilidades.escurecerTela();
     });
 }
 abreMenu()
@@ -19,6 +20,7 @@ function fechaMenu() {
     icone.addEventListener('click', () => {
         body.style.overflow = 'auto';
         displayNone(carrinho);
+        utilidades.removerEscurecimentoTela();
     });
 }
 fechaMenu()

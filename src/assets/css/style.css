@@ -876,6 +876,7 @@ main>section>div:nth-child(12) {
     top: 0;
     display: none;
     animation: slideAbertoCarrinho 0.3s forwards;
+    z-index: 200;
 }
 
 @keyframes slideAbertoCarrinho {

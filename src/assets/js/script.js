@@ -130,7 +130,7 @@ export function removeElemento(item, posição) {
     return elemento;
 }
 
-(function() {
+export const utilidades = (function() {
     let overlay;
 
     function escurecerTela() {
@@ -144,6 +144,10 @@ export function removeElemento(item, posição) {
         overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
         overlay.style.zIndex = '99'; 
         document.body.appendChild(overlay);
+    }
+
+    function removerEscurecimentoTela() {
+        overlay.remove()
     }
 
     function abreFavorito() {
@@ -165,11 +169,17 @@ export function removeElemento(item, posição) {
 
         iconeFechar.addEventListener('click', () => {
             containerMensagem.style.display = 'none';
-            overlay.remove()
+            removerEscurecimentoTela();
         });
     }
 
-    abreFavorito();
-    fechaFavorito();
+    return {
+        escurecerTela: escurecerTela,
+        abreFavorito: abreFavorito,
+        fechaFavorito: fechaFavorito,
+        removerEscurecimentoTela: removerEscurecimentoTela
+    };
 })();
 
+utilidades.abreFavorito()
+utilidades.fechaFavorito()
