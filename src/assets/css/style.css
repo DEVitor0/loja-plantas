@@ -1091,7 +1091,7 @@ main>section>div:nth-child(12) {
     border-radius: 5px;
 }
 
-#container-mensagem {
+.container-mensagem {
     width: 450px;
     height: 250px;
     background-color: white;
@@ -1116,14 +1116,14 @@ main>section>div:nth-child(12) {
     }
 }
 
-#container-mensagem > div:first-child {
+.container-mensagem > div:first-child {
     color: var(--cor4);
     font-size: 22px;
     align-self: flex-end;
     padding-right: 15px;
 }
 
-#container-mensagem-texto {
+.container-mensagem-texto {
     display: flex;
     justify-content: center;
     align-items: center;

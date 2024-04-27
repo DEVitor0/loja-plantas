@@ -152,7 +152,7 @@ export const utilidades = (function() {
 
     function abreFavorito() {
         const coração = window.document.querySelectorAll('.coração');
-        const containerMensagem = window.document.querySelector('#container-mensagem');
+        const containerMensagem = window.document.querySelector('.container-mensagem');
 
         coração.forEach((element) => {
             element.addEventListener('click', () => {
@@ -164,8 +164,8 @@ export const utilidades = (function() {
     }
 
     function fechaFavorito() {
-        const iconeFechar = window.document.querySelector("#container-mensagem > div:nth-child(1) > i");
-        const containerMensagem = window.document.querySelector('#container-mensagem');
+        const iconeFechar = window.document.querySelector(".container-mensagem > div:nth-child(1) > i");
+        const containerMensagem = window.document.querySelector('.container-mensagem');
 
         iconeFechar.addEventListener('click', () => {
             containerMensagem.style.display = 'none';
