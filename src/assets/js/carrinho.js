@@ -45,6 +45,8 @@ function mensagemCarrinho() {
 }
 mensagemCarrinho();
 
+utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
+
 function clicouCarrinho() {
     const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
     const itens = window.document.querySelectorAll('.produtos-plantas');
@@ -58,4 +60,3 @@ function clicouCarrinho() {
     });
 }
 clicouCarrinho()
-

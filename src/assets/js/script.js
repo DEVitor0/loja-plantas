@@ -150,11 +150,11 @@ export const utilidades = (function() {
         overlay.remove()
     }
 
-    function abreFavorito() {
-        const coração = window.document.querySelectorAll('.coração');
-        const containerMensagem = window.document.querySelector('.container-mensagem');
+    function abreMensagem(seletor, seletor2) {
+        const icone = window.document.querySelectorAll(seletor);
+        const containerMensagem = window.document.querySelector(seletor2);
 
-        coração.forEach((element) => {
+        icone.forEach((element) => {
             element.addEventListener('click', () => {
                 containerMensagem.style.display = 'flex';
                 containerMensagem.style.position = 'fixed';
@@ -163,23 +163,27 @@ export const utilidades = (function() {
         });
     }
 
-    function fechaFavorito() {
-        const iconeFechar = window.document.querySelector(".container-mensagem > div:nth-child(1) > i");
-        const containerMensagem = window.document.querySelector('.container-mensagem');
+    function fechaMensagem() {
+        const iconeFechar = window.document.querySelectorAll(".icone-fechar");
+        const containerMensagem = window.document.querySelectorAll('.container-mensagem');
 
-        iconeFechar.addEventListener('click', () => {
-            containerMensagem.style.display = 'none';
-            removerEscurecimentoTela();
-        });
+        iconeFechar.forEach((element) => {
+            element.addEventListener('click', () => {
+                containerMensagem.forEach((item) => {
+                    item.style.display = 'none';
+                })
+                removerEscurecimentoTela();
+            });
+        })
     }
 
     return {
         escurecerTela: escurecerTela,
-        abreFavorito: abreFavorito,
-        fechaFavorito: fechaFavorito,
+        abreMensagem: abreMensagem,
+        fechaMensagem: fechaMensagem,
         removerEscurecimentoTela: removerEscurecimentoTela
     };
 })();
 
-utilidades.abreFavorito()
-utilidades.fechaFavorito()
+utilidades.abreMensagem('.coração', '.container-mensagem:first-child')
+utilidades.fechaMensagem()

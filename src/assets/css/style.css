@@ -1161,12 +1161,47 @@ main>section>div:nth-child(12) {
     z-index: 3;
 }
 
-#container-mensagem-texto > div:nth-child(2) > p {
+#certo {
+    width: 80px;
+    height: 80px;
+    background-color: #388809;
+    border-radius: 100%;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#certo > div:first-child {
+    width: 5px;
+    height: 27px;
+    background-color: white;
+    transform: rotate(320deg);
+    position: relative;
+    top: 10px;
+    left: -13px;
+    z-index: 2;
+}
+
+#certo > div:nth-child(2){
+    width: 5px;
+    height: 46px;
+    background-color: white;
+    transform: rotate(48deg);
+    position: relative;
+    top: 5px;
+    left: 6px;
+    z-index: 3;
+    box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+.container-mensagem-texto > div:nth-child(2) > p {
     margin-top: 10px;
     font-size: 30px;
 }
 
-#container-mensagem-texto > div:nth-child(3) > p {
+.container-mensagem-texto > div:nth-child(3) > p {
     text-align: center;
     width: 300px;
     margin-top: 15px;
