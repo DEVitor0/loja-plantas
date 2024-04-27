@@ -44,3 +44,17 @@ function mensagemCarrinho() {
     }
 }
 mensagemCarrinho();
+
+function clicouCarrinho() {
+    const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
+    const itens = window.document.querySelectorAll('.produtos-plantas');
+
+
+    iconeCarrinho.forEach((element, indice) => {
+        element.addEventListener('click', () => {
+            let posição = indice;
+            return console.log(itens[posição])
+        })
+    });
+}
+clicouCarrinho()
