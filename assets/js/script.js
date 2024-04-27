@@ -173,47 +173,46 @@ export function removeElemento(item, posição) {
     return elemento;
 }
 
-function escurecerTela() {
-    const overlay = document.createElement('div');
-    overlay.classList.add('overlay');
-    overlay.style.position = 'fixed';
-    overlay.style.top = '0';
-    overlay.style.left = '0';
-    overlay.style.width = '100%';
-    overlay.style.height = '100%';
-    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-    overlay.style.zIndex = '99'; 
-    document.body.appendChild(overlay);
-}
+(function() {
+    let overlay;
 
+    function escurecerTela() {
+        overlay = document.createElement('div');
+        overlay.classList.add('overlay');
+        overlay.style.position = 'fixed';
+        overlay.style.top = '0';
+        overlay.style.left = '0';
+        overlay.style.width = '100%';
+        overlay.style.height = '100%';
+        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+        overlay.style.zIndex = '99'; 
+        document.body.appendChild(overlay);
+    }
 
-function fazForEach(item) {
-    item.forEach((element) => {
-        recebeOpacidade(element)
-    })
-}
+    function abreFavorito() {
+        const coração = window.document.querySelectorAll('.coração');
+        const containerMensagem = window.document.querySelector('#container-mensagem');
 
-function abreFavorito() {
-    const coração = window.document.querySelectorAll('.coração');
-    const containerMensagem = window.document.querySelector('#container-mensagem');
-
-    coração.forEach((element) => {
-        element.addEventListener('click', () => {
-            containerMensagem.style.display = 'flex';
-            containerMensagem.style.position = 'fixed';
-            escurecerTela()
+        coração.forEach((element) => {
+            element.addEventListener('click', () => {
+                containerMensagem.style.display = 'flex';
+                containerMensagem.style.position = 'fixed';
+                escurecerTela();
+            });
         });
-    });
-}
+    }
 
-abreFavorito();
+    function fechaFavorito() {
+        const iconeFechar = window.document.querySelector("#container-mensagem > div:nth-child(1) > i");
+        const containerMensagem = window.document.querySelector('#container-mensagem');
 
-function fechaFavorito() {
-    const iconeFechar = window.document.querySelector("#container-mensagem > div:nth-child(1) > i");
-    const containerMensagem = window.document.querySelector('#container-mensagem');
-    iconeFechar.addEventListener('click', () => {
-        containerMensagem.style.display = 'none';
-    });
-}
+        iconeFechar.addEventListener('click', () => {
+            containerMensagem.style.display = 'none';
+            overlay.remove()
+        });
+    }
 
-fechaFavorito();
+    abreFavorito();
+    fechaFavorito();
+})();
+
