@@ -51,12 +51,23 @@ function clicouCarrinho() {
     const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
     const itens = window.document.querySelectorAll('.produtos-plantas');
 
+    const funcionalidades = [];
+    const resultadosDesconto = [];
 
     iconeCarrinho.forEach((element, indice) => {
-        element.addEventListener('click', () => {
-            let posição = indice;
-            return console.log(itens[posição])
-        })
+        element.addEventListener('click', function handleClick() {
+            element.removeEventListener('click', handleClick);
+
+            funcionalidades.push(itens[indice].children[3]);
+            resultadosDesconto.push(verificaDesconto(funcionalidades[0]));
+
+        }, { once: true });
     });
 }
-clicouCarrinho()
+clicouCarrinho();
+
+function verificaDesconto(funcionalidade) {
+    const temDel = funcionalidade.querySelector('del');
+    const verificação = temDel ? temDel.textContent : '';
+    return verificação;
+}
