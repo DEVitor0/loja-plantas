@@ -52,37 +52,75 @@ function clicouCarrinho() {
     const itens = window.document.querySelectorAll('.produtos-plantas');
 
     iconeCarrinho.forEach((element, indice) => {
-        element.addEventListener('click', function handleClick() {
+        element.addEventListener('click', () => {
             function funcionalidade(posição) {
                 return itens[indice].children[posição];
             }
 
-            let nome = verificaNome(funcionalidade(2));
-            let desconto = verificaAlgo(funcionalidade(3));
-            
-            if (desconto !== undefined) nome = verificaNome(funcionalidade(3))
-            
+            let nome = verificaAlgo(funcionalidade(2), 'h3');
+            let verificaPreço = verificaAlgo(funcionalidade(2), 'p');
+            let desconto = verificaAlgo(funcionalidade(3), 'del');
+            let imagem = verificaSrc(funcionalidade(0))
+
+            if (desconto !== undefined) {
+                nome = verificaAlgo(funcionalidade(3), 'h3');
+                verificaPreço = verificaAlgo(funcionalidade(3), 'p');
+                imagem = verificaSrc(funcionalidade(1))
+            }
+            return [nome, verificaPreço, desconto, imagem]
+
         }, { once: true });
     });
 }
 
-function verificaAlgo(funcionalidade) {
+function verificaAlgo(funcionalidade, tag) {
     try {
-        const delElement = funcionalidade.querySelector('del');
-        return delElement ? delElement.textContent : undefined;
+        const itemSelecionado = funcionalidade.querySelector(tag);
+        return itemSelecionado ? itemSelecionado.textContent : undefined;
     } catch (error) {
         return undefined;
     }
 }
 
-function verificaNome(funcionalidade) {
-    try {
-        const h3 = funcionalidade.querySelector('h3');
-        return h3 ? h3.textContent : undefined;
-    } catch (error) {
+function verificaSrc(funcionalidade) {
+    const imagemSelecionada = funcionalidade.querySelector('img');
+    if (imagemSelecionada) {
+        return imagemSelecionada.src;
+    } else {
         return undefined;
     }
 }
 
-clicouCarrinho();
+clicouCarrinho()
+
+class ExibeCarrinho {
+    constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho, containerTextoCarrinho, nomeProduto, containerPromoçãoCarrinho, valorInicial, containerValorProduto, valorProduto) {
+
+        this.containerProdutos = containerProdutos;
+        this.containerVasoCarrinho = containerVasoCarrinho;
+        this.imagemVasoCarrinho = imagemVasoCarrinho;
+        this.containerTextoCarrinho = containerTextoCarrinho;
+        this.nomeProduto = nomeProduto;
+        this.containerPromoçãoCarrinho = containerPromoçãoCarrinho;
+        this.valorInicial = valorInicial;
+        this.containerValorProduto = containerValorProduto;
+        this.valorProduto = valorProduto;
+    }
+
+    criaContainer() {
+        const containerProdutosId = window.document.querySelector('#container-produtos');
+
+        this.simplifica(this.containerProdutos, 'container-produtos');
+        this.simplifica(this.containerVasoCarrinho, 'container-vaso-carrinho');
+        this.simplifica(this.imagemVasoCarrinho, 'imagem-vaso-carrinho');
+
+        const containerPai = containerProdutosId.appendChild(this.containerProdutos);
+        const containerVaso = containerPai.appendChild(this.containerVasoCarrinho);
+        const containerImagem = containerVaso.appendChild(this.imagemVasoCarrinho);
+
+        return [containerImagem]
+    }
+
+
+}
 

@@ -7,7 +7,7 @@
     "dev": "webpack -w"
   },
   "keywords": [],
-  "author": "",
+  "author": "DEVitor0",
   "license": "ISC",
   "devDependencies": {
     "@babel/cli": "^7.24.1",
