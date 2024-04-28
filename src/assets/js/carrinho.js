@@ -121,6 +121,19 @@ class ExibeCarrinho {
         return [containerImagem]
     }
 
+    simplifica(elemento, classe) {
+        elemento = elemento.classList.add(classe)
+    }
+
+    adicionaImagem() {
+        const criaContainer = this.criaContainer();
+        criaContainer[0].style.backgroundImage = `url("${this.acessaClicouCarrinho(3)}")`;
+    }
+
+    acessaClicouCarrinho(posição) {
+        const carrinho = clicouCarrinho()
+        return carrinho[posição]
+    }
 
 }
 
