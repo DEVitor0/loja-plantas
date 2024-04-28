@@ -51,23 +51,38 @@ function clicouCarrinho() {
     const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
     const itens = window.document.querySelectorAll('.produtos-plantas');
 
-    const funcionalidades = [];
-    const resultadosDesconto = [];
-
     iconeCarrinho.forEach((element, indice) => {
         element.addEventListener('click', function handleClick() {
-            element.removeEventListener('click', handleClick);
+            function funcionalidade(posição) {
+                return itens[indice].children[posição];
+            }
 
-            funcionalidades.push(itens[indice].children[3]);
-            resultadosDesconto.push(verificaDesconto(funcionalidades[0]));
-
+            let nome = verificaNome(funcionalidade(2));
+            let desconto = verificaAlgo(funcionalidade(3));
+            
+            if (desconto !== undefined) nome = verificaNome(funcionalidade(3))
+            
         }, { once: true });
     });
 }
+
+function verificaAlgo(funcionalidade) {
+    try {
+        const delElement = funcionalidade.querySelector('del');
+        return delElement ? delElement.textContent : undefined;
+    } catch (error) {
+        return undefined;
+    }
+}
+
+function verificaNome(funcionalidade) {
+    try {
+        const h3 = funcionalidade.querySelector('h3');
+        return h3 ? h3.textContent : undefined;
+    } catch (error) {
+        return undefined;
+    }
+}
+
 clicouCarrinho();
 
-function verificaDesconto(funcionalidade) {
-    const temDel = funcionalidade.querySelector('del');
-    const verificação = temDel ? temDel.textContent : '';
-    return verificação;
-}
