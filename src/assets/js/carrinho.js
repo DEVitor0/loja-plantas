@@ -48,28 +48,34 @@ mensagemCarrinho();
 utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
 
 function clicouCarrinho() {
-    const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
-    const itens = window.document.querySelectorAll('.produtos-plantas');
+    return new Promise((resolve, reject) => {
+        const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
+        const itens = window.document.querySelectorAll('.produtos-plantas');
 
-    iconeCarrinho.forEach((element, indice) => {
-        element.addEventListener('click', () => {
-            function funcionalidade(posição) {
-                return itens[indice].children[posição];
-            }
+        iconeCarrinho.forEach((element, indice) => {
+            element.addEventListener('click', () => {
+                function funcionalidade(posição) {
+                    return itens[indice].children[posição];
+                }
 
-            let nome = verificaAlgo(funcionalidade(2), 'h3');
-            let verificaPreço = verificaAlgo(funcionalidade(2), 'p');
-            let desconto = verificaAlgo(funcionalidade(3), 'del');
-            let imagem = verificaSrc(funcionalidade(0))
+                let nome = verificaAlgo(funcionalidade(2), 'h3');
+                let verificaPreço = verificaAlgo(funcionalidade(2), 'p');
+                let desconto = verificaAlgo(funcionalidade(3), 'del');
+                let imagem = verificaSrc(funcionalidade(0));
 
-            if (desconto !== undefined) {
-                nome = verificaAlgo(funcionalidade(3), 'h3');
-                verificaPreço = verificaAlgo(funcionalidade(3), 'p');
-                imagem = verificaSrc(funcionalidade(1))
-            }
-            return [nome, verificaPreço, desconto, imagem]
+                if (desconto !== undefined) {
+                    nome = verificaAlgo(funcionalidade(3), 'h3');
+                    verificaPreço = verificaAlgo(funcionalidade(3), 'p');
+                    imagem = verificaSrc(funcionalidade(1));
+                }
 
-        }, { once: true });
+                if (nome !== undefined && verificaPreço !== undefined && imagem !== undefined) {
+                    resolve([nome, verificaPreço, desconto, imagem]);
+                } else {
+                    reject(new Error('Algumas informações necessárias estão faltando.'));
+                }
+            }, { once: true });
+        });
     });
 }
 
@@ -94,17 +100,10 @@ function verificaSrc(funcionalidade) {
 clicouCarrinho()
 
 class ExibeCarrinho {
-    constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho, containerTextoCarrinho, nomeProduto, containerPromoçãoCarrinho, valorInicial, containerValorProduto, valorProduto) {
-
+    constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho) {
         this.containerProdutos = containerProdutos;
         this.containerVasoCarrinho = containerVasoCarrinho;
         this.imagemVasoCarrinho = imagemVasoCarrinho;
-        this.containerTextoCarrinho = containerTextoCarrinho;
-        this.nomeProduto = nomeProduto;
-        this.containerPromoçãoCarrinho = containerPromoçãoCarrinho;
-        this.valorInicial = valorInicial;
-        this.containerValorProduto = containerValorProduto;
-        this.valorProduto = valorProduto;
     }
 
     criaContainer() {
@@ -115,25 +114,50 @@ class ExibeCarrinho {
         this.simplifica(this.imagemVasoCarrinho, 'imagem-vaso-carrinho');
 
         const containerPai = containerProdutosId.appendChild(this.containerProdutos);
-        const containerVaso = containerPai.appendChild(this.containerVasoCarrinho);
-        const containerImagem = containerVaso.appendChild(this.imagemVasoCarrinho);
+        const vasoCarrinho = containerPai.appendChild(this.containerVasoCarrinho);
+        const imagemVaso = vasoCarrinho.appendChild(this.imagemVasoCarrinho);
 
-        return [containerImagem]
+        return imagemVaso
     }
 
     simplifica(elemento, classe) {
-        elemento = elemento.classList.add(classe)
+        elemento.classList.add(classe);
     }
 
-    adicionaImagem() {
-        const criaContainer = this.criaContainer();
-        criaContainer[0].style.backgroundImage = `url("${this.acessaClicouCarrinho(3)}")`;
+    async adicionaImagem() {
+        try {
+            const criaContainer = this.criaContainer();
+            const [nome, verificaPreço, desconto, imagemSrc] = await this.acessaClicouCarrinho();
+            
+            if (imagemSrc) {
+                criaContainer.style.backgroundImage = `url("${imagemSrc}")`;
+            }
+        } catch (error) {
+            console.error(error);
+        }
     }
 
-    acessaClicouCarrinho(posição) {
-        const carrinho = clicouCarrinho()
-        return carrinho[posição]
+    acessaClicouCarrinho() {
+        return new Promise((resolve, reject) => {
+            clicouCarrinho()
+                .then(carrinho => {
+                    resolve(carrinho);
+                })
+                .catch(error => {
+                    reject(error);
+                });
+        });
     }
-
 }
 
+function criaDiv() {
+    const div = window.document.createElement("div");
+    return div;
+}
+
+const containerProdutos = criaDiv();
+const containerVasoCarrinho = criaDiv();
+const containerImagemVaso = criaDiv();
+const exibeCarrinho = new ExibeCarrinho(containerProdutos, containerVasoCarrinho, containerImagemVaso);
+
+exibeCarrinho.adicionaImagem();
