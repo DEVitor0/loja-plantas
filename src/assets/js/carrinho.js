@@ -25,26 +25,6 @@ function fechaMenu() {
 }
 fechaMenu()
 
-function mensagemCarrinho() {
-    const conteudoCarrinho = window.document.querySelector('#container-produtos');
-    const semConteudo = window.document.querySelector('#sem-conteudo');
-
-    if (!conteudoCarrinho.children.length) {
-        semConteudo.style.display = 'flex';
-
-        const exclusão = window.document.querySelector('#exclusão');
-        const preçoTotal = window.document.querySelector('#preço-total');
-        const preçoFinalContainer = window.document.querySelector('#preço-final-container');
-        const botão = window.document.querySelector("#conteudo-carrinho > div:nth-child(5)");
-
-        displayNone(exclusão);
-        displayNone(preçoTotal);
-        displayNone(preçoFinalContainer);
-        displayNone(botão);
-    }
-}
-mensagemCarrinho();
-
 utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
 
 function clicouCarrinho() {
@@ -97,8 +77,6 @@ function verificaSrc(funcionalidade) {
     }
 }
 
-clicouCarrinho()
-
 class ExibeCarrinho {
     constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho) {
         this.containerProdutos = containerProdutos;
@@ -117,7 +95,7 @@ class ExibeCarrinho {
         const vasoCarrinho = containerPai.appendChild(this.containerVasoCarrinho);
         const imagemVaso = vasoCarrinho.appendChild(this.imagemVasoCarrinho);
 
-        return imagemVaso
+        return imagemVaso;
     }
 
     simplifica(elemento, classe) {
@@ -126,10 +104,10 @@ class ExibeCarrinho {
 
     async adicionaImagem() {
         try {
-            const criaContainer = this.criaContainer();
             const [nome, verificaPreço, desconto, imagemSrc] = await this.acessaClicouCarrinho();
-            
+
             if (imagemSrc) {
+                const criaContainer = this.criaContainer();
                 criaContainer.style.backgroundImage = `url("${imagemSrc}")`;
             }
         } catch (error) {
@@ -155,9 +133,28 @@ function criaDiv() {
     return div;
 }
 
-const containerProdutos = criaDiv();
-const containerVasoCarrinho = criaDiv();
-const containerImagemVaso = criaDiv();
-const exibeCarrinho = new ExibeCarrinho(containerProdutos, containerVasoCarrinho, containerImagemVaso);
+async function exibirCarrinhoDepoisDaImagem() {
+    const containerProdutos = criaDiv();
+    const containerVasoCarrinho = criaDiv();
+    const containerImagemVaso = criaDiv();
+    const exibeCarrinho = new ExibeCarrinho(containerProdutos, containerVasoCarrinho, containerImagemVaso);
 
-exibeCarrinho.adicionaImagem();
+    await exibeCarrinho.adicionaImagem();
+}
+
+exibirCarrinhoDepoisDaImagem();
+
+function verificaCarrinho() {
+    const clicou = window.document.querySelectorAll('.sexta-carrinho')
+    const mensagemFalha = window.document.querySelector('#sem-conteudo');
+    const statusCompras = window.document.querySelector('#status-compras');
+    displayNone(statusCompras)
+    
+    clicou.forEach(element => {
+        element.addEventListener('click', () => {
+            displayNone(mensagemFalha)
+            statusCompras.style.display = 'block';
+        })
+    })
+}
+verificaCarrinho()

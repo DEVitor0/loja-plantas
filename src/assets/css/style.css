@@ -435,25 +435,21 @@ main>section>div:nth-child(4) {
 
 @keyframes slideDireita {
     0% {
-        transform: translateX(100%);
-        opacity: 0;
+        transform: translateX(-100%);
     }
 
     100% {
         transform: translateX(0);
-        opacity: 1;
     }
 }
 
 @keyframes slideEsquerda {
     0% {
-        transform: translateX(-100%);
-        opacity: 0;
+        transform: translateX(100%);
     }
 
     100% {
         transform: translateX(0);
-        opacity: 1;
     }
 }
 
@@ -462,7 +458,7 @@ main>section>div:nth-child(4) {
     height: 450px;
     margin: 10px;
     display: inline-block;
-    animation: slideDireita 0.5s ease forwards;
+    animation: slideDireita 0.3s linear forwards;
 }
 
 .direita .produtos-plantas {
@@ -912,7 +908,7 @@ main>section>div:nth-child(12) {
 #sem-conteudo {
     height: 74%;
     width: 87%;
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -1072,7 +1068,7 @@ main>section>div:nth-child(12) {
     margin-top: 10px;
 }
 
-#conteudo-carrinho>div:last-child {
+#conteudo-carrinho> div > div:last-child {
     width: 100%;
     height: auto;
     display: flex;
@@ -1081,7 +1077,7 @@ main>section>div:nth-child(12) {
     margin-top: 20px;
 }
 
-#conteudo-carrinho>div:last-child>button {
+#conteudo-carrinho> div > div:last-child > button {
     width: 84%;
     padding: 5px;
     color: white;

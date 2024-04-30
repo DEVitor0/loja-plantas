@@ -99,6 +99,7 @@ function carrossel() {
 
     const plantasDireitas = window.document.querySelectorAll(".direita");
     const setaDireita = window.document.querySelector(".fa-angle-right");
+    const produtosPlantas = window.document.querySelectorAll('.produtos-plantas');
 
     plantasDireitas.forEach((element) => {
         displayNone(element);
@@ -107,6 +108,9 @@ function carrossel() {
     setaDireita.addEventListener('click', () => {
         plantasDireitas.forEach((element) => {
             element.style.display = 'block';
+            produtosPlantas.forEach(element2 => {
+                element2.style.animation = 'slideEsquerda 0.3s ease forwards';
+            })
         });
         plantasEsquerdas.forEach((element) => {
             displayNone(element);
@@ -119,6 +123,9 @@ function carrossel() {
         });
         plantasEsquerdas.forEach((element) => {
             element.style.display = 'block';
+            produtosPlantas.forEach(element2 => {
+                element2.style.animation = 'slideDireita 0.3s ease forwards';
+            })
         });
     });
 }
