@@ -50,7 +50,7 @@ function clicouCarrinho() {
                 }
 
                 if (nome !== undefined && verificaPreço !== undefined && imagem !== undefined) {
-                    resolve([nome, verificaPreço, desconto, imagem]);
+                    return resolve([nome, verificaPreço, desconto, imagem]);
                 } else {
                     reject(new Error('Algumas informações necessárias estão faltando.'));
                 }
@@ -78,10 +78,14 @@ function verificaSrc(funcionalidade) {
 }
 
 class ExibeCarrinho {
-    constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho) {
+    constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho, containerTextoCarrinho, nomeLixo, paragrafoLixo, iconeLixo) {
         this.containerProdutos = containerProdutos;
         this.containerVasoCarrinho = containerVasoCarrinho;
         this.imagemVasoCarrinho = imagemVasoCarrinho;
+        this.containerTextoCarrinho = containerTextoCarrinho;
+        this.nomeLixo = nomeLixo;
+        this.paragrafoLixo = paragrafoLixo;
+        this.iconeLixo = iconeLixo;
     }
 
     criaContainer() {
@@ -90,31 +94,59 @@ class ExibeCarrinho {
         this.simplifica(this.containerProdutos, 'container-produtos');
         this.simplifica(this.containerVasoCarrinho, 'container-vaso-carrinho');
         this.simplifica(this.imagemVasoCarrinho, 'imagem-vaso-carrinho');
+        this.simplifica(this.containerTextoCarrinho, 'container-texto-carrinho');
+        this.simplifica(this.paragrafoLixo, 'nome-produto');
+        this.simplifica(this.iconeLixo, ['fa-regular', 'fa-trash-can', 'clicavel'])
 
         const containerPai = containerProdutosId.appendChild(this.containerProdutos);
         const vasoCarrinho = containerPai.appendChild(this.containerVasoCarrinho);
         const imagemVaso = vasoCarrinho.appendChild(this.imagemVasoCarrinho);
+        
+        const containerTextoCarrinho = containerPai.appendChild(this.containerTextoCarrinho);
+        const nomeLixo = containerTextoCarrinho.appendChild(this.nomeLixo);
+        const pLixo = nomeLixo.appendChild(this.paragrafoLixo);
+        nomeLixo.appendChild(this.iconeLixo);
 
-        return imagemVaso;
+        return {
+            imagemVaso: imagemVaso,
+            pLixo: pLixo
+        }
     }
 
-    simplifica(elemento, classe) {
-        elemento.classList.add(classe);
+    simplifica(elemento, classes) {
+        if (Array.isArray(classes)) {
+            classes.forEach(element => {
+                elemento.classList.add(element)
+            });
+        } else {
+            elemento.classList.add(classes);
+        }
     }
 
-    async adicionaImagem() {
+    async adicionaImagem(imagemSrc) {
         try {
-            const [nome, verificaPreço, desconto, imagemSrc] = await this.acessaClicouCarrinho();
-
             if (imagemSrc) {
                 const criaContainer = this.criaContainer();
-                criaContainer.style.backgroundImage = `url("${imagemSrc}")`;
+                const imagem = criaContainer.imagemVaso;
+                imagem.style.backgroundImage = `url("${imagemSrc}")`;
             }
         } catch (error) {
             console.error(error);
         }
     }
 
+    async adicionaNome(nome) {
+        try {
+            const criaContainer = this.criaContainer();
+            const paragrafoLixo = criaContainer.pLixo;
+            paragrafoLixo.textContent = nome
+
+        } catch (error) {
+            console.error("Erro em adicionaNome:", error);
+        }
+    }
+      
+    
     acessaClicouCarrinho() {
         return new Promise((resolve, reject) => {
             clicouCarrinho()
@@ -128,21 +160,28 @@ class ExibeCarrinho {
     }
 }
 
-function criaDiv() {
-    const div = window.document.createElement("div");
-    return div;
+function criaElemento(elemento) {
+    return window.document.createElement(elemento)
 }
 
-async function exibirCarrinhoDepoisDaImagem() {
-    const containerProdutos = criaDiv();
-    const containerVasoCarrinho = criaDiv();
-    const containerImagemVaso = criaDiv();
-    const exibeCarrinho = new ExibeCarrinho(containerProdutos, containerVasoCarrinho, containerImagemVaso);
+async function exibirProdutosCarrinho() {
+    const containerProdutos = criaElemento("div");
+    const containerVasoCarrinho = criaElemento("div");
+    const containerImagemVaso = criaElemento("div");
 
-    await exibeCarrinho.adicionaImagem();
+    const containerTextoCarrinho = criaElemento("div");
+    const nomeLixo = criaElemento("div");
+    const pLixo = criaElemento("p");
+    const iconeLixo = criaElemento("i");
+
+    const exibeCarrinho = new ExibeCarrinho(containerProdutos, containerVasoCarrinho, containerImagemVaso, containerTextoCarrinho, nomeLixo, pLixo, iconeLixo);
+
+    const elementosNecessarios = await clicouCarrinho()
+
+    await exibeCarrinho.adicionaImagem(elementosNecessarios[3]);
+    await exibeCarrinho.adicionaNome(elementosNecessarios[0]);
 }
-
-exibirCarrinhoDepoisDaImagem();
+exibirProdutosCarrinho();
 
 function verificaCarrinho() {
     const clicou = window.document.querySelectorAll('.sexta-carrinho')
