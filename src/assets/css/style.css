@@ -932,6 +932,13 @@ main>section>div:nth-child(12) {
     flex-direction: row;
 }
 
+#container-produtos {
+    overflow-y: hidden;
+    min-height: auto;
+    max-height: 60vh;
+    width: 100%;
+}
+
 .container-vaso-carrinho {
     width: 30%;
     height: auto;
