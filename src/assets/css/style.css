@@ -1074,7 +1074,6 @@ main>section>div:nth-child(12) {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
 }
 
 #conteudo-carrinho> div > div:last-child > button {

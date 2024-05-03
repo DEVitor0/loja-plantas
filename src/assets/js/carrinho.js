@@ -78,7 +78,7 @@ function verificaSrc(funcionalidade) {
 }
 
 class ExibeCarrinho {
-    constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho, containerTextoCarrinho, nomeLixo, paragrafoLixo, iconeLixo, containerPromoção, valorInicial, containerValorProduto, valorProduto, containerQuantidadesProdutos, adicionarQuantidades, diminuir, iconeMenos, divGenérica, quantidadeProduto, aumentar, iconeMais, valorQuantia) {
+    constructor(containerProdutos, containerVasoCarrinho, imagemVasoCarrinho, containerTextoCarrinho, nomeLixo, paragrafoLixo, iconeLixo, containerPromoção, valorInicial, containerValorProduto, valorProduto, containerQuantidadesProdutos, adicionarQuantidades, diminuir, iconeMenos, divGenérica, quantidadeProduto, aumentar, iconeMais, valorQuantia, preçoItem) {
         this.containerProdutos = containerProdutos;
         this.containerVasoCarrinho = containerVasoCarrinho;
         this.imagemVasoCarrinho = imagemVasoCarrinho;
@@ -99,6 +99,7 @@ class ExibeCarrinho {
         this.aumentar = aumentar;
         this.iconeMais = iconeMais;
         this.valorQuantia = valorQuantia;
+        this.preçoItem = preçoItem;
     }
 
     criaContainer() {
@@ -128,7 +129,7 @@ class ExibeCarrinho {
         const containerPai = containerProdutosId.appendChild(this.containerProdutos);
         const vasoCarrinho = containerPai.appendChild(this.containerVasoCarrinho);
         const imagemVaso = vasoCarrinho.appendChild(this.imagemVasoCarrinho);
-        
+
         const containerTextoCarrinho = containerPai.appendChild(this.containerTextoCarrinho);
         const nomeLixo = containerTextoCarrinho.appendChild(this.nomeLixo);
         const pLixo = nomeLixo.appendChild(this.paragrafoLixo);
@@ -150,7 +151,7 @@ class ExibeCarrinho {
         aumentar.appendChild(this.iconeMais);
         const valorFinal = containerQuantidadesProduto.appendChild(this.valorQuantia);
 
-        return [ imagemVaso, pLixo, valorInicial, valorProduto, diminuir, paragrafo, aumentar, valorFinal]
+        return [imagemVaso, pLixo, valorInicial, valorProduto, diminuir, paragrafo, aumentar, valorFinal]
     }
 
     simplifica(elemento, classes) {
@@ -179,8 +180,8 @@ class ExibeCarrinho {
         try {
             if (nome !== undefined) {
                 const criaContainer = this.criaContainer();
-                const paragrafoLixo = criaContainer[itemEscolhido];
-                paragrafoLixo.textContent = mensagem  
+                const paragrafo = criaContainer[itemEscolhido];
+                paragrafo.textContent = mensagem
             }
         } catch (error) {
             console.error("Erro em adicionaNome:", error);
@@ -193,27 +194,40 @@ class ExibeCarrinho {
         const quantidade = criaContainer[5];
         const iconeMais = criaContainer[6];
         let contador = 1;
-    
-        function escutaClique(icone, operação) {
+
+        const exibeCarrinho = this;
+
+        const atualizaPreco = () => {
+            const criaElemento = exibeCarrinho.criaContainer();
+            const paragrafo = criaElemento[7];
+            const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
+            const realizaConta = Number(preçoFatiado) * contador
+            paragrafo.textContent = `R$ ${realizaConta},00`;
+        };
+
+        const escutaClique = (icone, operação) => {
             icone.addEventListener('click', () => {
                 if (operação === '+') {
                     contador++;
                 } else if (operação === '-') {
-                    if (contador > 1) { 
+                    if (contador > 1) {
                         contador--;
                     }
                 }
                 quantidade.textContent = contador;
+                atualizaPreco();
             });
         }
-    
+
         quantidade.textContent = contador;
         escutaClique(iconeMais, '+');
         escutaClique(iconeMenos, '-');
-    
+
+        atualizaPreco();
+
         return contador;
-    }    
-    
+    }
+
     acessaClicouCarrinho() {
         return new Promise((resolve, reject) => {
             clicouCarrinho()
@@ -232,9 +246,9 @@ function criaElemento(elemento) {
 }
 
 async function exibirProdutosCarrinho() {
-    const exibeCarrinho = new ExibeCarrinho(criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("p"), criaElemento("i"), criaElemento("div"), criaElemento("del"), criaElemento("div"), criaElemento("p"), criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("i"), criaElemento("div"), criaElemento("p"), criaElemento("div"), criaElemento("i"), criaElemento("p"));
+    const elementosNecessarios = await clicouCarrinho();
 
-    const elementosNecessarios = await clicouCarrinho()
+    const exibeCarrinho = new ExibeCarrinho(criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("p"), criaElemento("i"), criaElemento("div"), criaElemento("del"), criaElemento("div"), criaElemento("p"), criaElemento("div"), criaElemento("div"), criaElemento("div"), criaElemento("i"), criaElemento("div"), criaElemento("p"), criaElemento("div"), criaElemento("i"), criaElemento("p"), elementosNecessarios[1]);
 
     await exibeCarrinho.adicionaImagem(elementosNecessarios[3]);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[0], 1, elementosNecessarios[0]);
@@ -249,7 +263,7 @@ function verificaCarrinho() {
     const mensagemFalha = window.document.querySelector('#sem-conteudo');
     const statusCompras = window.document.querySelector('#status-compras');
     displayNone(statusCompras)
-    
+
     clicou.forEach(element => {
         element.addEventListener('click', () => {
             displayNone(mensagemFalha)
