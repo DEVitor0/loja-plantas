@@ -256,20 +256,21 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
     exibeCarrinho.verificaQuantidade()
 }
+exibirProdutosCarrinho()
 
 function adicionaItem() {
     const clicou = window.document.querySelectorAll('.sexta-carrinho');
     const containerProdutosId = window.document.querySelector('#container-produtos');
-    clicou.forEach(element => {
+    clicou.forEach((element) => {
         element.addEventListener('click', () => {
             exibirProdutosCarrinho();
             if(containerProdutosId.children.length >= 4) {
                 containerProdutosId.style.overflowY = 'auto';
             }
-        })
+        }, {once: true})
     })
 }
-adicionaItem();
+adicionaItem()
 
 function verificaCarrinho() {
     const clicou = window.document.querySelectorAll('.sexta-carrinho')
