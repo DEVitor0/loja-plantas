@@ -164,8 +164,6 @@ class ExibeCarrinho {
         }
     }
 
-    static subtotal = 0;
-
     async adicionaImagem(imagemSrc) {
         try {
             if (imagemSrc) {
@@ -178,12 +176,15 @@ class ExibeCarrinho {
         }
     }
 
+    static subtotal = 0;
+
     async adicionaTexto(nome, itemEscolhido, mensagem) {
         try {
             if (nome !== undefined) {
                 const criaContainer = this.criaContainer();
                 const paragrafo = criaContainer[itemEscolhido];
                 paragrafo.textContent = mensagem
+                
             }
         } catch (error) {
             console.error("Erro em adicionaNome:", error);
@@ -237,15 +238,32 @@ class ExibeCarrinho {
         atualizaPreco();
     }
 
-    async adicionaNomeMensagem(função) {
+    adicionaNomeMensagem(função) {
         const nomeItem = window.document.querySelector('#nome-item');
         nomeItem.textContent = função;
+    }
+
+    removeRepetidos(nome, array) {
+        array.push(nome)
+        const containerProdutos = window.document.querySelectorAll('.container-produtos');
+
+        for (let i = 0; i < array.length; i++) {
+            for (let c = i + 1; c < array.length; c++) {
+                if (array[i] === array[c]) {
+                    containerProdutos[c].remove()
+                    array.pop()
+                }
+            }
+        }
+        console.log(array)
     }
 }
 
 function criaElemento(elemento) {
     return window.document.createElement(elemento)
 }
+
+const arrayPlantasNome = [];
 
 async function exibirProdutosCarrinho() {
     const elementosNecessarios = await clicouCarrinho();
@@ -256,8 +274,9 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[0], 1, elementosNecessarios[0]);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[2], 2, `De: ${elementosNecessarios[2]}`);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
-    await exibeCarrinho.adicionaNomeMensagem(elementosNecessarios[0]);
+    exibeCarrinho.adicionaNomeMensagem(elementosNecessarios[0]);
     exibeCarrinho.verificaQuantidade(elementosNecessarios[0]);
+    exibeCarrinho.removeRepetidos(elementosNecessarios[0], arrayPlantasNome);
 }
 exibirProdutosCarrinho();
 
