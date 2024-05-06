@@ -1077,7 +1077,7 @@ main>section>div:nth-child(12) {
     margin-top: 10px;
 }
 
-#conteudo-carrinho> div > div:last-child {
+#conteudo-carrinho>div>div:last-child {
     width: 100%;
     height: auto;
     display: flex;
@@ -1085,7 +1085,7 @@ main>section>div:nth-child(12) {
     align-items: center;
 }
 
-#conteudo-carrinho> div > div:last-child > button {
+#conteudo-carrinho>div>div:last-child>button {
     width: 84%;
     padding: 5px;
     color: white;
@@ -1199,6 +1199,36 @@ main>section>div:nth-child(12) {
     left: 6px;
     z-index: 3;
     box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+#aviso {
+    width: 90px;
+    height: 90px;
+    background-color: #FFD531;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border-radius: 5px;
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#aviso>div:first-child {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 100%;
+    margin-bottom: 10px;
+}
+
+#aviso > div:nth-child(2) {
+    width: 70px;
+    height: 40px;
+    background-color: black;
+    position: absolute;
+    transform: translateY(-22px);
+    clip-path: ellipse(7% 33% at 50% 50%);
 }
 
 #nome-item {
