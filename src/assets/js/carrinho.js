@@ -211,7 +211,9 @@ class ExibeCarrinho {
             this.subtotalItem = subtotalItem;
             ExibeCarrinho.subtotal += subtotalItem;
             const preçoFinal = window.document.querySelector('.preço-final');
-            preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`
+            const preçoFinalFinal = window.document.querySelector('#preço-final-final');
+            preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+            preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`
         };
 
         const escutaClique = (icone, operação) => {
@@ -234,6 +236,11 @@ class ExibeCarrinho {
 
         atualizaPreco();
     }
+
+    async adicionaNomeMensagem(função) {
+        const nomeItem = window.document.querySelector('#nome-item');
+        nomeItem.textContent = função;
+    }
 }
 
 function criaElemento(elemento) {
@@ -249,9 +256,10 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[0], 1, elementosNecessarios[0]);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[2], 2, `De: ${elementosNecessarios[2]}`);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
-    exibeCarrinho.verificaQuantidade();
+    await exibeCarrinho.adicionaNomeMensagem(elementosNecessarios[0]);
+    exibeCarrinho.verificaQuantidade(elementosNecessarios[0]);
 }
-exibirProdutosCarrinho()
+exibirProdutosCarrinho();
 
 function adicionaItem() {
     const clicou = window.document.querySelectorAll('.sexta-carrinho');
@@ -265,7 +273,7 @@ function adicionaItem() {
         }, {once: true})
     })
 }
-adicionaItem()
+adicionaItem();
 
 function verificaCarrinho() {
     const clicou = window.document.querySelectorAll('.sexta-carrinho')
