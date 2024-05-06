@@ -164,6 +164,8 @@ class ExibeCarrinho {
         }
     }
 
+    static subtotal = 0;
+
     async adicionaImagem(imagemSrc) {
         try {
             if (imagemSrc) {
@@ -189,20 +191,27 @@ class ExibeCarrinho {
     }
 
     verificaQuantidade() {
-        const criaContainer = this.criaContainer();
-        const iconeMenos = criaContainer[4];
-        const quantidade = criaContainer[5];
-        const iconeMais = criaContainer[6];
+        const iconeMenos = this.iconeMenos;
+        const quantidade = this.quantidadeProduto;
+        const iconeMais = this.iconeMais;
         let contador = 1;
-
         const exibeCarrinho = this;
 
-        const atualizaPreco = () => {
-            const criaElemento = exibeCarrinho.criaContainer();
-            const paragrafo = criaElemento[7];
+        const fazConta = () => {
             const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
-            const realizaConta = Number(preçoFatiado) * contador
-            paragrafo.textContent = `R$ ${realizaConta},00`;
+            const realizaConta = Number(preçoFatiado) * contador;
+            return realizaConta;
+        };
+
+        const atualizaPreco = () => {
+            const paragrafo = this.valorQuantia;
+            const subtotalItem = fazConta(); 
+            paragrafo.textContent = `R$ ${subtotalItem},00`;
+            ExibeCarrinho.subtotal -= this.subtotalItem || 0;
+            this.subtotalItem = subtotalItem;
+            ExibeCarrinho.subtotal += subtotalItem;
+            const preçoFinal = window.document.querySelector('.preço-final');
+            preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`
         };
 
         const escutaClique = (icone, operação) => {
@@ -217,27 +226,13 @@ class ExibeCarrinho {
                 quantidade.textContent = contador;
                 atualizaPreco();
             });
-        }
+        };
 
         quantidade.textContent = contador;
         escutaClique(iconeMais, '+');
         escutaClique(iconeMenos, '-');
 
         atualizaPreco();
-
-        return contador;
-    }
-
-    acessaClicouCarrinho() {
-        return new Promise((resolve, reject) => {
-            clicouCarrinho()
-                .then(carrinho => {
-                    resolve(carrinho);
-                })
-                .catch(error => {
-                    reject(error);
-                });
-        });
     }
 }
 
@@ -254,7 +249,7 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[0], 1, elementosNecessarios[0]);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[2], 2, `De: ${elementosNecessarios[2]}`);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
-    exibeCarrinho.verificaQuantidade()
+    exibeCarrinho.verificaQuantidade();
 }
 exibirProdutosCarrinho()
 
