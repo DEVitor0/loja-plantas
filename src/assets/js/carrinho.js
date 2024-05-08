@@ -25,8 +25,6 @@ function fechaMenu() {
 }
 fechaMenu()
 
-utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
-
 function clicouCarrinho() {
     return new Promise((resolve, reject) => {
         const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
@@ -245,11 +243,18 @@ class ExibeCarrinho {
 
     removeRepetidos(nome, array) {
         array.push(nome)
-        const containerProdutos = window.document.querySelectorAll('.container-produtos');
+        const exibeCarrinho = this;
+        const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
+        const preçoFinal = window.document.querySelector('.preço-final');
+        const preçoFinalFinal = window.document.querySelector('#preço-final-final');
 
+        const containerProdutos = window.document.querySelectorAll('.container-produtos');
         for (let i = 0; i < array.length; i++) {
             for (let c = i + 1; c < array.length; c++) {
                 if (array[i] === array[c]) {
+                    ExibeCarrinho.subtotal -= Number(preçoFatiado);
+                    preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+                    preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`
                     containerProdutos[c].remove()
                     array.pop()
                 }
@@ -258,6 +263,8 @@ class ExibeCarrinho {
         console.log(array)
     }
 }
+
+utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
 
 function criaElemento(elemento) {
     return window.document.createElement(elemento)

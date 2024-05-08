@@ -192,5 +192,5 @@ export const utilidades = (function() {
     };
 })();
 
-utilidades.abreMensagem('.coração', '.container-mensagem:first-child')
+utilidades.abreMensagem('.coração', '.container-mensagem:first-child');
 utilidades.fechaMensagem()
