@@ -1,4 +1,4 @@
-import { displayNone, utilidades } from "./script";
+import { displayNone, utilidades, removeElemento } from "./script";
 
 function abreMenu() {
     const iconeCarrinho = window.document.querySelector('#abrir-carrinho');
@@ -29,9 +29,15 @@ function clicouCarrinho() {
     return new Promise((resolve, reject) => {
         const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
         const itens = window.document.querySelectorAll('.produtos-plantas');
+        const iconeSexta = window.document.querySelectorAll('.fa-basket-shopping');
+        const arraySexta = removeElemento(iconeSexta, 0);
 
         iconeCarrinho.forEach((element, indice) => {
             element.addEventListener('click', () => {
+                element.style.backgroundColor = '#47941a';
+                const posiçãoIcone = arraySexta[indice];
+                posiçãoIcone.style.color = 'white';
+
                 function funcionalidade(posição) {
                     return itens[indice].children[posição];
                 }
@@ -182,7 +188,7 @@ class ExibeCarrinho {
                 const criaContainer = this.criaContainer();
                 const paragrafo = criaContainer[itemEscolhido];
                 paragrafo.textContent = mensagem
-                
+
             }
         } catch (error) {
             console.error("Erro em adicionaNome:", error);
@@ -204,7 +210,7 @@ class ExibeCarrinho {
 
         const atualizaPreco = () => {
             const paragrafo = this.valorQuantia;
-            const subtotalItem = fazConta(); 
+            const subtotalItem = fazConta();
             paragrafo.textContent = `R$ ${subtotalItem},00`;
             ExibeCarrinho.subtotal -= this.subtotalItem || 0;
             this.subtotalItem = subtotalItem;
@@ -235,33 +241,6 @@ class ExibeCarrinho {
 
         atualizaPreco();
     }
-
-    adicionaNomeMensagem(função) {
-        const nomeItem = window.document.querySelector('#nome-item');
-        nomeItem.textContent = função;
-    }
-
-    removeRepetidos(nome, array) {
-        array.push(nome)
-        const exibeCarrinho = this;
-        const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
-        const preçoFinal = window.document.querySelector('.preço-final');
-        const preçoFinalFinal = window.document.querySelector('#preço-final-final');
-
-        const containerProdutos = window.document.querySelectorAll('.container-produtos');
-        for (let i = 0; i < array.length; i++) {
-            for (let c = i + 1; c < array.length; c++) {
-                if (array[i] === array[c]) {
-                    ExibeCarrinho.subtotal -= Number(preçoFatiado);
-                    preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
-                    preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`
-                    containerProdutos[c].remove()
-                    array.pop()
-                }
-            }
-        }
-        console.log(array)
-    }
 }
 
 utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
@@ -269,8 +248,6 @@ utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
 function criaElemento(elemento) {
     return window.document.createElement(elemento)
 }
-
-const arrayPlantasNome = [];
 
 async function exibirProdutosCarrinho() {
     const elementosNecessarios = await clicouCarrinho();
@@ -281,9 +258,7 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[0], 1, elementosNecessarios[0]);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[2], 2, `De: ${elementosNecessarios[2]}`);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
-    exibeCarrinho.adicionaNomeMensagem(elementosNecessarios[0]);
     exibeCarrinho.verificaQuantidade(elementosNecessarios[0]);
-    exibeCarrinho.removeRepetidos(elementosNecessarios[0], arrayPlantasNome);
 }
 exibirProdutosCarrinho();
 
@@ -293,10 +268,10 @@ function adicionaItem() {
     clicou.forEach((element) => {
         element.addEventListener('click', () => {
             exibirProdutosCarrinho();
-            if(containerProdutosId.children.length >= 4) {
+            if (containerProdutosId.children.length >= 4) {
                 containerProdutosId.style.overflowY = 'auto';
             }
-        }, {once: true})
+        }, { once: true })
     })
 }
 adicionaItem();
