@@ -38,6 +38,24 @@ function clicouCarrinho() {
                 const posiçãoIcone = arraySexta[indice];
                 posiçãoIcone.style.color = 'white';
 
+                const nomeProduto = itens[indice].querySelector('h3').textContent;
+                const outrosElementos = Array.from(window.document.querySelectorAll('.produtos-plantas')).filter(item => {
+                    return item.querySelector('h3').textContent === nomeProduto && item !== itens[indice];
+                });
+
+                outrosElementos.forEach(outroElemento => {
+                    const iconeOutro = outroElemento.querySelector('.fa-basket-shopping');
+                    const containerSexta = outroElemento.querySelector('.sexta-carrinho');
+
+                    const indiceOutro = Array.from(iconeCarrinho).indexOf(iconeOutro.parentElement);
+                    if (indiceOutro !== -1) {
+                        const posIconOutro = arraySexta[indiceOutro];
+                        iconeOutro.style.color = 'white';
+                        posIconOutro.style.color = 'white';
+                        containerSexta.style.backgroundColor = '#47941a';
+                    }
+                });
+
                 function funcionalidade(posição) {
                     return itens[indice].children[posição];
                 }
@@ -62,6 +80,7 @@ function clicouCarrinho() {
         });
     });
 }
+
 
 function verificaAlgo(funcionalidade, tag) {
     try {
