@@ -285,6 +285,7 @@ class ExibeCarrinho {
                     itemCarrinho.remove();
                     preçoFinal.textContent = `R$ ${fazContaProdutos},00`;
                     preçoFinalFinal.textContent = `R$ ${fazContaProdutos},00`
+                    verificaCarrinho();
                 }
             });
         });
@@ -307,6 +308,7 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
     exibeCarrinho.verificaQuantidade(elementosNecessarios[0]);
     exibeCarrinho.removeItens();
+    verificaCarrinho();
 }
 exibirProdutosCarrinho();
 
@@ -325,16 +327,16 @@ function adicionaItem() {
 adicionaItem();
 
 function verificaCarrinho() {
-    const clicou = window.document.querySelectorAll('.sexta-carrinho')
     const mensagemFalha = window.document.querySelector('#sem-conteudo');
     const statusCompras = window.document.querySelector('#status-compras');
-    displayNone(statusCompras)
+    const carrinho = window.document.querySelector('#container-produtos');
+    displayNone(statusCompras);
 
-    clicou.forEach(element => {
-        element.addEventListener('click', () => {
-            displayNone(mensagemFalha)
-            statusCompras.style.display = 'block';
-        })
-    })
+    if (carrinho.children.length >= 1) {
+        displayNone(mensagemFalha)
+        statusCompras.style.display = 'block';
+    } else {
+        displayNone(statusCompras);
+        mensagemFalha.style.display = 'flex';
+    }
 }
-verificaCarrinho()
