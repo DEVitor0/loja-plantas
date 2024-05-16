@@ -290,6 +290,26 @@ class ExibeCarrinho {
             });
         });
     }
+
+    removerTodosItens() {
+        const botão = window.document.querySelector('#excluir-itens');
+        const lixeiraIcone = window.document.querySelector('#lixeira-excluir-itens');
+    
+        function elementoClicavel(item) {
+            item.addEventListener('click', () => {
+                const itensNoCarrinho = window.document.querySelector('#container-produtos').children;
+                const sliceDosItens = Array.from(itensNoCarrinho); 
+    
+                sliceDosItens.forEach(element => {
+                    element.remove();
+                    verificaCarrinho();
+                });
+            });
+        }
+    
+        elementoClicavel(botão);
+        elementoClicavel(lixeiraIcone);
+    }    
     
 }
 
@@ -309,6 +329,7 @@ async function exibirProdutosCarrinho() {
     exibeCarrinho.verificaQuantidade(elementosNecessarios[0]);
     exibeCarrinho.removeItens();
     verificaCarrinho();
+    exibeCarrinho.removerTodosItens();
 }
 exibirProdutosCarrinho();
 
