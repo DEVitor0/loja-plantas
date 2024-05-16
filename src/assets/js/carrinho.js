@@ -38,7 +38,6 @@ function clicouCarrinho() {
             }
 
             element.addEventListener('click', () => {
-                console.log('Cliquei no ícone de carrinho');
 
                 element.classList.add('clicado');
 
@@ -51,8 +50,6 @@ function clicouCarrinho() {
                 const outrosElementos = Array.from(document.querySelectorAll('.produtos-plantas')).filter(item => {
                     return item.querySelector('h3').textContent === nomeProduto && item !== itens[indice];
                 });
-
-                console.log('Outros elementos:', outrosElementos);
 
                 outrosElementos.forEach(outroElemento => {
                     const iconeOutro = outroElemento.querySelector('.fa-basket-shopping');
@@ -144,7 +141,7 @@ class ExibeCarrinho {
         this.simplifica(this.imagemVasoCarrinho, 'imagem-vaso-carrinho');
         this.simplifica(this.containerTextoCarrinho, 'container-texto-carrinho');
         this.simplifica(this.paragrafoLixo, 'nome-produto');
-        this.simplifica(this.iconeLixo, ['fa-regular', 'fa-trash-can', 'clicavel'])
+        this.simplifica(this.iconeLixo, ['fa-regular', 'fa-trash-can', 'clicavel', 'icone-lixeira'])
         this.simplifica(this.containerPromoção, 'container-promoção-carrinho');
         this.simplifica(this.valorInicial, 'valor-incial');
         this.simplifica(this.containerValorProduto, 'container-valor-produto');
@@ -271,6 +268,28 @@ class ExibeCarrinho {
 
         atualizaPreco();
     }
+
+    removeItens() {
+        const iconesLixeira = window.document.querySelectorAll('.icone-lixeira');
+        const exibeCarrinho = this;
+        const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
+        const fazContaProdutos = ExibeCarrinho.subtotal - Number(preçoFatiado)
+        const preçoFinal = window.document.querySelector('.preço-final');
+        const preçoFinalFinal = window.document.querySelector('#preço-final-final');
+    
+        iconesLixeira.forEach((icone) => {
+            icone.addEventListener('click', () => {
+                const itemCarrinho = icone.closest('.container-produtos');
+                
+                if (itemCarrinho) {
+                    itemCarrinho.remove();
+                    preçoFinal.textContent = `R$ ${fazContaProdutos},00`;
+                    preçoFinalFinal.textContent = `R$ ${fazContaProdutos},00`
+                }
+            });
+        });
+    }
+    
 }
 
 function criaElemento(elemento) {
@@ -287,6 +306,7 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[2], 2, `De: ${elementosNecessarios[2]}`);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
     exibeCarrinho.verificaQuantidade(elementosNecessarios[0]);
+    exibeCarrinho.removeItens();
 }
 exibirProdutosCarrinho();
 
