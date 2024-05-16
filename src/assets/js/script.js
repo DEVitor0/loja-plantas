@@ -193,4 +193,5 @@ export const utilidades = (function() {
 })();
 
 utilidades.abreMensagem('.coração', '.container-mensagem:first-child');
-utilidades.fechaMensagem()
+utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div'); 
+utilidades.fechaMensagem();

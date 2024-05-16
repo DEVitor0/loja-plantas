@@ -27,21 +27,32 @@ fechaMenu()
 
 function clicouCarrinho() {
     return new Promise((resolve, reject) => {
-        const iconeCarrinho = window.document.querySelectorAll('.sexta-carrinho');
-        const itens = window.document.querySelectorAll('.produtos-plantas');
-        const iconeSexta = window.document.querySelectorAll('.fa-basket-shopping');
+        const iconeCarrinho = document.querySelectorAll('.sexta-carrinho');
+        const itens = document.querySelectorAll('.produtos-plantas');
+        const iconeSexta = document.querySelectorAll('.fa-basket-shopping');
         const arraySexta = removeElemento(iconeSexta, 0);
 
         iconeCarrinho.forEach((element, indice) => {
+            if (element.classList.contains('clicado')) {
+                return;
+            }
+
             element.addEventListener('click', () => {
+                console.log('Cliquei no ícone de carrinho');
+
+                element.classList.add('clicado');
+
                 element.style.backgroundColor = '#47941a';
                 const posiçãoIcone = arraySexta[indice];
                 posiçãoIcone.style.color = 'white';
 
                 const nomeProduto = itens[indice].querySelector('h3').textContent;
-                const outrosElementos = Array.from(window.document.querySelectorAll('.produtos-plantas')).filter(item => {
+
+                const outrosElementos = Array.from(document.querySelectorAll('.produtos-plantas')).filter(item => {
                     return item.querySelector('h3').textContent === nomeProduto && item !== itens[indice];
                 });
+
+                console.log('Outros elementos:', outrosElementos);
 
                 outrosElementos.forEach(outroElemento => {
                     const iconeOutro = outroElemento.querySelector('.fa-basket-shopping');
@@ -53,6 +64,7 @@ function clicouCarrinho() {
                         iconeOutro.style.color = 'white';
                         posIconOutro.style.color = 'white';
                         containerSexta.style.backgroundColor = '#47941a';
+                        containerSexta.classList.add('clicado');
                     }
                 });
 
@@ -72,15 +84,14 @@ function clicouCarrinho() {
                 }
 
                 if (nome !== undefined && verificaPreço !== undefined && imagem !== undefined) {
-                    return resolve([nome, verificaPreço, desconto, imagem]);
+                    resolve([nome, verificaPreço, desconto, imagem]);
                 } else {
                     reject(new Error('Algumas informações necessárias estão faltando.'));
                 }
-            }, { once: true });
+            });
         });
     });
 }
-
 
 function verificaAlgo(funcionalidade, tag) {
     try {
@@ -261,8 +272,6 @@ class ExibeCarrinho {
         atualizaPreco();
     }
 }
-
-utilidades.abreMensagem('.sexta-carrinho', 'body > aside:nth-child(7) > div');
 
 function criaElemento(elemento) {
     return window.document.createElement(elemento)
