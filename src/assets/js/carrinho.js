@@ -33,15 +33,15 @@ function clicouCarrinho() {
         const arraySexta = removeElemento(iconeSexta, 0);
 
         iconeCarrinho.forEach((element, indice) => {
-            if (element.classList.contains('clicado')) {
-                return;
-            }
-
-            element.addEventListener('click', () => {
+            const handleCarrinhoClick = () => {
+                if (element.classList.contains('clicado')) {
+                    return;
+                }
 
                 element.classList.add('clicado');
-
                 element.style.backgroundColor = '#47941a';
+                exibeConfirmação(element);
+
                 const posiçãoIcone = arraySexta[indice];
                 posiçãoIcone.style.color = 'white';
 
@@ -85,9 +85,33 @@ function clicouCarrinho() {
                 } else {
                     reject(new Error('Algumas informações necessárias estão faltando.'));
                 }
-            });
+            };
+
+            element.removeEventListener('click', element._handleCarrinhoClick);
+            element.addEventListener('click', handleCarrinhoClick);
+            element._handleCarrinhoClick = handleCarrinhoClick;
         });
     });
+}
+
+function exibeConfirmação(elementoEscolhido) {
+    const selecionandoCor = window.getComputedStyle(elementoEscolhido);
+    const corEscolhida = selecionandoCor.backgroundColor;
+
+    const corEsperada = 'rgb(71, 148, 26)';
+
+    if (corEscolhida === corEsperada) {
+        exibeMensagem();
+    }
+
+    console.log(corEscolhida);
+}
+
+function exibeMensagem() {
+    const containerMensagem = window.document.querySelector('body > aside:nth-child(7) > div');
+    containerMensagem.style.display = 'flex';
+    containerMensagem.style.position = 'fixed';
+    utilidades.escurecerTela();
 }
 
 function verificaAlgo(funcionalidade, tag) {
@@ -284,18 +308,11 @@ class ExibeCarrinho {
                     if (itemCarrinho) {
                         const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
                         const preçoRemovido = Number(preçoFatiado);
-    
-                        console.log('Preço do item removido:', preçoRemovido);
-                        console.log('Subtotal antes de remover o item:', ExibeCarrinho.subtotal);
-    
                         ExibeCarrinho.subtotal -= preçoRemovido;
-    
-                        console.log('Subtotal depois de remover o item:', ExibeCarrinho.subtotal);
-    
+
                         itemCarrinho.remove();
                         verificaCarrinho();
     
-                        console.log('Atualizando preço final na interface');
                         preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
                         preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
                     }
