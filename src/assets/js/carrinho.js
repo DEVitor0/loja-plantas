@@ -271,25 +271,40 @@ class ExibeCarrinho {
 
     removeItens() {
         const iconesLixeira = window.document.querySelectorAll('.icone-lixeira');
-        const exibeCarrinho = this;
-        const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
-        const fazContaProdutos = ExibeCarrinho.subtotal - Number(preçoFatiado)
         const preçoFinal = window.document.querySelector('.preço-final');
         const preçoFinalFinal = window.document.querySelector('#preço-final-final');
     
-        iconesLixeira.forEach((icone) => {
-            icone.addEventListener('click', () => {
-                const itemCarrinho = icone.closest('.container-produtos');
-                
-                if (itemCarrinho) {
-                    itemCarrinho.remove();
-                    preçoFinal.textContent = `R$ ${fazContaProdutos},00`;
-                    preçoFinalFinal.textContent = `R$ ${fazContaProdutos},00`
-                    verificaCarrinho();
-                }
-            });
+        const exibeCarrinho = this;
+    
+        iconesLixeira.forEach((icone, index) => {
+            if (!icone.dataset.listenerAdded) {
+                icone.addEventListener('click', () => {
+                    const itemCarrinho = icone.closest('.container-produtos');
+    
+                    if (itemCarrinho) {
+                        const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
+                        const preçoRemovido = Number(preçoFatiado);
+    
+                        console.log('Preço do item removido:', preçoRemovido);
+                        console.log('Subtotal antes de remover o item:', ExibeCarrinho.subtotal);
+    
+                        ExibeCarrinho.subtotal -= preçoRemovido;
+    
+                        console.log('Subtotal depois de remover o item:', ExibeCarrinho.subtotal);
+    
+                        itemCarrinho.remove();
+                        verificaCarrinho();
+    
+                        console.log('Atualizando preço final na interface');
+                        preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+                        preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+                    }
+                });
+
+                icone.dataset.listenerAdded = "true";
+            }
         });
-    }
+    }    
 
     removerTodosItens() {
         const botão = window.document.querySelector('#excluir-itens');
@@ -303,6 +318,7 @@ class ExibeCarrinho {
                 sliceDosItens.forEach(element => {
                     element.remove();
                     verificaCarrinho();
+                    ExibeCarrinho.subtotal = 0;
                 });
             });
         }
