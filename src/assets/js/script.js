@@ -141,20 +141,25 @@ export const utilidades = (function() {
     let overlay;
 
     function escurecerTela() {
-        overlay = document.createElement('div');
-        overlay.classList.add('overlay');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-        overlay.style.zIndex = '99'; 
-        document.body.appendChild(overlay);
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.classList.add('overlay');
+            overlay.style.position = 'fixed';
+            overlay.style.top = '0';
+            overlay.style.left = '0';
+            overlay.style.width = '100%';
+            overlay.style.height = '100%';
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
+            overlay.style.zIndex = '99'; 
+            document.body.appendChild(overlay);
+        }
     }
 
     function removerEscurecimentoTela() {
-        overlay.remove()
+        if (overlay) {
+            document.body.removeChild(overlay);
+            overlay = null; 
+        }
     }
 
     function abreMensagem(seletor, seletor2) {

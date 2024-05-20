@@ -46,7 +46,6 @@ function clicouCarrinho() {
                 posiçãoIcone.style.color = 'white';
 
                 const nomeProduto = itens[indice].querySelector('h3').textContent;
-
                 const outrosElementos = Array.from(document.querySelectorAll('.produtos-plantas')).filter(item => {
                     return item.querySelector('h3').textContent === nomeProduto && item !== itens[indice];
                 });
@@ -83,7 +82,7 @@ function clicouCarrinho() {
                 if (nome !== undefined && verificaPreço !== undefined && imagem !== undefined) {
                     resolve([nome, verificaPreço, desconto, imagem]);
                 } else {
-                    reject(new Error('Algumas informações necessárias estão faltando.'));
+                    reject(new Error('Algumas informações necessárias estão faltando'));
                 }
             };
 
@@ -97,7 +96,6 @@ function clicouCarrinho() {
 function exibeConfirmação(elementoEscolhido) {
     const selecionandoCor = window.getComputedStyle(elementoEscolhido);
     const corEscolhida = selecionandoCor.backgroundColor;
-
     const corEsperada = 'rgb(71, 148, 26)';
 
     if (corEscolhida === corEsperada) {
@@ -272,6 +270,32 @@ class ExibeCarrinho {
             preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`
         };
 
+        const removeItens = () => {
+            const iconesLixeira = window.document.querySelectorAll('.icone-lixeira');
+            const preçoFinal = window.document.querySelector('.preço-final');
+            const preçoFinalFinal = window.document.querySelector('#preço-final-final');
+        
+            iconesLixeira.forEach((icone, index) => {
+                if (!icone.dataset.listenerAdded) {
+                    icone.addEventListener('click', () => {
+                        const itemCarrinho = icone.closest('.container-produtos');
+        
+                        if (itemCarrinho) {
+                            ExibeCarrinho.subtotal -= fazConta();
+    
+                            itemCarrinho.remove();
+                            verificaCarrinho();
+        
+                            preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+                            preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+                        }
+                    });
+    
+                    icone.dataset.listenerAdded = "true";
+                }
+            });
+        }
+
         const escutaClique = (icone, operação) => {
             icone.addEventListener('click', () => {
                 if (operação === '+') {
@@ -291,37 +315,8 @@ class ExibeCarrinho {
         escutaClique(iconeMenos, '-');
 
         atualizaPreco();
-    }
-
-    removeItens() {
-        const iconesLixeira = window.document.querySelectorAll('.icone-lixeira');
-        const preçoFinal = window.document.querySelector('.preço-final');
-        const preçoFinalFinal = window.document.querySelector('#preço-final-final');
-    
-        const exibeCarrinho = this;
-    
-        iconesLixeira.forEach((icone, index) => {
-            if (!icone.dataset.listenerAdded) {
-                icone.addEventListener('click', () => {
-                    const itemCarrinho = icone.closest('.container-produtos');
-    
-                    if (itemCarrinho) {
-                        const preçoFatiado = exibeCarrinho.preçoItem.slice(3, 5);
-                        const preçoRemovido = Number(preçoFatiado);
-                        ExibeCarrinho.subtotal -= preçoRemovido;
-
-                        itemCarrinho.remove();
-                        verificaCarrinho();
-    
-                        preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
-                        preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
-                    }
-                });
-
-                icone.dataset.listenerAdded = "true";
-            }
-        });
-    }    
+        removeItens();
+    } 
 
     removerTodosItens() {
         const botão = window.document.querySelector('#excluir-itens');
@@ -360,7 +355,6 @@ async function exibirProdutosCarrinho() {
     await exibeCarrinho.adicionaTexto(elementosNecessarios[2], 2, `De: ${elementosNecessarios[2]}`);
     await exibeCarrinho.adicionaTexto(elementosNecessarios[1], 3, `Por: ${elementosNecessarios[1]}`);
     exibeCarrinho.verificaQuantidade(elementosNecessarios[0]);
-    exibeCarrinho.removeItens();
     verificaCarrinho();
     exibeCarrinho.removerTodosItens();
 }
