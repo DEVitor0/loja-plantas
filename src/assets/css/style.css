@@ -255,7 +255,6 @@ button>.negrito {
 }
 
 .pontos {
-    /*!Fazer o efeito do carrosel e ativar os pontos com cor cinza*/
     width: 15px;
     height: 15px;
     background-color: var(--cor3);
@@ -453,12 +452,19 @@ main>section>div:nth-child(4) {
     }
 }
 
+#seção-produtos .produtos-plantas, #container-novidades .produtos-plantas, #container-ofertas .produtos-plantas {
+    animation: slideDireita 0.260s ease forwards;
+}
+
+.container-exibição-produtos .produtos-plantas {
+    animation: slideEsquerda  0.260s ease forwards;
+}
+
 .produtos-plantas {
     width: 280px;
     height: 450px;
     margin: 10px;
     display: inline-block;
-    animation: slideDireita 0.3s linear forwards;
 }
 
 .direita .produtos-plantas {
@@ -776,7 +782,6 @@ main>section>div:nth-child(12) {
 }
 
 .blogs {
-    /*!Criar uma responsividade exclusiva para monitor da caixa vermelha*/
     width: 80%;
     height: 220px;
     margin: 0px 15px;

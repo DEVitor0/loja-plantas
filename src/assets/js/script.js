@@ -109,7 +109,7 @@ function carrossel() {
         plantasDireitas.forEach((element) => {
             element.style.display = 'block';
             produtosPlantas.forEach(element2 => {
-                element2.style.animation = 'slideEsquerda 0.3s ease forwards';
+                element2.style.animation = 'slideEsquerda 0.260s ease forwards';
             })
         });
         plantasEsquerdas.forEach((element) => {
@@ -124,7 +124,7 @@ function carrossel() {
         plantasEsquerdas.forEach((element) => {
             element.style.display = 'block';
             produtosPlantas.forEach(element2 => {
-                element2.style.animation = 'slideDireita 0.3s ease forwards';
+                element2.style.animation = 'slideDireita 0.260s ease forwards';
             })
         });
     });
@@ -199,3 +199,22 @@ export const utilidades = (function() {
 
 utilidades.abreMensagem('.coração', '.container-mensagem:first-child');
 utilidades.fechaMensagem();
+
+function trocaProdutosExibidos() {
+    const navegaçãoProdutos = document.querySelectorAll('.navegação-produtos');
+    const produtosExibidos = document.querySelectorAll('.container-exibição-produtos');
+
+    produtosExibidos.forEach((produto, indice) => {
+        produto.style.display = (indice === 0) ? 'flex' : 'none';
+    });
+
+    navegaçãoProdutos.forEach((element, indice) => {
+        element.addEventListener('click', () => {
+            produtosExibidos.forEach((produto, produtoIndice) => {
+                produto.style.display = (produtoIndice === indice) ? 'flex' : 'none';
+            });
+        });
+    });
+}
+trocaProdutosExibidos();
+
