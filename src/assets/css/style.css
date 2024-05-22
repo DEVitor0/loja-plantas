@@ -696,7 +696,7 @@ main>section>div:nth-child(4) {
 
 .filtros-produtos {
     padding: 0.5vw 2vh;
-    color: var(--cor4);
+    color: rgb(36, 35, 35);
     text-align: left;
 }
 

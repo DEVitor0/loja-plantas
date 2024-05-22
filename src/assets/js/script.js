@@ -203,18 +203,39 @@ utilidades.fechaMensagem();
 function trocaProdutosExibidos() {
     const navegaçãoProdutos = document.querySelectorAll('.navegação-produtos');
     const produtosExibidos = document.querySelectorAll('.container-exibição-produtos');
+    const corAtivo = '#47941a';
+    const corPadrao = 'rgb(36, 35, 35)';
+    const corHover = '#518432';
 
     produtosExibidos.forEach((produto, indice) => {
         produto.style.display = (indice === 0) ? 'flex' : 'none';
     });
 
     navegaçãoProdutos.forEach((element, indice) => {
+        element.addEventListener('mouseenter', () => {
+            if (!element.classList.contains('ativo')) {
+                element.style.color = corHover;
+            }
+        });
+        element.addEventListener('mouseleave', () => {
+            if (!element.classList.contains('ativo')) {
+                element.style.color = corPadrao;
+            }
+        });
         element.addEventListener('click', () => {
+            navegaçãoProdutos.forEach((navItem) => {
+                navItem.classList.remove('ativo');
+                navItem.style.color = corPadrao;
+            });
+
+            element.classList.add('ativo');
+            element.style.color = corAtivo;
+
             produtosExibidos.forEach((produto, produtoIndice) => {
                 produto.style.display = (produtoIndice === indice) ? 'flex' : 'none';
             });
         });
     });
 }
-trocaProdutosExibidos();
 
+trocaProdutosExibidos();
