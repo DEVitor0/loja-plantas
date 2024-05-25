@@ -723,12 +723,11 @@ main>section>div:nth-child(4) {
     z-index: 3;
 }
 
-.imagem-perfil {
+#imagem-perfil {
     width: 100px;
     height: 100px;
-    background-image: url("../img/pessoas/vitor.jpeg");
     background-size: cover;
-    background-position: center;
+    background-position: left center;
     border-radius: 100%;
     z-index: 5;
 }
@@ -738,6 +737,20 @@ main>section>div:nth-child(4) {
     font-size: 20px;
     text-align: center;
     color: var(--cor2);
+}
+
+#container-recomendações > div:nth-child(2),
+#container-recomendações > div:nth-child(3),
+.imagem-perfil {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
+}
+
+#container-recomendações.show > div:nth-child(2),
+#container-recomendações.show > div:nth-child(3),
+#container-recomendações.show .imagem-perfil {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
 }
 
 #container-recomendações>div:nth-child(2)>p:nth-child(2) {
@@ -758,6 +771,22 @@ main>section>div:nth-child(4) {
     justify-content: center;
     position: relative;
     top: 3vh;
+}
+
+.pontos {
+    width: 13px;
+    height: 13px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.clicavel {
+    cursor: pointer;
+}
+
+.pontos.ativo {
+    background-color: #3a3a3a; 
 }
 
 main>section>div:nth-child(12) {

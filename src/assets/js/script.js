@@ -239,3 +239,57 @@ function trocaProdutosExibidos() {
 }
 
 trocaProdutosExibidos();
+
+(function() {
+    const nomes = ["Carlos Oliveira", "João Santos", "Maria Silva"];
+    const mensagens = [
+        "Curabitur vitae libero ac mauris facilisis commodo. Quisque in velit nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce euismod, urna id facilisis fringilla, quam nisl bibendum mauris, sed ullamcorper tortor justo sit amet leo. ...",
+        "Aenean a tortor ut magna pharetra vehicula vel sit amet magna. Donec tincidunt lorem ut elit vehicula, non scelerisque justo cursus. Maecenas at justo justo. Nam sagittis, quam non sollicitudin consectetur, nunc metus vehicula lectus, in fermentum enim nunc nec metus. ...",
+        "Integer dignissim sapien et est volutpat, a consequat leo egestas. Sed nec orci ac libero ullamcorper mollis nec ut dui. Ut cursus sem vitae dolor auctor, a facilisis turpis placerat. Vivamus ut nibh eget quam blandit congue non eget felis. Donec sollicitudin justo id libero. ..."
+    ];
+
+    const imagens = [
+        "./src/assets/img/pessoas/pessoa3.jpg",
+        "./src/assets/img/pessoas/pessoa2.jpg",
+        "./src/assets/img/pessoas/pessoa1.jpg",
+    ];
+
+    let currentIndex = 0;
+    let intervalId;
+
+    function showRecommendation(index) {
+        currentIndex = index;
+        document.getElementById('nome-recomendacao').innerText = nomes[index];
+        document.getElementById('mensagem-recomendacao').innerText = mensagens[index];
+        console.log('Tentando definir imagem de fundo:', imagens[index]);
+
+        document.getElementById('imagem-perfil').style.backgroundImage = `url('${imagens[index]}')`;
+
+        updatePontos();
+    }
+
+    function updatePontos() {
+        const pontos = document.querySelectorAll('.pontos');
+        pontos.forEach((ponto, index) => {
+            ponto.classList.toggle('ativo', index === currentIndex);
+        });
+    }
+
+    function startCarousel() {
+        intervalId = setInterval(() => {
+            const nextIndex = (currentIndex + 1) % nomes.length;
+            document.getElementById('container-recomendações').classList.remove('show');
+            setTimeout(() => {
+                showRecommendation(nextIndex);
+                document.getElementById('container-recomendações').classList.add('show');
+            }, 400);
+        }, 4000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        showRecommendation(0);
+        startCarousel();
+    });
+
+    window.showRecommendation = showRecommendation;
+})();
