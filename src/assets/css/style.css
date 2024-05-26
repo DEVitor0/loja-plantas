@@ -713,7 +713,7 @@ main>section>div:nth-child(4) {
     width: 100%;
     height: 50vh;
     margin: auto;
-    background-image: url("../img/fundos/testibg.jpg");
+    background-image: url("../img/fundos/testibg.png");
     background-size: cover;
     background-position: top;
     display: flex;
@@ -824,8 +824,7 @@ main>section>div:nth-child(12) {
 }
 
 .texto-caixa-blogs {
-    min-width: 45%;
-    max-width: 55%;
+    width: 320px;
     height: auto;
     padding: 10px;
 }
@@ -846,9 +845,13 @@ main>section>div:nth-child(12) {
 }
 
 .resumo-caixa-blog {
-    /*!Verificar Como ficou na versão de monitor o epsaçamento entre os textos*/
     text-align: left;
     margin-bottom: 10px;
+    width: 270px;
+}
+
+.resumo-caixa-blog>p {
+    text-align: left;
 }
 
 .resumo-caixa-blog>p:first-child {
@@ -876,25 +879,12 @@ main>section>div:nth-child(12) {
 }
 
 .imagens-caixa-blogs:first-child {
-    background-image: url("../img/fundos/pexels-cottonbro-4505144.jpg");
-    background-position: center;
+    background-image: url("../img/fundos/fundo3-blog.jpeg");
+    background-position: left;
 }
 
 #container-blogs>div:nth-child(2)>div.imagens-caixa-blogs {
-    background-image: url("../img/fundos/pexels-cottonbro-4507712.jpg");
-}
-
-#mover-elementos-blog {
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 3vh;
-}
-
-.setas-carrossel-blog {
-    padding: 0px 15px;
+    background-image: url("../img/fundos/fundo2-blog.jpeg");
 }
 
 #carrinho {
@@ -1254,7 +1244,6 @@ main>section>div:nth-child(12) {
     width: 100%;
     height: auto;
     margin-top: 5vh;
-    margin-bottom: 2.5vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -1288,51 +1277,77 @@ main>section>div:nth-child(12) {
     padding: 6px;
 }
 
-#container-menu-detalhes-rodapé {
-    margin-top: 6vh;
-    width: 100%;
-    height: auto;
+#footer {
+    padding-top: 20px;
+}
+
+.footer-container {
+    border-top: 1px solid var(--cor3);
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    font-size: 18px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
-#container-detalhes-rodapé {
-    width: 100%;
-    height: auto;
-    margin-top: 1.5vh;
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin: 20px;
+}
+
+.footer-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-section p, .footer-section ul {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.footer-section .social-icons {
     display: flex;
-    justify-content: space-evenly;
+    gap: 10px;
     align-items: center;
+    transform: translateX(-20px);
 }
 
-.contato-elementos {
-    padding-bottom: 10px;
-    margin-left: 30px;
+.footer-section .social-icons a {
+    color: black;
+    font-size: 20px;
+    margin: 0 10px;
+    text-decoration: none;
 }
 
-.contato-elementos>p {
-    display: inline-block;
+.footer-section .social-icons a:hover {
+    color: var(--cor2);
 }
 
-.contato-elementos>i {
-    font-size: 18px;
-    color: var(--cor1);
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
 }
 
-#Informações>div {
-    padding-bottom: 5px;
-    transform: translateX(-50px);
-}
-
-#Serviço>div {
-    padding-bottom: 5px;
-    transform: translateX(-50px);
-}
-
-#Conta>div {
-    padding-bottom: 5px;
-    transform: translateX(-5px);
+.footer-bottom p {
+    margin: 0;
+    font-size: 14px;
 }
