@@ -366,13 +366,23 @@ function adicionaItem() {
     clicou.forEach((element) => {
         element.addEventListener('click', () => {
             exibirProdutosCarrinho();
-            if (containerProdutosId.children.length >= 4) {
+            verificaLarguraTela();
+
+            if (containerProdutosId.children.length >= 4 && !verificaLarguraTela()) {
                 containerProdutosId.style.overflowY = 'auto';
             }
         }, { once: true })
     })
 }
 adicionaItem();
+
+function verificaLarguraTela() {
+    if (window.innerWidth >= 992 && window.innerWidth <= 1999 && window.innerHeight <= 672) {
+        const carrinho = window.document.querySelector('#carrinho');
+        carrinho.style.overflowY = 'auto';
+        return true;
+    }
+}
 
 function verificaCarrinho() {
     const mensagemFalha = window.document.querySelector('#sem-conteudo');

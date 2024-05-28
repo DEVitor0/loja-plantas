@@ -99,7 +99,7 @@ function carrossel() {
 
     const plantasDireitas = window.document.querySelectorAll(".direita");
     const setaDireita = window.document.querySelector(".fa-angle-right");
-    const produtosPlantas = window.document.querySelectorAll('.produtos-plantas');
+    const produtosPlantas = window.document.querySelectorAll('#seção-produtos > .produtos-plantas');
 
     plantasDireitas.forEach((element) => {
         displayNone(element);

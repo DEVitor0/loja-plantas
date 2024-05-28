@@ -80,6 +80,7 @@ nav#menu-inicial-preferencias {
     border-bottom: 2px solid var(--cor2);
     gap: 5px;
     animation: abrindo 0.3s ease;
+    z-index: 200;
 }
 
 .container-abertura>button {
@@ -209,17 +210,17 @@ button>.negrito {
 
 #titulo-carrossel>div>p:first-child {
     font-family: "Mali", cursive, 'Helvetica Neue', sans-serif;
-    font-size: 6vh;
+    font-size: 38px;
     color: var(--cor1);
 }
 
 #titulo-carrossel>div>h1 {
-    font-size: 6.5vh;
+    font-size: 44px;
     margin-top: 0px;
 }
 
 #titulo-carrossel>div>p:nth-child(3) {
-    font-size: 1.9vh;
+    font-size: 12px;
 }
 
 #titulo-carrossel>div>div {
@@ -227,14 +228,14 @@ button>.negrito {
     height: 6vh;
     background-color: #646464;
     transform: translateX(3vw);
-    margin-top: 1.2vh
+    margin-top: 1.2vh;
 }
 
 #titulo-carrossel>div>button {
     margin-top: 1.2vh;
     border-radius: 30px;
     background-color: var(--cor1);
-    padding: 10px;
+    padding: 8px;
     font-size: 15px;
     color: white;
     border: none;
@@ -283,7 +284,7 @@ button>.negrito {
 }
 
 #cuidado-plantas>p {
-    width: 1000px;
+    width: 700px;
     text-align: center;
     padding-top: 5px;
 }
@@ -323,6 +324,7 @@ main>section>div:nth-child(2) {
 #planta1 {
     grid-area: a;
     background-image: url("../img/vasos/filtros-plantas/planta1.jpg");
+    background-position: right;
     background-size: cover;
     height: 56vh;
     width: 32vw;
@@ -332,9 +334,9 @@ main>section>div:nth-child(2) {
     grid-area: b;
     height: 25vh;
     width: 24vw;
-    transform: translateX(-1.1vw);
-    background-repeat: no-repeat;
+    transform: translateX(-0.5vw);
     background-image: url("../img/vasos/filtros-plantas/planta3.jpg");
+    background-position: right;
     background-size: cover;
     margin-bottom: 10px;
 }
@@ -344,6 +346,7 @@ main>section>div:nth-child(2) {
     width: 22vw;
     height: 25vh;
     background-image: url("../img/vasos/filtros-plantas/planta2.jpg");
+    background-position: center;
     background-size: cover;
     margin-bottom: 10px;
 }
@@ -354,6 +357,7 @@ main>section>div:nth-child(2) {
     width: 27vw;
     margin-left: 2vw;
     background-image: url("../img/vasos/filtros-plantas/planta4.jpg");
+    background-position: center;
     background-size: cover;
     transform: translateX(-10px);
 }
@@ -364,6 +368,7 @@ main>section>div:nth-child(2) {
     height: 28vh;
     margin-left: 2vw;
     background-image: url("../img/vasos/filtros-plantas/planta5.jpg");
+    background-position: right;
     background-size: cover;
     transform: translateX(2px);
 }
@@ -462,8 +467,8 @@ main>section>div:nth-child(4) {
 }
 
 .produtos-plantas {
-    width: 280px;
-    height: 450px;
+    width: 220px; /*!280*/
+    height: 320px; /*!390 Verificar isso daqui*/
     margin: 10px;
     display: inline-block;
 }
@@ -571,8 +576,8 @@ main>section>div:nth-child(4) {
 }
 
 #container-promoção {
-    width: 20vw;
-    height: 21vh;
+    width: 30vw;
+    height: 150px;
     padding: 15px;
     border: 2px solid white;
     position: absolute;
@@ -590,28 +595,28 @@ main>section>div:nth-child(4) {
 
 #container-promoção>div>h3 {
     font-family: "Montserrat", sans-serif;
-    font-size: 4vh;
+    font-size: 35px;
 }
 
 #container-promoção>div>p:nth-child(2) {
     font-family: "Montserrat", sans-serif;
-    font-size: 3vh;
+    font-size: 25px;
     margin-bottom: 0.5vh;
 }
 
 #container-promoção>div>p:nth-child(3) {
-    font-size: 1.7vh;
+    font-size: 15px;
 }
 
 #container-promoção>div>p>span {
     font-family: "Montserrat", sans-serif;
-    font-size: 3vh;
+    font-size: 25px;
     color: var(--cor2);
 }
 
 .imagens-promoção {
     width: 40vw;
-    height: 50vh;
+    height: 300px;
     margin: 30px 20px;
     /*adicionart talvez uma borda mais redondinha*/
 }
@@ -638,6 +643,7 @@ main>section>div:nth-child(4) {
 
 .container-informativos {
     padding-right: 20px;
+    height: 60px;
     display: flex;
     align-items: center;
     border-right: 1px solid var(--cor3);
@@ -712,11 +718,11 @@ main>section>div:nth-child(4) {
 
 #container-recomendações {
     width: 100%;
-    height: 400px;
+    height: 420px;
     margin: auto;
     background-image: url("../img/fundos/testibg.png");
     background-size: cover;
-    background-position: top;
+    background-position: right;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -803,10 +809,10 @@ main>section>div:nth-child(12) {
 }
 
 #container-blogs {
-    width: 80%;
+    width: 100%;
     height: auto;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     margin-top: 3vh;
 }
@@ -820,12 +826,12 @@ main>section>div:nth-child(12) {
 }
 
 .imagens-caixa-blogs {
-    width: 17vw;
+    width: 20vw;
     height: auto;
 }
 
 .texto-caixa-blogs {
-    width: 320px;
+    width: 220px;
     height: auto;
     padding: 10px;
 }
@@ -959,8 +965,7 @@ main>section>div:nth-child(12) {
 
 #container-produtos {
     overflow-y: hidden;
-    min-height: auto;
-    max-height: 60vh;
+    height: auto;
     width: 100%;
 }
 
@@ -1117,7 +1122,7 @@ main>section>div:nth-child(12) {
     background-color: #27AC22;
     border: none;
     border-radius: 5px;
-    margin-top: 15px;
+    margin: 15px 0px;
 }
 
 .container-mensagem {
@@ -1288,7 +1293,7 @@ main>section>div:nth-child(12) {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 900px;
 }
 
 .footer-section {
@@ -1329,7 +1334,6 @@ main>section>div:nth-child(12) {
     display: flex;
     gap: 10px;
     align-items: center;
-    transform: translateX(-20px);
 }
 
 .footer-section .social-icons a {
