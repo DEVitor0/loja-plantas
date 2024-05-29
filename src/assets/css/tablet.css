@@ -47,7 +47,7 @@ nav#menu-inicial-preferencias {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
 }
 
 .itens-preferencias {
@@ -133,7 +133,7 @@ button>.negrito {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    gap: 25px;
+    gap: 10px;
 }
 
 .informações-menu>i {
@@ -188,7 +188,7 @@ button>.negrito {
 
 #titulo-carrossel {
     margin-bottom: 10vh;
-    margin-left: 8vw;
+    margin-left: 4vw;
     opacity: 0;
 }
 
@@ -281,10 +281,12 @@ button>.negrito {
 #cuidado-plantas>h2 {
     padding-top: 5px;
     font-size: 18px;
+    width: 500px;
+    text-align: center;
 }
 
 #cuidado-plantas>p {
-    width: 700px;
+    width: 600px;
     text-align: center;
     padding-top: 5px;
 }
@@ -357,7 +359,7 @@ main>section>div:nth-child(2) {
     width: 27vw;
     margin-left: 2vw;
     background-image: url("../img/vasos/filtros-plantas/planta4.jpg");
-    background-position: center;
+    background-position: left;
     background-size: cover;
     transform: translateX(-10px);
 }
@@ -679,6 +681,7 @@ main>section>div:nth-child(4) {
 }
 
 
+
 #container-categorias {
     width: 100%;
     height: auto;
@@ -693,7 +696,6 @@ main>section>div:nth-child(4) {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
 }
 
 #navegação-filtros {

@@ -280,6 +280,7 @@ button>.negrito {
 #cuidado-plantas>h2 {
     padding-top: 5px;
     font-size: 18px;
+    width: 100%;
 }
 
 #cuidado-plantas>p {
@@ -898,15 +899,15 @@ main>section>div:nth-child(12) {
     display: none;
     animation: slideAbertoCarrinho 0.3s forwards;
     z-index: 200;
+    transform: translateX(100%); 
 }
 
 @keyframes slideAbertoCarrinho {
     from {
-        right: -200px;
+        transform: translateX(100%);
     }
-
     to {
-        right: 0;
+        transform: translateX(0); 
     }
 }
 

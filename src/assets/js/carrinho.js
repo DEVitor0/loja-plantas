@@ -4,13 +4,20 @@ function abreMenu() {
     const iconeCarrinho = window.document.querySelector('#abrir-carrinho');
     const carrinho = window.document.querySelector('#carrinho');
     const body = window.document.querySelector('body');
+    
     iconeCarrinho.addEventListener('click', () => {
+        body.style.overflowX = 'hidden';
         carrinho.style.display = 'block';
         body.style.overflowY = 'hidden';
+        
         utilidades.escurecerTela();
+        carrinho.addEventListener('animationend', function() {
+            body.style.overflowX = ''; 
+        }, { once: true });
     });
 }
-abreMenu()
+
+abreMenu();
 
 function fechaMenu() {
     const carrinho = window.document.querySelector('#carrinho');
@@ -260,10 +267,12 @@ class ExibeCarrinho {
         const atualizaPreco = () => {
             const paragrafo = this.valorQuantia;
             const subtotalItem = fazConta();
+            
             paragrafo.textContent = `R$ ${subtotalItem},00`;
             ExibeCarrinho.subtotal -= this.subtotalItem || 0;
             this.subtotalItem = subtotalItem;
             ExibeCarrinho.subtotal += subtotalItem;
+
             const preçoFinal = window.document.querySelector('.preço-final');
             const preçoFinalFinal = window.document.querySelector('#preço-final-final');
             preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;

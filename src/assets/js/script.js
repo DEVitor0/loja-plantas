@@ -99,7 +99,7 @@ function carrossel() {
 
     const plantasDireitas = window.document.querySelectorAll(".direita");
     const setaDireita = window.document.querySelector(".fa-angle-right");
-    const produtosPlantas = window.document.querySelectorAll('#seção-produtos > .produtos-plantas');
+    const produtosPlantas = window.document.querySelectorAll('#seção-produtos .produtos-plantas');
 
     plantasDireitas.forEach((element) => {
         displayNone(element);
@@ -137,7 +137,7 @@ export function removeElemento(item, posição) {
     return elemento;
 }
 
-export const utilidades = (function() {
+export const utilidades = (function () {
     let overlay;
 
     function escurecerTela() {
@@ -150,7 +150,7 @@ export const utilidades = (function() {
             overlay.style.width = '100%';
             overlay.style.height = '100%';
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)';
-            overlay.style.zIndex = '99'; 
+            overlay.style.zIndex = '99';
             document.body.appendChild(overlay);
         }
     }
@@ -158,7 +158,7 @@ export const utilidades = (function() {
     function removerEscurecimentoTela() {
         if (overlay) {
             document.body.removeChild(overlay);
-            overlay = null; 
+            overlay = null;
         }
     }
 
@@ -211,6 +211,12 @@ function trocaProdutosExibidos() {
         produto.style.display = (indice === 0) ? 'flex' : 'none';
     });
 
+    // Definir o primeiro elemento como ativo inicialmente
+    if (navegaçãoProdutos.length > 0) {
+        navegaçãoProdutos[0].classList.add('ativo');
+        navegaçãoProdutos[0].style.color = corAtivo;
+    }
+
     navegaçãoProdutos.forEach((element, indice) => {
         element.addEventListener('mouseenter', () => {
             if (!element.classList.contains('ativo')) {
@@ -240,7 +246,7 @@ function trocaProdutosExibidos() {
 
 trocaProdutosExibidos();
 
-(function() {
+(function () {
     const nomes = ["Carlos Oliveira", "João Santos", "Maria Silva"];
     const mensagens = [
         "Curabitur vitae libero ac mauris facilisis commodo. Quisque in velit nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce euismod, urna id facilisis fringilla, quam nisl bibendum mauris, sed ullamcorper tortor justo sit amet leo. ...",
@@ -261,7 +267,6 @@ trocaProdutosExibidos();
         currentIndex = index;
         document.getElementById('nome-recomendacao').innerText = nomes[index];
         document.getElementById('mensagem-recomendacao').innerText = mensagens[index];
-        console.log('Tentando definir imagem de fundo:', imagens[index]);
 
         document.getElementById('imagem-perfil').style.backgroundImage = `url('${imagens[index]}')`;
 
