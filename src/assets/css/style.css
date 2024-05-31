@@ -438,7 +438,6 @@ main>section>div:nth-child(4) {
     0% {
         transform: translateX(-100%);
     }
-
     100% {
         transform: translateX(0);
     }
@@ -448,22 +447,23 @@ main>section>div:nth-child(4) {
     0% {
         transform: translateX(100%);
     }
-
     100% {
         transform: translateX(0);
     }
 }
 
-#seção-produtos .produtos-plantas, #container-novidades .produtos-plantas, #container-ofertas .produtos-plantas {
+#seção-produtos .produtos-plantas, 
+#container-novidades .produtos-plantas, 
+#container-ofertas .produtos-plantas {
     animation: slideDireita 0.260s ease forwards;
 }
 
 .container-exibição-produtos .produtos-plantas {
-    animation: slideEsquerda  0.260s ease forwards;
+    animation: slideEsquerda 0.260s ease forwards;
 }
 
 .produtos-plantas {
-    width: 280px;
+    width: 280px !important;
     height: 450px;
     margin: 10px;
     display: inline-block;

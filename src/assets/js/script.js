@@ -94,42 +94,90 @@ function navegaçãoMenus() {
 navegaçãoMenus()
 
 function carrossel() {
-    const plantasEsquerdas = window.document.querySelectorAll(".esquerda");
-    const setaEsquerda = window.document.querySelector(".fa-angle-left");
+    const plantasEsquerdas = document.querySelectorAll(".esquerda");
+    const setaEsquerda = document.querySelector(".fa-angle-left");
 
-    const plantasDireitas = window.document.querySelectorAll(".direita");
-    const setaDireita = window.document.querySelector(".fa-angle-right");
-    const produtosPlantas = window.document.querySelectorAll('#seção-produtos .produtos-plantas');
+    const plantasDireitas = document.querySelectorAll(".direita");
+    const setaDireita = document.querySelector(".fa-angle-right");
+    const produtosPlantas = document.querySelectorAll('#seção-produtos .produtos-plantas');
+    const body = document.querySelector('body');
+
+    function displayNone(element) {
+        element.style.display = 'none';
+    }
+
+    function hideOverflow() {
+        body.style.overflowX = 'hidden';
+    }
+
+    function restoreOverflow() {
+        body.style.overflowX = '';
+    }
 
     plantasDireitas.forEach((element) => {
         displayNone(element);
     });
 
     setaDireita.addEventListener('click', () => {
-        plantasDireitas.forEach((element) => {
-            element.style.display = 'block';
-            produtosPlantas.forEach(element2 => {
-                element2.style.animation = 'slideEsquerda 0.260s ease forwards';
-            })
-        });
-        plantasEsquerdas.forEach((element) => {
-            displayNone(element);
-        })
+        hideOverflow();
+        const larguraTela = window.innerWidth;
+        if (larguraTela >= 768 && larguraTela <= 991) {
+            plantasDireitas.forEach((element) => {
+                element.style.display = 'block';
+                element.style.width = 'calc(33.333% - 20px)';
+                produtosPlantas.forEach(element2 => {
+                    element2.style.animation = 'slideEsquerda 0.260s ease forwards';
+                    element2.addEventListener('animationend', restoreOverflow, { once: true });
+                });
+            });
+            plantasEsquerdas.forEach((element) => {
+                displayNone(element);
+            });
+        } else {
+            plantasDireitas.forEach((element) => {
+                element.style.display = 'block';
+                produtosPlantas.forEach(element2 => {
+                    element2.style.animation = 'slideEsquerda 0.260s ease forwards';
+                    element2.addEventListener('animationend', restoreOverflow, { once: true });
+                });
+            });
+            plantasEsquerdas.forEach((element) => {
+                displayNone(element);
+            });
+        }
     });
 
     setaEsquerda.addEventListener('click', () => {
-        plantasDireitas.forEach((element) => {
-            displayNone(element)
-        });
-        plantasEsquerdas.forEach((element) => {
-            element.style.display = 'block';
-            produtosPlantas.forEach(element2 => {
-                element2.style.animation = 'slideDireita 0.260s ease forwards';
-            })
-        });
+        hideOverflow();
+        const larguraTela = window.innerWidth;
+        if (larguraTela >= 768 && larguraTela <= 991) {
+            plantasDireitas.forEach((element) => {
+                displayNone(element);
+            });
+            plantasEsquerdas.forEach((element) => {
+                element.style.display = 'block';
+                element.style.width = 'calc(33.333% - 20px)';
+                produtosPlantas.forEach(element2 => {
+                    element2.style.animation = 'slideDireita 0.260s ease forwards';
+                    element2.addEventListener('animationend', restoreOverflow, { once: true });
+                });
+            });
+        } else {
+            plantasDireitas.forEach((element) => {
+                displayNone(element);
+            });
+            plantasEsquerdas.forEach((element) => {
+                element.style.display = 'block';
+                produtosPlantas.forEach(element2 => {
+                    element2.style.animation = 'slideDireita 0.260s ease forwards';
+                    element2.addEventListener('animationend', restoreOverflow, { once: true });
+                });
+            });
+        }
     });
 }
-carrossel()
+
+carrossel();
 
 export function removeElemento(item, posição) {
     const elemento = Array.from(item);
@@ -249,9 +297,9 @@ trocaProdutosExibidos();
 (function () {
     const nomes = ["Carlos Oliveira", "João Santos", "Maria Silva"];
     const mensagens = [
-        "Curabitur vitae libero ac mauris facilisis commodo. Quisque in velit nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Fusce euismod, urna id facilisis fringilla, quam nisl bibendum mauris, sed ullamcorper tortor justo sit amet leo. ...",
-        "Aenean a tortor ut magna pharetra vehicula vel sit amet magna. Donec tincidunt lorem ut elit vehicula, non scelerisque justo cursus. Maecenas at justo justo. Nam sagittis, quam non sollicitudin consectetur, nunc metus vehicula lectus, in fermentum enim nunc nec metus. ...",
-        "Integer dignissim sapien et est volutpat, a consequat leo egestas. Sed nec orci ac libero ullamcorper mollis nec ut dui. Ut cursus sem vitae dolor auctor, a facilisis turpis placerat. Vivamus ut nibh eget quam blandit congue non eget felis. Donec sollicitudin justo id libero. ..."
+        "Vivamus a finibus ac ipsum porttitor egestas ut sit amet nulla. Nunc facilisis ipsum ut nisl tempus, non feugiat justo semper. Vestibul ac justo justo. Proin pharetra, purus non vehicula sagittis, nunc varius porttitor ligula, in volutpat justo. ...",
+        "Integer a semper ac purus ultrices dictum ut sit amet massa. Donec elementum purus ut ante blandit, non posuere justo viverra. Aliquam ac justo justo. Nulla facilisi, velit non posuere cursus, nunc tellus ultrices sodales, in eleifend justo. ...",
+        "Quisque a tempus ac magna gravida pretium ut sit eros magna. Fusce suscipit magna ut elit gravida, non volutpat justo semper. Aliquam ac justo justo. Nam dictumst, lorem non convallis elementum, nunc tellus gravida lectus, in lobortis ipsum. ..."
     ];
 
     const imagens = [

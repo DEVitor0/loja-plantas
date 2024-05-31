@@ -299,7 +299,7 @@ button>.negrito {
     border-radius: 30px;
     color: white;
     font-size: 15px;
-    margin: 3vh;
+    margin: 5vh;
 }
 
 main>section>div:nth-child(2) {
@@ -328,17 +328,17 @@ main>section>div:nth-child(2) {
     background-image: url("../img/vasos/filtros-plantas/planta1.jpg");
     background-position: right;
     background-size: cover;
-    height: 56vh;
+    height: 61.6vh;
     width: 32vw;
 }
 
 #planta2 {
     grid-area: b;
-    height: 25vh;
+    height: 27.5vh;
     width: 24vw;
     transform: translateX(-0.5vw);
     background-image: url("../img/vasos/filtros-plantas/planta3.jpg");
-    background-position: right;
+    background-position: center;
     background-size: cover;
     margin-bottom: 10px;
 }
@@ -346,7 +346,7 @@ main>section>div:nth-child(2) {
 #planta3 {
     grid-area: c;
     width: 22vw;
-    height: 25vh;
+    height: 27.5vh;
     background-image: url("../img/vasos/filtros-plantas/planta2.jpg");
     background-position: center;
     background-size: cover;
@@ -355,11 +355,11 @@ main>section>div:nth-child(2) {
 
 #planta4 {
     grid-area: d;
-    height: 28vh;
+    height: 30.8vh;
     width: 27vw;
     margin-left: 2vw;
     background-image: url("../img/vasos/filtros-plantas/planta4.jpg");
-    background-position: left;
+    background-position: center;
     background-size: cover;
     transform: translateX(-10px);
 }
@@ -367,10 +367,10 @@ main>section>div:nth-child(2) {
 #planta5 {
     grid-area: e;
     width: 20vw;
-    height: 28vh;
+    height: 30.8vh;
     margin-left: 2vw;
     background-image: url("../img/vasos/filtros-plantas/planta5.jpg");
-    background-position: right;
+    background-position: center;
     background-size: cover;
     transform: translateX(2px);
 }
@@ -397,6 +397,10 @@ main>section>div:nth-child(2) {
 .titulo-seção>h2 {
     font-family: "Montserrat", sans-serif;
     font-size: 32px;
+}
+
+body > main > section > div:nth-child(10) > h2 {
+    margin-top: 3vh;
 }
 
 .titulo-seção>p {
@@ -444,7 +448,6 @@ main>section>div:nth-child(4) {
     0% {
         transform: translateX(-100%);
     }
-
     100% {
         transform: translateX(0);
     }
@@ -454,23 +457,40 @@ main>section>div:nth-child(4) {
     0% {
         transform: translateX(100%);
     }
-
     100% {
         transform: translateX(0);
     }
 }
 
-#seção-produtos .produtos-plantas, #container-novidades .produtos-plantas, #container-ofertas .produtos-plantas {
+#seção-produtos .produtos-plantas, 
+#container-novidades .produtos-plantas, 
+#container-ofertas .produtos-plantas {
     animation: slideDireita 0.260s ease forwards;
 }
 
 .container-exibição-produtos .produtos-plantas {
-    animation: slideEsquerda  0.260s ease forwards;
+    animation: slideEsquerda 0.260s ease forwards;
+    width: 220px;
+    height: 320px;
 }
 
-.produtos-plantas {
-    width: 220px; /*!280*/
-    height: 320px; /*!390 Verificar isso daqui*/
+#seção-produtos .produtos-plantas {
+    width: calc(33.333% - 20px);
+    height: 320px; 
+    margin: 10px;
+    display: inline-block;
+}
+
+#container-novidades .produtos-plantas {
+    width: calc(33.333% - 20px);
+    height: 320px; 
+    margin: 10px;
+    display: inline-block;
+}
+
+#container-ofertas .produtos-plantas {
+    width: calc(33.333% - 20px);
+    height: 320px;
     margin: 10px;
     display: inline-block;
 }
@@ -617,20 +637,21 @@ main>section>div:nth-child(4) {
 }
 
 .imagens-promoção {
-    width: 40vw;
+    width: 70%;
     height: 300px;
-    margin: 30px 20px;
-    /*adicionart talvez uma borda mais redondinha*/
+    margin: 30px 12px;
 }
 
 .imagens-promoção:first-child {
     background-image: url("../img/fundos/pexels-cottonbro-studio-4503263.jpg");
     background-size: cover;
+    margin-left: 24px;
 }
 
 .imagens-promoção:nth-child(3) {
     background-image: url("../img/fundos/pexels-cottonbro-studio-4505171.jpg");
     background-size: cover;
+    margin-right: 24px;
 }
 
 #informativos {
@@ -680,8 +701,6 @@ main>section>div:nth-child(4) {
     margin-top: 3vh;
 }
 
-
-
 #container-categorias {
     width: 100%;
     height: auto;
@@ -704,7 +723,7 @@ main>section>div:nth-child(4) {
 }
 
 .filtros-produtos {
-    padding: 0.5vw 2vh;
+    padding: 0.5vw 0 0.5vw 3vw;
     color: rgb(36, 35, 35);
     text-align: left;
 }
@@ -770,7 +789,7 @@ main>section>div:nth-child(4) {
 
 #container-recomendações>div:nth-child(3)>p {
     margin-top: 2vh;
-    width: 600px;
+    width: 62vw;
     text-align: center;
 }
 
@@ -812,15 +831,14 @@ main>section>div:nth-child(12) {
 
 #container-blogs {
     width: 100%;
-    height: auto;
+    height: 300px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-top: 3vh;
 }
 
 .blogs {
-    width: 80%;
+    width: 50vw;
     height: 220px;
     margin: 0px 15px;
     display: flex;
@@ -833,9 +851,9 @@ main>section>div:nth-child(12) {
 }
 
 .texto-caixa-blogs {
-    width: 220px;
+    width: auto;
     height: auto;
-    padding: 10px;
+    padding-left: 10px;
 }
 
 .data-publicação-blogs {
@@ -855,8 +873,7 @@ main>section>div:nth-child(12) {
 
 .resumo-caixa-blog {
     text-align: left;
-    margin-bottom: 10px;
-    width: 270px;
+    width: 25vw;
 }
 
 .resumo-caixa-blog>p {
@@ -874,6 +891,7 @@ main>section>div:nth-child(12) {
     background-color: transparent;
     padding: 5px 10px;
     border-radius: 20px;
+    margin-top: 10px;
 }
 
 .botão-blog>button:hover {
@@ -1295,7 +1313,7 @@ main>section>div:nth-child(12) {
     flex-wrap: wrap;
     justify-content: space-around;
     margin: 0 auto;
-    max-width: 900px;
+    max-width: 90vw;
 }
 
 .footer-section {
@@ -1332,10 +1350,15 @@ main>section>div:nth-child(12) {
     text-decoration: underline;
 }
 
+#footer > div.footer-container > div.footer-section.social > h2 {
+    text-align: center;
+}
+
 .footer-section .social-icons {
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
 }
 
 .footer-section .social-icons a {

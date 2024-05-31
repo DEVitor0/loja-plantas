@@ -442,7 +442,6 @@ main>section>div:nth-child(4) {
     0% {
         transform: translateX(-100%);
     }
-
     100% {
         transform: translateX(0);
     }
@@ -452,23 +451,24 @@ main>section>div:nth-child(4) {
     0% {
         transform: translateX(100%);
     }
-
     100% {
         transform: translateX(0);
     }
 }
 
-#seção-produtos .produtos-plantas, #container-novidades .produtos-plantas, #container-ofertas .produtos-plantas {
+#seção-produtos .produtos-plantas, 
+#container-novidades .produtos-plantas, 
+#container-ofertas .produtos-plantas {
     animation: slideDireita 0.260s ease forwards;
 }
 
 .container-exibição-produtos .produtos-plantas {
-    animation: slideEsquerda  0.260s ease forwards;
+    animation: slideEsquerda 0.260s ease forwards;
 }
 
 .produtos-plantas {
-    width: 220px; /*!280*/
-    height: 320px; /*!390 Verificar isso daqui*/
+    width: 220px !important; /*280*/
+    height: 320px; /*450*/
     margin: 10px;
     display: inline-block;
 }
@@ -865,6 +865,10 @@ main>section>div:nth-child(12) {
     font-weight: bold;
     margin-bottom: 10px;
     text-align: left;
+}
+
+#container-blogs > div:nth-child(2) > div.texto-caixa-blogs > div.resumo-caixa-blog > p:nth-child(2) {
+    width: 220px;
 }
 
 .botão-blog>button {
