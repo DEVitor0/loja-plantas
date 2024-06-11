@@ -99,10 +99,6 @@ function carrossel() {
     const produtosPlantas = document.querySelectorAll('#seção-produtos .produtos-plantas');
     const body = document.querySelector('body');
 
-    function displayNone(element) {
-        element.style.display = 'none';
-    }
-
     function hideOverflow() {
         body.style.overflowX = 'hidden';
     }
@@ -118,102 +114,120 @@ function carrossel() {
         };
     }
 
+    function displayNone(element) {
+        element.style.display = 'none';
+    }
+
+    function ajustarLargura(element, largura) {
+        element.style.width = largura;
+    }
+
     let { plantasEsquerdas, plantasDireitas } = atualizarListas();
 
     plantasDireitas.forEach((element) => {
         displayNone(element);
     });
 
-    setaDireita.addEventListener('click', () => {
+    function handleSetaClick(direcao) {
         hideOverflow();
         const larguraTela = window.innerWidth;
-
         if (larguraTela >= 768 && larguraTela <= 991) {
-            plantasDireitas.forEach((element) => {
-                element.style.display = 'block';
-                element.style.width = 'calc(33.333% - 20px)';
-                produtosPlantas.forEach(element2 => {
-                    element2.style.animation = 'slideEsquerda 0.260s ease forwards';
-                    element2.addEventListener('animationend', restoreOverflow, { once: true });
+            if (direcao === 'direita') {
+                plantasDireitas.forEach((element) => {
+                    element.style.display = 'block';
+                    ajustarLargura(element, 'calc(33.333% - 20px)');
+                    produtosPlantas.forEach(element2 => {
+                        element2.style.animation = 'slideEsquerda 0.260s ease forwards';
+                        element2.addEventListener('animationend', restoreOverflow, { once: true });
+                    });
                 });
-            });
-            plantasEsquerdas.forEach((element) => {
-                displayNone(element);
-            });
+                plantasEsquerdas.forEach((element) => {
+                    displayNone(element);
+                });
+            } else {
+                plantasDireitas.forEach((element) => {
+                    displayNone(element);
+                });
+                plantasEsquerdas.forEach((element) => {
+                    element.style.display = 'block';
+                    ajustarLargura(element, 'calc(33.333% - 20px)');
+                    produtosPlantas.forEach(element2 => {
+                        element2.style.animation = 'slideDireita 0.260s ease forwards';
+                        element2.addEventListener('animationend', restoreOverflow, { once: true });
+                    });
+                });
+            }
         } else if (larguraTela >= 600 && larguraTela <= 767) {
             document.querySelector("#seção-produtos > div:nth-child(1) > div:nth-child(4)").classList.add("direita");
             document.querySelector("#seção-produtos > div:nth-child(2) > div:nth-child(4)").classList.add("direita");
+            document.querySelector("#seção-produtos > div:nth-child(1) > div:nth-child(5)").classList.remove("direita");
+            document.querySelector("#seção-produtos > div:nth-child(2) > div:nth-child(5)").classList.remove("direita");
 
             ({ plantasEsquerdas, plantasDireitas } = atualizarListas());
 
-            plantasEsquerdas.forEach((element) => {
-                displayNone(element);
-            });
-
-            plantasDireitas.forEach((element) => {
-                element.style.display = 'block';
-                produtosPlantas.forEach(element2 => {
-                    element2.style.animation = 'slideEsquerda 0.260s ease forwards';
-                    element2.addEventListener('animationend', restoreOverflow, { once: true });
+            if (direcao === 'direita') {
+                plantasEsquerdas.forEach((element) => {
+                    displayNone(element);
                 });
-            });
+                plantasDireitas.forEach((element) => {
+                    element.style.display = 'block';
+                    ajustarLargura(element, '180px');
+                    produtosPlantas.forEach(element2 => {
+                        element2.style.animation = 'slideEsquerda 0.260s ease forwards';
+                        element2.addEventListener('animationend', restoreOverflow, { once: true });
+                    });
+                });
+            } else {
+                plantasDireitas.forEach((element) => {
+                    displayNone(element);
+                });
+                plantasEsquerdas.forEach((element) => {
+                    element.style.display = 'block';
+                    ajustarLargura(element, '180px');
+                    produtosPlantas.forEach(element2 => {
+                        element2.style.animation = 'slideDireita 0.260s ease forwards';
+                        element2.addEventListener('animationend', restoreOverflow, { once: true });
+                    });
+                });
+            }
         } else {
-            plantasDireitas.forEach((element) => {
-                element.style.display = 'block';
-                produtosPlantas.forEach(element2 => {
-                    element2.style.animation = 'slideEsquerda 0.260s ease forwards';
-                    element2.addEventListener('animationend', restoreOverflow, { once: true });
+            if (direcao === 'direita') {
+                plantasDireitas.forEach((element) => {
+                    element.style.display = 'block';
+                    produtosPlantas.forEach(element2 => {
+                        element2.style.animation = 'slideEsquerda 0.260s ease forwards';
+                        element2.addEventListener('animationend', restoreOverflow, { once: true });
+                    });
                 });
-            });
-            plantasEsquerdas.forEach((element) => {
-                displayNone(element);
-            });
+                plantasEsquerdas.forEach((element) => {
+                    displayNone(element);
+                });
+            } else {
+                plantasDireitas.forEach((element) => {
+                    displayNone(element);
+                });
+                plantasEsquerdas.forEach((element) => {
+                    element.style.display = 'block';
+                    produtosPlantas.forEach(element2 => {
+                        element2.style.animation = 'slideDireita 0.260s ease forwards';
+                        element2.addEventListener('animationend', restoreOverflow, { once: true });
+                    });
+                });
+            }
         }
+    }
+
+    setaDireita.addEventListener('click', () => {
+        handleSetaClick('direita');
     });
 
     setaEsquerda.addEventListener('click', () => {
-        hideOverflow();
-        const larguraTela = window.innerWidth;
-        if (larguraTela >= 768 && larguraTela <= 991) {
-            plantasDireitas.forEach((element) => {
-                displayNone(element);
-            });
-            plantasEsquerdas.forEach((element) => {
-                element.style.display = 'block';
-                element.style.width = 'calc(33.333% - 20px)';
-                produtosPlantas.forEach(element2 => {
-                    element2.style.animation = 'slideDireita 0.260s ease forwards';
-                    element2.addEventListener('animationend', restoreOverflow, { once: true });
-                });
-            });
-        } else if (larguraTela >= 600 && larguraTela <= 767) {
-            plantasDireitas.forEach((element) => {
-                displayNone(element);
-            });
-
-            plantasEsquerdas.forEach((element) => {
-                element.style.display = 'block';
-                produtosPlantas.forEach(element2 => {
-                    element2.style.animation = 'slideDireita 0.260s ease forwards';
-                    element2.addEventListener('animationend', restoreOverflow, { once: true });
-                });
-            });
-        } else {
-            plantasDireitas.forEach((element) => {
-                displayNone(element);
-            });
-            plantasEsquerdas.forEach((element) => {
-                element.style.display = 'block';
-                produtosPlantas.forEach(element2 => {
-                    element2.style.animation = 'slideDireita 0.260s ease forwards';
-                    element2.addEventListener('animationend', restoreOverflow, { once: true });
-                });
-            });
-        }
+        handleSetaClick('esquerda');
     });
 }
 
 carrossel();
+
 
 export function removeElemento(item, posição) {
     const elemento = Array.from(item);

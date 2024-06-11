@@ -1,4 +1,4 @@
-@media screen and (max-width: 599px) {
+@media screen and (min-width: 600px) and (max-width: 767px) {
     * {
         margin: 0;
         padding: 0;
@@ -79,8 +79,8 @@
         z-index: 200;
     }
 
-    body > nav.filtragem-planta {
-        display: none;
+    body > nav.filtragem-planta > div:nth-child(2) > div.container-abertura {
+        padding: 10px 80px 10px 5px;
     }
 
     .container-abertura>button {
@@ -175,49 +175,17 @@
 
     #carrossel-inicio {
         width: 100%;
-        height: 500px;
+        height: 67vh;
         background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
         background-size: cover;
-        background-position: 71%;
+        background-position: center;
         margin-top: 25px;
         display: flex;
         justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    @media screen and (max-width: 335px){
-        #titulo-carrossel > div > h1 {
-            font-size: 32px !important;
-        }
-        #carrossel-inicio {
-            width: 100%;
-            height: 500px;
-            background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
-            background-size: cover;
-            background-position: 65% !important;
-            margin-top: 25px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-    }
-
-    @media screen and (max-width: 359px){
-        #carrossel-inicio {
-            width: 100%;
-            height: 500px;
-            background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
-            background-size: cover;
-            background-position: 67%;
-            margin-top: 25px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
+        align-items: center;
     }
 
     #titulo-carrossel {
-        margin: 7vh 0 10vh 4vw;
         margin-bottom: 10vh;
         margin-left: 4vw;
         opacity: 0;
@@ -256,7 +224,7 @@
 
     #titulo-carrossel>div>div {
         width: 1px;
-        height: 4vh;
+        height: 6vh;
         background-color: #646464;
         transform: translateX(3vw);
         margin-top: 1.2vh;
@@ -312,13 +280,13 @@
     #cuidado-plantas>h2 {
         padding-top: 5px;
         font-size: 16px;
-        width: 350px;
+        width: 400px;
         text-align: center;
     }
 
     #cuidado-plantas>p {
-        width: auto;
-        text-align: justify;
+        width: 550px;
+        text-align: center;
         padding-top: 5px;
     }
 
@@ -505,35 +473,16 @@
         height: 320px;
     }
 
-    #seção-produtos .produtos-plantas {
+    #seção-produtos .produtos-plantas, #container-novidades .produtos-plantas, #container-ofertas .produtos-plantas {
         width: 180px;
         height: 320px;
         margin: 10px;
         display: inline-block;
     }
 
-    #seção-produtos>div:nth-child(1)>div:nth-child(4),
-    #seção-produtos>div:nth-child(2)>div:nth-child(4),
-    #container-novidades>div:nth-child(1),
-    #container-ofertas>div:nth-child(4) {
+    #seção-produtos > div:nth-child(1) > div:nth-child(4), #seção-produtos > div:nth-child(2) > div:nth-child(4), #container-novidades > div:nth-child(1), #container-ofertas > div:nth-child(4){
         display: none;
-    }
-
-    /*elementos desativados*/
-
-    #container-novidades .produtos-plantas {
-        width: 180px;
-        height: 320px;
-        margin: 10px;
-        display: inline-block;
-    }
-
-    #container-ofertas .produtos-plantas {
-        width: calc(33.333% - 20px);
-        height: 320px;
-        margin: 10px;
-        display: inline-block;
-    }
+    } /*elementos desativados*/
 
     .direita .produtos-plantas {
         animation-name: slideEsquerda;
@@ -715,13 +664,12 @@
         align-items: center;
     }
 
-    #informativos>div:nth-child(1)>div:nth-child(1),
-    #informativos>div:nth-child(1)>div:nth-child(2) {
+    #informativos > div:nth-child(1) > div:nth-child(1), #informativos > div:nth-child(1) > div:nth-child(2) {
         border-right: 1px solid var(--cor3);
         margin-left: 3.5vw;
     }
 
-    #informativos>div:nth-child(2)>div:nth-child(1) {
+    #informativos > div:nth-child(2) > div:nth-child(1) {
         margin-bottom: 10px;
     }
 
@@ -770,7 +718,7 @@
         align-items: center;
     }
 
-    .container-exibição-produtos>.produtos-plantas {
+    .container-exibição-produtos > .produtos-plantas {
         width: 160px;
         height: 270px;
     }
@@ -1339,7 +1287,7 @@
         border-bottom: 1px solid var(--cor3);
     }
 
-    #conatiner-contato>div {
+    #conatiner-contato > div {
         width: max-content;
     }
 
