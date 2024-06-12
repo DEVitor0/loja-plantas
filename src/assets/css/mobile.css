@@ -124,7 +124,7 @@
     }
 
     #menu-inicial-preferencias>div:nth-child(2)>img {
-        width: 125px;
+        width: 115px;
         padding-top: 26px;
     }
 
@@ -179,7 +179,7 @@
         background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
         background-size: cover;
         background-position: 71%;
-        margin-top: 25px;
+        margin-top: 30px;
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
@@ -429,7 +429,7 @@
     }
 
     .titulo-seção>h2 {
-        font-family: "Montserrat", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         font-size: 8vw;
     }
 
@@ -456,6 +456,10 @@
 
     .titulo-seção>div>button {
         font-size: 18px;
+    }
+
+    #novidades, #ofertas{
+        color: black;
     }
 
     .titulo-seção>div>button:first-child {
@@ -678,7 +682,7 @@
     }
 
     #container-promoção>div>h3 {
-        font-family: "Montserrat", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         font-size: 7vw;
     }
 
@@ -1002,11 +1006,12 @@
         padding: 5px 10px;
         border-radius: 20px;
         margin-top: 10px;
+        color: black !important;
     }
 
     .botão-blog>button:hover {
         background-color: var(--cor2);
-        color: white;
+        color: white !important;
         transition: 0.2s linear;
     }
 
@@ -1408,10 +1413,14 @@
         display: inline;
         text-align: center;
         font-size: 5.5vw;
+        padding: 0 10px;
     }
 
     #conatiner-contato>div:nth-child(2) {
         margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
     }
 
     #conatiner-contato>div:nth-child(2)>input[type="text"] {
@@ -1435,6 +1444,7 @@
 
     #footer {
         padding-top: 20px;
+        color: black !important;
     }
 
     .footer-container {
