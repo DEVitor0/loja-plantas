@@ -411,7 +411,7 @@
 
     #layout-plantas>div>p {
         font-size: 18px;
-        font-family: "Montserrat", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         font-optical-sizing: auto;
         font-weight: 300;
         font-style: normal;
@@ -438,7 +438,7 @@
     }
 
     .titulo-seção>p {
-        font-family: "Montserrat", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         font-size: 5vw;
         color: var(--cor2);
     }
@@ -687,7 +687,7 @@
     }
 
     #container-promoção>div>p:nth-child(2) {
-        font-family: "Montserrat", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         font-size: 6vw;
         margin-bottom: 0.5vh;
     }
@@ -698,7 +698,7 @@
     }
 
     #container-promoção>div>p>span {
-        font-family: "Montserrat", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         font-size: 6vw;
         color: var(--cor2);
     }
@@ -1412,8 +1412,7 @@
     #conatiner-contato>div:first-child>p {
         display: inline;
         text-align: center;
-        font-size: 5.5vw;
-        padding: 0 10px;
+        font-size: 5vw;
     }
 
     #conatiner-contato>div:nth-child(2) {
