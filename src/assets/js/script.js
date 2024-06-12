@@ -396,3 +396,87 @@ trocaProdutosExibidos();
 
     window.showRecommendation = showRecommendation;
 })();
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.innerWidth <= 599) {
+        const containersProdutos = document.querySelectorAll('.container-exibição-produtos');
+
+        containersProdutos.forEach(container => {
+            container.style.display = 'flex';
+            container.style.overflowX = 'scroll';
+            container.style.scrollSnapType = 'x mandatory';
+
+            container.querySelectorAll('.produtos-plantas').forEach(produto => {
+                produto.style.flex = '0 0 auto';
+                produto.style.scrollSnapAlign = 'center';
+            });
+
+            let estaBaixo = false;
+            let inicioX;
+            let rolarEsquerda;
+
+            container.addEventListener('mousedown', (e) => {
+                estaBaixo = true;
+                container.classList.add('active');
+                inicioX = e.pageX - container.offsetLeft;
+                rolarEsquerda = container.scrollLeft;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                estaBaixo = false;
+                container.classList.remove('active');
+            });
+
+            container.addEventListener('mouseup', () => {
+                estaBaixo = false;
+                container.classList.remove('active');
+            });
+
+            container.addEventListener('mousemove', (e) => {
+                if (!estaBaixo) return;
+                e.preventDefault();
+                const x = e.pageX - container.offsetLeft;
+                const andar = (x - inicioX) * 3; 
+                container.scrollLeft = rolarEsquerda - andar;
+            });
+
+            container.addEventListener('touchstart', (e) => {
+                estaBaixo = true;
+                inicioX = e.touches[0].pageX - container.offsetLeft;
+                rolarEsquerda = container.scrollLeft;
+            });
+
+            container.addEventListener('touchend', () => {
+                estaBaixo = false;
+            });
+
+            container.addEventListener('touchmove', (e) => {
+                if (!estaBaixo) return;
+                const x = e.touches[0].pageX - container.offsetLeft;
+                const andar = (x - inicioX) * 3; 
+                container.scrollLeft = rolarEsquerda - andar;
+            });
+        });
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+        const todosProdutos = document.querySelectorAll('#container-categorias .produtos-plantas');
+
+        todosProdutos.forEach(produto => {
+            observer.observe(produto);
+        });
+    }
+});
