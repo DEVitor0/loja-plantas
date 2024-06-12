@@ -1,4 +1,9 @@
 @media screen and (max-width: 599px) {
+
+    @font-face {
+        font-family: 'Montserrat';
+        src: url("../font/Montserrat/static/Montserrat-Light.ttf");
+    }
     * {
         margin: 0;
         padding: 0;
@@ -430,6 +435,7 @@
 
     .titulo-seção>h2 {
         font-family: "Montserrat", sans-serif !important;
+        font-weight: 300;
         font-size: 8vw;
     }
 
