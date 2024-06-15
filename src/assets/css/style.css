@@ -1,4 +1,10 @@
 @media screen and (min-width: 1200px) {
+
+    @font-face {
+        font-family: 'Montserrat';
+        src: url("../font/Montserrat/static/Montserrat-Light.ttf");
+    }
+
     * {
         margin: 0;
         padding: 0;
@@ -873,6 +879,7 @@
         background-color: transparent;
         padding: 5px 10px;
         border-radius: 20px;
+        color: black !important;
     }
     
     .botão-blog>button:hover {
@@ -905,7 +912,8 @@
         display: none;
         animation: slideAbertoCarrinho 0.3s forwards;
         z-index: 200;
-        transform: translateX(100%); 
+        transform: translateX(100%);
+        overflow-y: auto;
     }
     
     @keyframes slideAbertoCarrinho {
@@ -966,8 +974,7 @@
     
     #container-produtos {
         overflow-y: hidden;
-        min-height: auto;
-        max-height: 60vh;
+        height: auto;
         width: 100%;
     }
     
@@ -1125,6 +1132,7 @@
         border: none;
         border-radius: 5px;
         margin-top: 15px;
+        margin-bottom: 15px;
     }
     
     .container-mensagem {
@@ -1287,6 +1295,7 @@
     
     #footer {
         padding-top: 20px;
+        color: black !important;
     }
     
     .footer-container {

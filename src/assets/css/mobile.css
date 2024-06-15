@@ -593,7 +593,7 @@
     }
 
     .acessórios-produtos {
-        display: none;
+        visibility: hidden; 
         width: 30px;
         height: auto;
         border-radius: 5px;
@@ -602,13 +602,15 @@
         background-color: white;
         position: relative;
         top: -2.5vh;
+        opacity: 0;
+        transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
     }
-
-    .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos {
-        /*!Rever os cliques na tela para ver o menu de scolha*/
-        display: block;
+    
+    .produtos-plantas:hover > .container-acessórios-produtos > .acessórios-produtos {
+        visibility: visible; 
+        opacity: 1; 
     }
-
+  
     .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos:hover {
         background-color: var(--cor2);
         color: white;
@@ -643,7 +645,6 @@
         top: -4vh;
         display: flex;
         justify-content: center;
-
     }
 
     #container-novidades {
@@ -1036,7 +1037,7 @@
     }
 
     #carrinho {
-        width: 320px;
+        width: 73%;
         height: 100vh;
         background-color: white;
         position: absolute;
@@ -1046,6 +1047,7 @@
         animation: slideAbertoCarrinho 0.3s forwards;
         z-index: 200;
         transform: translateX(100%);
+        overflow-y: auto;
     }
 
     @keyframes slideAbertoCarrinho {
@@ -1106,7 +1108,7 @@
     }
 
     #container-produtos {
-        overflow-y: hidden;
+        overflow-y: auto;
         height: auto;
         width: 100%;
     }
@@ -1268,7 +1270,7 @@
     }
 
     .container-mensagem {
-        width: 450px;
+        width: calc(100% - 50px);
         height: 250px;
         background-color: white;
         position: fixed;

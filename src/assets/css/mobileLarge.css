@@ -1,4 +1,10 @@
 @media screen and (min-width: 600px) and (max-width: 767px) {
+
+    @font-face {
+        font-family: 'Montserrat';
+        src: url("../font/Montserrat/static/Montserrat-Light.ttf");
+    }
+
     * {
         margin: 0;
         padding: 0;
@@ -421,6 +427,10 @@
         font-size: 18px;
     }
 
+    #novidades, #ofertas{
+        color: black;
+    }
+
     .titulo-seção>div>button:first-child {
         color: var(--cor1);
     }
@@ -512,7 +522,7 @@
     }
 
     .acessórios-produtos {
-        display: none;
+        visibility: hidden; 
         width: 30px;
         height: auto;
         border-radius: 5px;
@@ -521,11 +531,13 @@
         background-color: white;
         position: relative;
         top: -2.5vh;
+        opacity: 0;
+        transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
     }
-
-    .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos {
-        /*!Rever os cliques na tela para ver o menu de scolha*/
-        display: block;
+    
+    .produtos-plantas:hover > .container-acessórios-produtos > .acessórios-produtos {
+        visibility: visible; 
+        opacity: 1; 
     }
 
     .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos:hover {
@@ -562,7 +574,6 @@
         justify-content: center;
         position: relative;
         top: -4vh;
-        left: 10px;
         margin-bottom: 3vh;
     }
 
@@ -576,8 +587,8 @@
         width: 20px;
         height: 20px;
         padding: 3px;
-        margin-right: 10px;
         border-radius: 100%;
+        transform: translateX(5px);
     }
 
     #promoção {
@@ -900,6 +911,7 @@
         padding: 5px 10px;
         border-radius: 20px;
         margin-top: 10px;
+        color: black !important;
     }
 
     .botão-blog>button:hover {
@@ -933,6 +945,7 @@
         animation: slideAbertoCarrinho 0.3s forwards;
         z-index: 200;
         transform: translateX(100%);
+        overflow-y: auto;
     }
 
     @keyframes slideAbertoCarrinho {
@@ -1329,6 +1342,7 @@
 
     #footer {
         padding-top: 20px;
+        color: black !important;
     }
 
     .footer-container {
