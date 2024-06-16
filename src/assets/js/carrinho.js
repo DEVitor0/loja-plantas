@@ -108,8 +108,6 @@ function exibeConfirmação(elementoEscolhido) {
     if (corEscolhida === corEsperada) {
         exibeMensagem();
     }
-
-    console.log(corEscolhida);
 }
 
 function exibeMensagem() {
@@ -374,7 +372,6 @@ function adicionaItem() {
     clicou.forEach((element) => {
         element.addEventListener('click', () => {
             exibirProdutosCarrinho();
-            verificaLarguraTela();
 
         }, { once: true })
     })

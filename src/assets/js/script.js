@@ -296,6 +296,7 @@ export const utilidades = (function () {
 })();
 
 utilidades.abreMensagem('.coração', '.container-mensagem:first-child');
+utilidades.abreMensagem('.visualização', 'body > aside:nth-child(8) > div');
 utilidades.fechaMensagem();
 
 function trocaProdutosExibidos() {
