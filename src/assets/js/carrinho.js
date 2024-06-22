@@ -4,15 +4,15 @@ function abreMenu() {
     const iconeCarrinho = window.document.querySelector('#abrir-carrinho');
     const carrinho = window.document.querySelector('#carrinho');
     const body = window.document.querySelector('body');
-    
+
     iconeCarrinho.addEventListener('click', () => {
         body.style.overflowX = 'hidden';
         carrinho.style.display = 'block';
         body.style.overflowY = 'hidden';
-        
+
         utilidades.escurecerTela();
-        carrinho.addEventListener('animationend', function() {
-            body.style.overflowX = ''; 
+        carrinho.addEventListener('animationend', function () {
+            body.style.overflowX = '';
         }, { once: true });
     });
 }
@@ -32,6 +32,21 @@ function fechaMenu() {
 }
 fechaMenu()
 
+function verificaCarrinho() {
+    const mensagemFalha = window.document.querySelector('#sem-conteudo');
+    const statusCompras = window.document.querySelector('#status-compras');
+    const carrinho = window.document.querySelector('#container-produtos');
+    displayNone(statusCompras);
+
+    if (carrinho.children.length >= 1) {
+        displayNone(mensagemFalha)
+        statusCompras.style.display = 'block';
+    } else {
+        displayNone(statusCompras);
+        mensagemFalha.style.display = 'flex';
+    }
+}
+
 function clicouCarrinho() {
     return new Promise((resolve, reject) => {
         const iconeCarrinho = document.querySelectorAll('.sexta-carrinho');
@@ -40,11 +55,93 @@ function clicouCarrinho() {
         const arraySexta = removeElemento(iconeSexta, 0);
 
         iconeCarrinho.forEach((element, indice) => {
+            let mouseOver = false; 
+
+            if (!element.classList.contains('clicado')) {
+                const posiçãoIcone = arraySexta[indice];
+                posiçãoIcone.style.color = 'black';
+                element.style.backgroundColor = 'white';
+            }
+
+            const handleMouseEnter = () => {
+                mouseOver = true; // Define que o mouse está sobre o íconeCarrinho
+                const posiçãoIcone = arraySexta[indice];
+                // Ajusta a cor do íconeSexta dependendo do estado do íconeCarrinho
+                if (!element.classList.contains('clicado')) {
+                    posiçãoIcone.style.color = 'white';
+                    element.style.backgroundColor = '#47941a';
+                }
+            };
+
+            // Manipulador de evento para quando o mouse sai do íconeCarrinho
+            const handleMouseLeave = () => {
+                mouseOver = false;
+                const posiçãoIcone = arraySexta[indice];
+                // Restaura a cor do íconeSexta pra branco se o íconeCarrinho não tiver clicado
+                if (!element.classList.contains('clicado')) {
+                    posiçãoIcone.style.color = 'black';
+                    element.style.backgroundColor = 'white';
+                }
+            };
+
+            // Manipulador de evento para clique no íconeCarrinho
             const handleCarrinhoClick = () => {
                 if (element.classList.contains('clicado')) {
+                    // Código para quando o ícone está clicado
+                    element.style.backgroundColor = 'white';
+                    const posiçãoIcone = arraySexta[indice];
+                    posiçãoIcone.style.color = 'black';
+
+                    const nomeProduto = itens[indice].querySelector('h3').textContent;
+                    const outrosElementos = Array.from(document.querySelectorAll('.produtos-plantas')).filter(item => {
+                        return item.querySelector('h3').textContent === nomeProduto && item !== itens[indice];
+                    });
+
+                    outrosElementos.forEach(outroElemento => {
+                        const iconeOutro = outroElemento.querySelector('.fa-basket-shopping');
+                        const containerSexta = outroElemento.querySelector('.sexta-carrinho');
+                        containerSexta.style.backgroundColor = 'white';
+                        containerSexta.classList.remove('clicado');
+                        iconeOutro.style.color = 'black';
+                    });
+
+                    const mensagemRemovida = document.querySelector('#mensagem-removida');
+                    mensagemRemovida.style.display = 'flex';
+                    mensagemRemovida.classList.remove('esconder');
+                    mensagemRemovida.classList.add('mostrar');
+
+                    setTimeout(() => {
+                        mensagemRemovida.classList.remove('mostrar');
+                        mensagemRemovida.classList.add('esconder');
+                        setTimeout(() => {
+                            mensagemRemovida.style.display = 'none';
+                        }, 500);
+                    }, 2000);
+
+                    // Chamar o método de remoção de item da classe ExibeCarrinho
+                    const itemCarrinho = document.querySelector(`.container-produtos-${nomeProduto}`);
+                    if (itemCarrinho) {
+                        // Obter o preço do produto a ser removido
+                        const valorProduto = itemCarrinho.querySelector('.valor-produto').textContent;
+                        const valoresNumericos = valorProduto.slice(8, 10);
+
+                        ExibeCarrinho.subtotal -= Number(valoresNumericos);
+                        const preçoFinal = window.document.querySelector('.preço-final');
+                        const preçoFinalFinal = window.document.querySelector('#preço-final-final');
+                        console.log(preçoFinal);
+                        console.log(preçoFinalFinal)
+                        preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal.toFixed(2).replace('.', ',')}`;
+                        preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal.toFixed(2).replace('.', ',')}`;
+
+                        itemCarrinho.remove();
+                        verificaCarrinho();
+                    }
+
+                    element.classList.remove('clicado');
                     return;
                 }
 
+                // Código para quando o ícone não está clicado
                 element.classList.add('clicado');
                 element.style.backgroundColor = '#47941a';
                 exibeConfirmação(element);
@@ -60,7 +157,6 @@ function clicouCarrinho() {
                 outrosElementos.forEach(outroElemento => {
                     const iconeOutro = outroElemento.querySelector('.fa-basket-shopping');
                     const containerSexta = outroElemento.querySelector('.sexta-carrinho');
-
                     const indiceOutro = Array.from(iconeCarrinho).indexOf(iconeOutro.parentElement);
                     if (indiceOutro !== -1) {
                         const posIconOutro = arraySexta[indiceOutro];
@@ -93,6 +189,9 @@ function clicouCarrinho() {
                 }
             };
 
+            // Adiciona manipuladores de eventos para mouseenter, mouseleave e clique
+            element.addEventListener('mouseenter', handleMouseEnter);
+            element.addEventListener('mouseleave', handleMouseLeave);
             element.removeEventListener('click', element._handleCarrinhoClick);
             element.addEventListener('click', handleCarrinhoClick);
             element._handleCarrinhoClick = handleCarrinhoClick;
@@ -158,17 +257,19 @@ class ExibeCarrinho {
         this.iconeMais = iconeMais;
         this.valorQuantia = valorQuantia;
         this.preçoItem = preçoItem;
+        this.subtotalItem = 0;
     }
 
     criaContainer() {
         const containerProdutosId = window.document.querySelector('#container-produtos');
 
         this.simplifica(this.containerProdutos, 'container-produtos');
+        this.simplifica(this.containerProdutos, `container-produtos-${this.nomeProduto}`);
         this.simplifica(this.containerVasoCarrinho, 'container-vaso-carrinho');
         this.simplifica(this.imagemVasoCarrinho, 'imagem-vaso-carrinho');
         this.simplifica(this.containerTextoCarrinho, 'container-texto-carrinho');
         this.simplifica(this.paragrafoLixo, 'nome-produto');
-        this.simplifica(this.iconeLixo, ['fa-regular', 'fa-trash-can', 'clicavel', 'icone-lixeira'])
+        this.simplifica(this.iconeLixo, ['fa-regular', 'fa-trash-can', 'clicavel', 'icone-lixeira']);
         this.simplifica(this.containerPromoção, 'container-promoção-carrinho');
         this.simplifica(this.valorInicial, 'valor-incial');
         this.simplifica(this.containerValorProduto, 'container-valor-produto');
@@ -209,13 +310,13 @@ class ExibeCarrinho {
         aumentar.appendChild(this.iconeMais);
         const valorFinal = containerQuantidadesProduto.appendChild(this.valorQuantia);
 
-        return [imagemVaso, pLixo, valorInicial, valorProduto, diminuir, paragrafo, aumentar, valorFinal]
+        return [imagemVaso, pLixo, valorInicial, valorProduto, diminuir, paragrafo, aumentar, valorFinal];
     }
 
     simplifica(elemento, classes) {
         if (Array.isArray(classes)) {
             classes.forEach(element => {
-                elemento.classList.add(element)
+                elemento.classList.add(element);
             });
         } else {
             elemento.classList.add(classes);
@@ -241,8 +342,13 @@ class ExibeCarrinho {
             if (nome !== undefined) {
                 const criaContainer = this.criaContainer();
                 const paragrafo = criaContainer[itemEscolhido];
-                paragrafo.textContent = mensagem
+                paragrafo.textContent = mensagem;
 
+                // Adiciona atributo data-produto para o nome do produto
+                if (itemEscolhido === 1) {
+                    this.containerProdutos.setAttribute('data-produto', mensagem);
+                    this.nomeProduto = mensagem;
+                }
             }
         } catch (error) {
             console.error("Erro em adicionaNome:", error);
@@ -265,7 +371,7 @@ class ExibeCarrinho {
         const atualizaPreco = () => {
             const paragrafo = this.valorQuantia;
             const subtotalItem = fazConta();
-            
+
             paragrafo.textContent = `R$ ${subtotalItem},00`;
             ExibeCarrinho.subtotal -= this.subtotalItem || 0;
             this.subtotalItem = subtotalItem;
@@ -274,30 +380,30 @@ class ExibeCarrinho {
             const preçoFinal = window.document.querySelector('.preço-final');
             const preçoFinalFinal = window.document.querySelector('#preço-final-final');
             preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
-            preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`
+            preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
         };
 
         const removeItens = () => {
             const iconesLixeira = window.document.querySelectorAll('.icone-lixeira');
             const preçoFinal = window.document.querySelector('.preço-final');
             const preçoFinalFinal = window.document.querySelector('#preço-final-final');
-        
+
             iconesLixeira.forEach((icone, index) => {
                 if (!icone.dataset.listenerAdded) {
                     icone.addEventListener('click', () => {
                         const itemCarrinho = icone.closest('.container-produtos');
-        
+
                         if (itemCarrinho) {
                             ExibeCarrinho.subtotal -= fazConta();
-    
+
                             itemCarrinho.remove();
                             verificaCarrinho();
-        
+
                             preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
                             preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
                         }
                     });
-    
+
                     icone.dataset.listenerAdded = "true";
                 }
             });
@@ -323,29 +429,33 @@ class ExibeCarrinho {
 
         atualizaPreco();
         removeItens();
-    } 
+    }
 
     removerTodosItens() {
         const botão = window.document.querySelector('#excluir-itens');
         const lixeiraIcone = window.document.querySelector('#lixeira-excluir-itens');
-    
+
         function elementoClicavel(item) {
             item.addEventListener('click', () => {
-                const itensNoCarrinho = window.document.querySelector('#container-produtos').children;
-                const sliceDosItens = Array.from(itensNoCarrinho); 
-    
-                sliceDosItens.forEach(element => {
-                    element.remove();
-                    verificaCarrinho();
-                    ExibeCarrinho.subtotal = 0;
+                const itensNoCarrinho = window.document.querySelectorAll('.container-produtos');
+                const preçoFinal = window.document.querySelector('.preço-final');
+                const preçoFinalFinal = window.document.querySelector('#preço-final-final');
+
+                itensNoCarrinho.forEach((item, index) => {
+                    item.remove();
                 });
+
+                ExibeCarrinho.subtotal = 0;
+                preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+                preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+
+                verificaCarrinho();
             });
         }
-    
+
         elementoClicavel(botão);
         elementoClicavel(lixeiraIcone);
-    }    
-    
+    }
 }
 
 function criaElemento(elemento) {
@@ -377,18 +487,3 @@ function adicionaItem() {
     })
 }
 adicionaItem();
-
-function verificaCarrinho() {
-    const mensagemFalha = window.document.querySelector('#sem-conteudo');
-    const statusCompras = window.document.querySelector('#status-compras');
-    const carrinho = window.document.querySelector('#container-produtos');
-    displayNone(statusCompras);
-
-    if (carrinho.children.length >= 1) {
-        displayNone(mensagemFalha)
-        statusCompras.style.display = 'block';
-    } else {
-        displayNone(statusCompras);
-        mensagemFalha.style.display = 'flex';
-    }
-}

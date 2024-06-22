@@ -159,7 +159,7 @@
                                 <img src="./src/assets/img/vasos/produtos-principais/plantaxx.png" alt="">
                             </div>
                             <div class="container-acessórios-produtos">
-                                <div class="acessórios-produtos sexta-carrinho clicavel">
+                                <div class="acessórios-produtos sexta-carrinho clicavel">  <!--Esta é a div que deve observar pois o icone de sexta esta nela e é nele que estamos trabalhando-->
                                     <i class="fa-solid fa-basket-shopping clicavel"></i>
                                 </div>
                                 <div class="acessórios-produtos coração clicavel">
@@ -982,6 +982,10 @@
                     </div>
                 </div>
             </div>
+            <div id="mensagem-removida" class="esconder">
+                <i class="fa-solid fa-cart-flatbed"></i>
+                <p>Item Removido Do Carrinho</p>
+            </div>
         </section>
     </main>
     <aside>
@@ -1122,11 +1126,11 @@
     <aside>
         <div class="container-mensagem container-visualizador">
             <div>
-                <img src="./src/assets/img/vasos/produtos-principais/plantaxx.png" alt="">
+                <img src="./src/assets/img/vasos/produtos-principais/plantaxx.png" id="imagem-visualização">
             </div>
             <div>
                 <div id="container-X-visualização">
-                    <p>Gustemico</p>
+                    <p id="nome-produto-visualização"></p>
                     <i class="fa-solid fa-x clicavel icone-fechar"></i>
                 </div>
                 <div id="container-notas-visualização">
@@ -1134,8 +1138,8 @@
                     <p><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
                 </div>
                 <div id="conatiner-preços-visualização">
-                    <p>R$: 48,00</p>
-                    <p>Até 6x De R$: 12,00 Sem Juros</p>
+                    <p id="preço-produto-visualização">R$: 48,00</p>
+                    <p id="calculo-parcelas-visualização">Até 6x De R$: 12,00 Sem Juros</p>
                 </div>
                 <div>
                     <button>Comprar</button>

@@ -520,6 +520,10 @@
         display: block;
     }
 
+    .sexta-carrinho:hover .fa-basket-shopping {
+        color: white;
+    }
+
     .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos:hover {
         background-color: var(--cor2);
         color: white;
@@ -804,6 +808,55 @@
     .pontos.ativo {
         background-color: #3a3a3a;
     }
+
+    #mensagem-removida {
+        width: fit-content;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        display: none; 
+        position: fixed;
+        top: 3%;
+        left: 44%;
+        align-items: center;
+        border-radius: 3px;
+        opacity: 0; 
+        z-index: 1000; 
+        pointer-events: none; 
+    }
+
+    #mensagem-removida > i {
+        margin-right: 10px;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0; 
+        }
+        100% {
+            opacity: 1; 
+        }
+    }
+    
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0; 
+        }
+    }
+    
+    #mensagem-removida.mostrar {
+        display: flex; 
+        animation: fadeIn 0.5s ease-in-out forwards;
+        pointer-events: auto;
+    }
+
+    #mensagem-removida.esconder {
+        animation: fadeOut 0.5s ease-in-out forwards; 
+    }    
 
     main>section>div:nth-child(12) {
         margin-top: 0;
