@@ -398,7 +398,7 @@ trocaProdutosExibidos();
     window.showRecommendation = showRecommendation;
 })();
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth <= 599) {
         const containersProdutos = document.querySelectorAll('.container-exibição-produtos');
 
@@ -437,7 +437,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (!estaBaixo) return;
                 e.preventDefault();
                 const x = e.pageX - container.offsetLeft;
-                const andar = (x - inicioX) * 3; 
+                const andar = (x - inicioX) * 3;
                 container.scrollLeft = rolarEsquerda - andar;
             });
 
@@ -454,7 +454,7 @@ document.addEventListener('DOMContentLoaded', function() {
             container.addEventListener('touchmove', (e) => {
                 if (!estaBaixo) return;
                 const x = e.touches[0].pageX - container.offsetLeft;
-                const andar = (x - inicioX) * 3; 
+                const andar = (x - inicioX) * 3;
                 container.scrollLeft = rolarEsquerda - andar;
             });
         });
@@ -481,3 +481,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+class redirecionador {
+    constructor(loginUrl) {
+        this.loginUrl = loginUrl;
+    }
+
+    redirectToLogin() {
+        window.location.href = this.loginUrl;
+    }
+}
+
+function redirecionaFormulario() {
+    const loginUrl = "./src/assets/html/login.html";
+
+    const authManager = new redirecionador(loginUrl);
+
+    document.querySelectorAll('.login').forEach(element => {
+        element.addEventListener('click', () => {
+            authManager.redirectToLogin();
+        });
+    });
+}
+redirecionaFormulario()

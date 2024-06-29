@@ -1,8 +1,8 @@
-@media screen and (min-width: 992px) and (max-width: 1199px) {
+@media screen and (min-width: 1200px) {
 
     @font-face {
         font-family: 'Montserrat';
-        src: url("../font/Montserrat/static/Montserrat-Light.ttf");
+        src: url("../../font/Montserrat/static/Montserrat-Light.ttf");
     }
 
     * {
@@ -87,7 +87,6 @@
         border-bottom: 2px solid var(--cor2);
         gap: 5px;
         animation: abrindo 0.3s ease;
-        z-index: 200;
     }
 
     .container-abertura>button {
@@ -184,7 +183,7 @@
     #carrossel-inicio {
         width: 100%;
         height: 67vh;
-        background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
+        background-image: url("../../img/fundos/picture-frame-leaning-against-white-wall.jpg");
         background-size: cover;
         background-position: center;
         margin-top: 25px;
@@ -217,17 +216,17 @@
 
     #titulo-carrossel>div>p:first-child {
         font-family: "Mali", cursive, 'Helvetica Neue', sans-serif;
-        font-size: 38px;
+        font-size: 6vh;
         color: var(--cor1);
     }
 
     #titulo-carrossel>div>h1 {
-        font-size: 44px;
+        font-size: 6.5vh;
         margin-top: 0px;
     }
 
     #titulo-carrossel>div>p:nth-child(3) {
-        font-size: 12px;
+        font-size: 1.9vh;
     }
 
     #titulo-carrossel>div>div {
@@ -235,14 +234,14 @@
         height: 6vh;
         background-color: #646464;
         transform: translateX(3vw);
-        margin-top: 1.2vh;
+        margin-top: 1.2vh
     }
 
     #titulo-carrossel>div>button {
         margin-top: 1.2vh;
         border-radius: 30px;
         background-color: var(--cor1);
-        padding: 8px;
+        padding: 10px;
         font-size: 15px;
         color: white;
         border: none;
@@ -286,12 +285,14 @@
     }
 
     #cuidado-plantas>h2 {
+        text-align: center;
         padding-top: 5px;
         font-size: 18px;
+        width: 100%;
     }
 
     #cuidado-plantas>p {
-        width: 700px;
+        width: 1000px;
         text-align: center;
         padding-top: 5px;
     }
@@ -330,8 +331,7 @@
 
     #planta1 {
         grid-area: a;
-        background-image: url("../img/vasos/filtros-plantas/planta1.jpg");
-        background-position: right;
+        background-image: url("../../img/vasos/filtros-plantas/planta1.jpg");
         background-size: cover;
         height: 56vh;
         width: 32vw;
@@ -341,8 +341,8 @@
         grid-area: b;
         height: 25vh;
         width: 24vw;
-        background-image: url("../img/vasos/filtros-plantas/planta3.jpg");
-        background-position: right;
+        background-repeat: no-repeat;
+        background-image: url("../../img/vasos/filtros-plantas/planta3.jpg");
         background-size: cover;
         margin-bottom: 10px;
     }
@@ -351,8 +351,7 @@
         grid-area: c;
         width: 22vw;
         height: 25vh;
-        background-image: url("../img/vasos/filtros-plantas/planta2.jpg");
-        background-position: center;
+        background-image: url("../../img/vasos/filtros-plantas/planta2.jpg");
         background-size: cover;
         margin-bottom: 10px;
     }
@@ -362,8 +361,7 @@
         height: 28vh;
         width: 27vw;
         margin-left: 2vw;
-        background-image: url("../img/vasos/filtros-plantas/planta4.jpg");
-        background-position: center;
+        background-image: url("../../img/vasos/filtros-plantas/planta4.jpg");
         background-size: cover;
     }
 
@@ -372,8 +370,7 @@
         width: 20vw;
         height: 28vh;
         margin-left: 2vw;
-        background-image: url("../img/vasos/filtros-plantas/planta5.jpg");
-        background-position: right;
+        background-image: url("../../img/vasos/filtros-plantas/planta5.jpg");
         background-size: cover;
         transform: translateX(2px);
     }
@@ -474,10 +471,8 @@
     }
 
     .produtos-plantas {
-        width: 220px !important;
-        /*280*/
-        height: 320px;
-        /*450*/
+        width: 280px !important;
+        height: 450px;
         margin: 10px;
         display: inline-block;
     }
@@ -523,6 +518,10 @@
 
     .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos {
         display: block;
+    }
+
+    .sexta-carrinho:hover .fa-basket-shopping {
+        color: white;
     }
 
     .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos:hover {
@@ -572,8 +571,8 @@
         width: 20px;
         height: 20px;
         padding: 3px;
+        margin-right: 10px;
         border-radius: 100%;
-        transform: translateX(5px);
     }
 
     #promoção {
@@ -585,7 +584,7 @@
     }
 
     #container-promoção {
-        width: 30vw;
+        width: 20vw;
         height: 150px;
         padding: 15px;
         border: 2px solid white;
@@ -624,22 +623,20 @@
     }
 
     .imagens-promoção {
-        width: 70%;
-        height: 300px;
-        margin: 30px 12px;
+        width: 40vw;
+        height: 50vh;
+        margin: 30px 20px;
         /*adicionart talvez uma borda mais redondinha*/
     }
 
     .imagens-promoção:first-child {
-        background-image: url("../img/fundos/pexels-cottonbro-studio-4503263.jpg");
+        background-image: url("../../img/fundos/pexels-cottonbro-studio-4503263.jpg");
         background-size: cover;
-        margin-left: 24px;
     }
 
     .imagens-promoção:nth-child(3) {
-        background-image: url("../img/fundos/pexels-cottonbro-studio-4505171.jpg");
+        background-image: url("../../img/fundos/pexels-cottonbro-studio-4505171.jpg");
         background-size: cover;
-        margin-right: 24px;
     }
 
     #informativos {
@@ -650,6 +647,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: row;
     }
 
     .informativos__sub-container {
@@ -659,7 +657,6 @@
 
     .container-informativos {
         padding-right: 20px;
-        height: 60px;
         display: flex;
         align-items: center;
         border-right: 1px solid var(--cor3);
@@ -734,11 +731,11 @@
 
     #container-recomendações {
         width: 100%;
-        height: 420px;
+        height: 400px;
         margin: auto;
-        background-image: url("../img/fundos/testibg.png");
+        background-image: url("../../img/fundos/testibg.png");
         background-size: cover;
-        background-position: right;
+        background-position: top;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -833,6 +830,24 @@
         margin-right: 10px;
     }
 
+    @keyframes fadeIn {
+        0% {
+            opacity: 0; 
+        }
+        100% {
+            opacity: 1; 
+        }
+    }
+    
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0; 
+        }
+    }
+    
     #mensagem-removida.mostrar {
         display: flex; 
         animation: fadeIn 0.5s ease-in-out forwards;
@@ -841,7 +856,7 @@
 
     #mensagem-removida.esconder {
         animation: fadeOut 0.5s ease-in-out forwards; 
-    }
+    }    
 
     main>section>div:nth-child(12) {
         margin-top: 0;
@@ -856,10 +871,10 @@
     }
 
     #container-blogs {
-        width: 100%;
+        width: 80%;
         height: auto;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         margin-top: 3vh;
     }
@@ -873,12 +888,12 @@
     }
 
     .imagens-caixa-blogs {
-        width: 20vw;
+        width: 17vw;
         height: auto;
     }
 
     .texto-caixa-blogs {
-        width: 220px;
+        width: 320px;
         height: auto;
         padding: 10px;
     }
@@ -914,10 +929,6 @@
         text-align: left;
     }
 
-    #container-blogs>div:nth-child(2)>div.texto-caixa-blogs>div.resumo-caixa-blog>p:nth-child(2) {
-        width: 220px;
-    }
-
     .botão-blog>button {
         border: 1px solid var(--cor1);
         background-color: transparent;
@@ -938,12 +949,12 @@
     }
 
     .imagens-caixa-blogs:first-child {
-        background-image: url("../img/fundos/fundo3-blog.jpeg");
+        background-image: url("../../img/fundos/fundo3-blog.jpeg");
         background-position: left;
     }
 
     #container-blogs>div:nth-child(2)>div.imagens-caixa-blogs {
-        background-image: url("../img/fundos/fundo2-blog.jpeg");
+        background-image: url("../../img/fundos/fundo2-blog.jpeg");
     }
 
     #carrinho {
@@ -1176,7 +1187,8 @@
         background-color: #27AC22;
         border: none;
         border-radius: 5px;
-        margin: 15px 0px;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
 
     .container-mensagem {
@@ -1285,25 +1297,27 @@
         box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.5);
     }
 
-    .container-visualizador {
-        display: flex;
-        align-items: center;
-        align-items: center;
+    body>aside:nth-child(8)>div {
         flex-direction: row;
     }
 
-    .container-visualizador>div {
+    .container-visualizador {
+        display: flex;
+        align-items: center;
+    }
+
+    .container-visualizador>div{
         width: 50%;
     }
 
     .container-mensagem>div:first-child {
         padding: 0;
-        transform: translateX(-10px);
     }
 
     .container-visualizador>div>img {
         width: 100%;
         height: 250px;
+        transform: translateX(-10px);
     }
 
     #container-X-visualização {
@@ -1312,6 +1326,7 @@
         align-items: center;
         flex-direction: row;
         justify-content: space-between;
+        align-items: center;
         margin-bottom: 5px;
     }
 
@@ -1416,7 +1431,7 @@
         flex-wrap: wrap;
         justify-content: space-around;
         margin: 0 auto;
-        max-width: 900px;
+        max-width: 1200px;
     }
 
     .footer-section {
@@ -1458,6 +1473,7 @@
         display: flex;
         gap: 10px;
         align-items: center;
+        transform: translateX(-20px);
     }
 
     .footer-section .social-icons a {

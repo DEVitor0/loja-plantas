@@ -1,10 +1,9 @@
-@media screen and (min-width: 600px) and (max-width: 767px) {
+@media screen and (max-width: 599px) {
 
     @font-face {
         font-family: 'Montserrat';
-        src: url("../font/Montserrat/static/Montserrat-Light.ttf");
+        src: url("../../font/Montserrat/static/Montserrat-Light.ttf");
     }
-
     * {
         margin: 0;
         padding: 0;
@@ -85,8 +84,8 @@
         z-index: 200;
     }
 
-    body > nav.filtragem-planta > div:nth-child(2) > div.container-abertura {
-        padding: 10px 80px 10px 5px;
+    body>nav.filtragem-planta {
+        display: none;
     }
 
     .container-abertura>button {
@@ -130,7 +129,7 @@
     }
 
     #menu-inicial-preferencias>div:nth-child(2)>img {
-        width: 125px;
+        width: 115px;
         padding-top: 26px;
     }
 
@@ -181,17 +180,50 @@
 
     #carrossel-inicio {
         width: 100%;
-        height: 67vh;
-        background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
+        height: 500px;
+        background-image: url("../../img/fundos/picture-frame-leaning-against-white-wall.jpg");
         background-size: cover;
-        background-position: center;
-        margin-top: 25px;
+        background-position: 71%;
+        margin-top: 30px;
         display: flex;
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
+    }
+
+    @media screen and (max-width: 335px) {
+        #titulo-carrossel>div>h1 {
+            font-size: 32px !important;
+        }
+
+        #carrossel-inicio {
+            width: 100%;
+            height: 500px;
+            background-image: url("../../img/fundos/picture-frame-leaning-against-white-wall.jpg");
+            background-size: cover;
+            background-position: 65% !important;
+            margin-top: 25px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+    }
+
+    @media screen and (max-width: 359px) {
+        #carrossel-inicio {
+            width: 100%;
+            height: 500px;
+            background-image: url("../../img/fundos/picture-frame-leaning-against-white-wall.jpg");
+            background-size: cover;
+            background-position: 67%;
+            margin-top: 25px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
     }
 
     #titulo-carrossel {
+        margin: 7vh 0 10vh 4vw;
         margin-bottom: 10vh;
         margin-left: 4vw;
         opacity: 0;
@@ -230,7 +262,7 @@
 
     #titulo-carrossel>div>div {
         width: 1px;
-        height: 6vh;
+        height: 4vh;
         background-color: #646464;
         transform: translateX(3vw);
         margin-top: 1.2vh;
@@ -286,13 +318,13 @@
     #cuidado-plantas>h2 {
         padding-top: 5px;
         font-size: 16px;
-        width: 400px;
+        width: calc(100% - 30px);
         text-align: center;
     }
 
     #cuidado-plantas>p {
-        width: 550px;
-        text-align: center;
+        width: calc(100% - 30px);
+        text-align: justify;
         padding-top: 5px;
     }
 
@@ -304,7 +336,7 @@
         border-radius: 30px;
         color: white;
         font-size: 15px;
-        margin: 5vh;
+        margin: 4vh;
     }
 
     main>section>div:nth-child(2) {
@@ -328,21 +360,25 @@
         display: flex;
     }
 
+    .caixas-layout-plantas p {
+        display: none;
+    }
+
     #planta1 {
         grid-area: a;
-        background-image: url("../img/vasos/filtros-plantas/planta1.jpg");
+        background-image: url("../../img/vasos/filtros-plantas/planta1.jpg");
         background-position: right;
         background-size: cover;
-        height: 61.6vh;
+        height: calc(61.6vh * 0.6);
         width: 32vw;
     }
 
     #planta2 {
         grid-area: b;
-        height: 27.5vh;
+        height: calc(27.5vh * 0.6);
         width: 24vw;
-        background-image: url("../img/vasos/filtros-plantas/planta3.jpg");
-        background-position: center;
+        background-image: url("../../img/vasos/filtros-plantas/planta3.jpg");
+        background-position: right;
         background-size: cover;
         margin-bottom: 10px;
     }
@@ -350,37 +386,37 @@
     #planta3 {
         grid-area: c;
         width: 22vw;
-        height: 27.5vh;
-        background-image: url("../img/vasos/filtros-plantas/planta2.jpg");
-        background-position: center;
+        height: calc(27.5vh * 0.6);
+        background-image: url("../../img/vasos/filtros-plantas/planta2.jpg");
+        background-position: right;
         background-size: cover;
         margin-bottom: 10px;
     }
 
     #planta4 {
         grid-area: d;
-        height: 30.8vh;
+        height: calc(30.8vh * 0.6);
         width: 27vw;
         margin-left: 2vw;
-        background-image: url("../img/vasos/filtros-plantas/planta4.jpg");
-        background-position: center;
+        background-image: url("../../img/vasos/filtros-plantas/planta4.jpg");
+        background-position: right;
         background-size: cover;
     }
 
     #planta5 {
         grid-area: e;
         width: 20vw;
-        height: 30.8vh;
+        height: calc(30.8vh * 0.6);
         margin-left: 2vw;
-        background-image: url("../img/vasos/filtros-plantas/planta5.jpg");
-        background-position: center;
+        background-image: url("../../img/vasos/filtros-plantas/planta5.jpg");
+        background-position: right;
         background-size: cover;
         transform: translateX(2px);
     }
 
     #layout-plantas>div>p {
         font-size: 18px;
-        font-family: "Montserrat", sans-serif;
+        font-family: "Montserrat", sans-serif !important;
         font-optical-sizing: auto;
         font-weight: 300;
         font-style: normal;
@@ -398,8 +434,9 @@
     }
 
     .titulo-seção>h2 {
-        font-family: "Montserrat", sans-serif;
-        font-size: 32px;
+        font-family: "Montserrat", sans-serif !important;
+        font-weight: 300;
+        font-size: 8vw;
     }
 
     body>main>section>div:nth-child(10)>h2 {
@@ -407,8 +444,8 @@
     }
 
     .titulo-seção>p {
-        font-family: "Montserrat", sans-serif;
-        font-size: 22px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 5vw;
         color: var(--cor2);
     }
 
@@ -449,6 +486,25 @@
         height: auto;
         display: grid;
         justify-items: center;
+        gap: 10px;
+    }
+
+    #seção-produtos>div:nth-child(1),
+    #seção-produtos>div:nth-child(2) {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-plantas {
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     @keyframes slideDireita {
@@ -483,16 +539,31 @@
         height: 320px;
     }
 
-    #seção-produtos .produtos-plantas, #container-novidades .produtos-plantas, #container-ofertas .produtos-plantas {
-        width: 180px;
-        height: 320px;
+    #seção-produtos .produtos-plantas {
+        width: 40%;
+        height: 280px;
         margin: 10px;
         display: inline-block;
     }
 
-    #seção-produtos > div:nth-child(1) > div:nth-child(4), #seção-produtos > div:nth-child(2) > div:nth-child(4), #container-novidades > div:nth-child(1), #container-ofertas > div:nth-child(4){
-        display: none;
-    } /*elementos desativados*/
+    #container-novidades .produtos-plantas {
+        width: 40%;
+        height: 280px;
+        margin: 10px;
+        display: inline-block;
+    }
+
+    #container-ofertas {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #container-ofertas .produtos-plantas {
+        width: 40%;
+        height: 280px;
+        margin: 10px;
+        display: inline-block;
+    }
 
     .direita .produtos-plantas {
         animation-name: slideEsquerda;
@@ -539,7 +610,7 @@
         visibility: visible; 
         opacity: 1; 
     }
-
+  
     .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos:hover {
         background-color: var(--cor2);
         color: white;
@@ -568,17 +639,17 @@
     }
 
     .mover-produtos-principais {
-        width: 100%;
-        height: 1px;
-        display: flex;
-        justify-content: center;
+        width: auto;
+        height: 10px;
         position: relative;
         top: -4vh;
-        margin-bottom: 3vh;
+        display: flex;
+        justify-content: center;
     }
 
     #container-novidades {
         display: flex;
+        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
@@ -600,7 +671,7 @@
     }
 
     #container-promoção {
-        width: 40vw;
+        width: 50vw;
         height: 150px;
         padding: 15px;
         border: 2px solid white;
@@ -618,47 +689,46 @@
     }
 
     #container-promoção>div>h3 {
-        font-family: "Montserrat", sans-serif;
-        font-size: 35px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 7vw;
     }
 
     #container-promoção>div>p:nth-child(2) {
-        font-family: "Montserrat", sans-serif;
-        font-size: 25px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 6vw;
         margin-bottom: 0.5vh;
     }
 
     #container-promoção>div>p:nth-child(3) {
-        font-size: 15px;
+        text-align: center;
+        font-size: small;
     }
 
     #container-promoção>div>p>span {
-        font-family: "Montserrat", sans-serif;
-        font-size: 25px;
+        font-family: "Montserrat", sans-serif !important;
+        font-size: 6vw;
         color: var(--cor2);
     }
 
     .imagens-promoção {
-        width: 70%;
-        height: 300px;
-        margin: 30px 12px;
+        width: 100%;
+        height: 210px;
+        margin: 0 10px;
     }
 
     .imagens-promoção:first-child {
-        background-image: url("../img/fundos/pexels-cottonbro-studio-4503263.jpg");
+        background-image: url("../../img/fundos/pexels-cottonbro-studio-4503263.jpg");
         background-size: cover;
-        margin-left: 24px;
+        background-position: left;
     }
 
     .imagens-promoção:nth-child(3) {
-        background-image: url("../img/fundos/pexels-cottonbro-studio-4505171.jpg");
+        background-image: url("../../img/fundos/pexels-cottonbro-studio-4505171.jpg");
         background-size: cover;
-        margin-right: 24px;
+        background-position: center;
     }
 
     #informativos {
-        margin-top: 1.5vh;
-        margin-bottom: 5vh;
         width: 100%;
         height: auto;
         display: flex;
@@ -671,18 +741,22 @@
     }
 
     .container-informativos {
-        height: 60px;
+        height: auto;
+        margin-top: 20px;
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
     }
 
-    #informativos > div:nth-child(1) > div:nth-child(1), #informativos > div:nth-child(1) > div:nth-child(2) {
-        border-right: 1px solid var(--cor3);
-        margin-left: 3.5vw;
+    @media screen and (max-width: 375px) {
+        #informativos>div:nth-child(2)>div:nth-child(2) {
+            margin-bottom: 0;
+        }
     }
 
-    #informativos > div:nth-child(2) > div:nth-child(1) {
-        margin-bottom: 10px;
+    #informativos>div:nth-child(1)>div:nth-child(1),
+    #informativos>div:nth-child(1)>div:nth-child(2) {
+        border-right: 1px solid var(--cor3);
     }
 
     .container-informativos>div>i {
@@ -715,29 +789,57 @@
     }
 
     #container-categorias {
-        width: 98%;
-        height: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .container-plantas {
         width: 100%;
         height: auto;
         display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #navegação-filtros {
+        display: none;
+    }
+
+    .container-pontos-plantas {
+        width: 100%;
+        display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .container-exibição-produtos > .produtos-plantas {
-        width: 160px;
-        height: 270px;
+    .pontos-plantas {
+        width: 13px;
+        height: 13px;
+        background-color: #ccc;
+        border-radius: 50%;
+        margin: 0 5px;
+        display: inline-block;
     }
 
-    #navegação-filtros {
-        width: 120px;
-        height: auto;
+    .clicavel {
+        cursor: pointer;
+    }
+
+    .pontos-plantas.ativo {
+        background-color: #3a3a3a;
+    }
+
+    #container-categorias .container-plantas {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .container-exibição-produtos>.produtos-plantas {
+        width: calc(33.333%);
+        height: 240px;
+        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    .produtos-plantas.visible {
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .filtros-produtos {
@@ -759,9 +861,9 @@
         width: 100%;
         height: 420px;
         margin: auto;
-        background-image: url("../img/fundos/testibg.png");
+        background-image: url("../../img/fundos/testibg.png");
         background-size: cover;
-        background-position: -170px 30px;
+        background-position: -210px 30px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -947,7 +1049,7 @@
 
     .botão-blog>button:hover {
         background-color: var(--cor2);
-        color: white;
+        color: white !important;
         transition: 0.2s linear;
     }
 
@@ -957,16 +1059,16 @@
     }
 
     .imagens-caixa-blogs:first-child {
-        background-image: url("../img/fundos/fundo3-blog.jpeg");
+        background-image: url("../../img/fundos/fundo3-blog.jpeg");
         background-position: left;
     }
 
     #container-blogs>div:nth-child(2)>div.imagens-caixa-blogs {
-        background-image: url("../img/fundos/fundo2-blog.jpeg");
+        background-image: url("../../img/fundos/fundo2-blog.jpeg");
     }
 
     #carrinho {
-        width: 320px;
+        width: 73%;
         height: 100vh;
         background-color: white;
         position: absolute;
@@ -1037,7 +1139,7 @@
     }
 
     #container-produtos {
-        overflow-y: hidden;
+        overflow-y: auto;
         height: auto;
         width: 100%;
     }
@@ -1199,7 +1301,7 @@
     }
 
     .container-mensagem {
-        width: 450px;
+        width: calc(100% - 60px);
         height: 250px;
         background-color: white;
         position: fixed;
@@ -1396,11 +1498,11 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
-        flex-direction: row;
+        flex-direction: column;
         border-bottom: 1px solid var(--cor3);
     }
 
-    #conatiner-contato > div {
+    #conatiner-contato>div {
         width: max-content;
     }
 
@@ -1417,7 +1519,14 @@
     #conatiner-contato>div:first-child>p {
         display: inline;
         text-align: center;
-        font-size: 20px;
+        font-size: 5vw;
+    }
+
+    #conatiner-contato>div:nth-child(2) {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
     }
 
     #conatiner-contato>div:nth-child(2)>input[type="text"] {
@@ -1447,20 +1556,36 @@
     .footer-container {
         display: flex;
         flex-wrap: wrap;
+        flex-direction: row;
         justify-content: space-around;
         margin: 0 auto;
         max-width: 97vw;
     }
 
     .footer-section {
-        flex: 1;
-        min-width: 250px;
-        margin: 20px;
+        width: 44%;
+    }
+
+    #footer > div.footer-container > div.footer-section.social {
+        width: 100%;
+    }
+
+    #footer > div.footer-container > div.footer-section.links {
+        text-align: center;
+    }
+
+    #footer > div.footer-container > div.footer-section.contact {
+        width: 56%;
+    }
+
+    #footer > div.footer-container > div.footer-section.contact > p:nth-child(4) {
+        font-size: 15px;
     }
 
     .footer-section h2 {
         font-size: 20px;
         margin-bottom: 20px;
+        text-align: center;
     }
 
     .footer-section p,

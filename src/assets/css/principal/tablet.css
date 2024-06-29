@@ -1,9 +1,10 @@
-@media screen and (max-width: 599px) {
+@media screen and (min-width: 768px) and (max-width: 991px) {
 
     @font-face {
         font-family: 'Montserrat';
-        src: url("../font/Montserrat/static/Montserrat-Light.ttf");
+        src: url("../../font/Montserrat/static/Montserrat-Light.ttf");
     }
+
     * {
         margin: 0;
         padding: 0;
@@ -48,7 +49,12 @@
     }
 
     .preferencias-menu {
-        display: none;
+        width: 340px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
     }
 
     .itens-preferencias {
@@ -82,10 +88,6 @@
         gap: 5px;
         animation: abrindo 0.3s ease;
         z-index: 200;
-    }
-
-    body>nav.filtragem-planta {
-        display: none;
     }
 
     .container-abertura>button {
@@ -129,15 +131,16 @@
     }
 
     #menu-inicial-preferencias>div:nth-child(2)>img {
-        width: 115px;
+        width: 125px;
         padding-top: 26px;
     }
 
     .informações-menu {
-        width: 300px;
+        width: 330px;
         display: flex;
         justify-content: space-around;
         align-items: center;
+        gap: 10px;
     }
 
     .informações-menu>i {
@@ -180,50 +183,17 @@
 
     #carrossel-inicio {
         width: 100%;
-        height: 500px;
-        background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
+        height: 67vh;
+        background-image: url("../../img/fundos/picture-frame-leaning-against-white-wall.jpg");
         background-size: cover;
-        background-position: 71%;
-        margin-top: 30px;
+        background-position: center;
+        margin-top: 25px;
         display: flex;
         justify-content: flex-start;
-        align-items: flex-start;
-    }
-
-    @media screen and (max-width: 335px) {
-        #titulo-carrossel>div>h1 {
-            font-size: 32px !important;
-        }
-
-        #carrossel-inicio {
-            width: 100%;
-            height: 500px;
-            background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
-            background-size: cover;
-            background-position: 65% !important;
-            margin-top: 25px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
-    }
-
-    @media screen and (max-width: 359px) {
-        #carrossel-inicio {
-            width: 100%;
-            height: 500px;
-            background-image: url("../img/fundos/picture-frame-leaning-against-white-wall.jpg");
-            background-size: cover;
-            background-position: 67%;
-            margin-top: 25px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-        }
+        align-items: center;
     }
 
     #titulo-carrossel {
-        margin: 7vh 0 10vh 4vw;
         margin-bottom: 10vh;
         margin-left: 4vw;
         opacity: 0;
@@ -252,17 +222,17 @@
     }
 
     #titulo-carrossel>div>h1 {
-        font-size: 34px;
+        font-size: 44px;
         margin-top: 0px;
     }
 
     #titulo-carrossel>div>p:nth-child(3) {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     #titulo-carrossel>div>div {
         width: 1px;
-        height: 4vh;
+        height: 6vh;
         background-color: #646464;
         transform: translateX(3vw);
         margin-top: 1.2vh;
@@ -272,7 +242,7 @@
         margin-top: 1.2vh;
         border-radius: 30px;
         background-color: var(--cor1);
-        padding: 6px;
+        padding: 8px;
         font-size: 15px;
         color: white;
         border: none;
@@ -317,14 +287,14 @@
 
     #cuidado-plantas>h2 {
         padding-top: 5px;
-        font-size: 16px;
-        width: calc(100% - 30px);
+        font-size: 18px;
+        width: 500px;
         text-align: center;
     }
 
     #cuidado-plantas>p {
-        width: calc(100% - 30px);
-        text-align: justify;
+        width: 600px;
+        text-align: center;
         padding-top: 5px;
     }
 
@@ -336,7 +306,7 @@
         border-radius: 30px;
         color: white;
         font-size: 15px;
-        margin: 4vh;
+        margin: 5vh;
     }
 
     main>section>div:nth-child(2) {
@@ -360,25 +330,21 @@
         display: flex;
     }
 
-    .caixas-layout-plantas p {
-        display: none;
-    }
-
     #planta1 {
         grid-area: a;
-        background-image: url("../img/vasos/filtros-plantas/planta1.jpg");
+        background-image: url("../../img/vasos/filtros-plantas/planta1.jpg");
         background-position: right;
         background-size: cover;
-        height: calc(61.6vh * 0.6);
+        height: 61.6vh;
         width: 32vw;
     }
 
     #planta2 {
         grid-area: b;
-        height: calc(27.5vh * 0.6);
+        height: 27.5vh;
         width: 24vw;
-        background-image: url("../img/vasos/filtros-plantas/planta3.jpg");
-        background-position: right;
+        background-image: url("../../img/vasos/filtros-plantas/planta3.jpg");
+        background-position: center;
         background-size: cover;
         margin-bottom: 10px;
     }
@@ -386,37 +352,37 @@
     #planta3 {
         grid-area: c;
         width: 22vw;
-        height: calc(27.5vh * 0.6);
-        background-image: url("../img/vasos/filtros-plantas/planta2.jpg");
-        background-position: right;
+        height: 27.5vh;
+        background-image: url("../../img/vasos/filtros-plantas/planta2.jpg");
+        background-position: center;
         background-size: cover;
         margin-bottom: 10px;
     }
 
     #planta4 {
         grid-area: d;
-        height: calc(30.8vh * 0.6);
+        height: 30.8vh;
         width: 27vw;
         margin-left: 2vw;
-        background-image: url("../img/vasos/filtros-plantas/planta4.jpg");
-        background-position: right;
+        background-image: url("../../img/vasos/filtros-plantas/planta4.jpg");
+        background-position: center;
         background-size: cover;
     }
 
     #planta5 {
         grid-area: e;
         width: 20vw;
-        height: calc(30.8vh * 0.6);
+        height: 30.8vh;
         margin-left: 2vw;
-        background-image: url("../img/vasos/filtros-plantas/planta5.jpg");
-        background-position: right;
+        background-image: url("../../img/vasos/filtros-plantas/planta5.jpg");
+        background-position: center;
         background-size: cover;
         transform: translateX(2px);
     }
 
     #layout-plantas>div>p {
         font-size: 18px;
-        font-family: "Montserrat", sans-serif !important;
+        font-family: "Montserrat", sans-serif;
         font-optical-sizing: auto;
         font-weight: 300;
         font-style: normal;
@@ -434,9 +400,8 @@
     }
 
     .titulo-seção>h2 {
-        font-family: "Montserrat", sans-serif !important;
-        font-weight: 300;
-        font-size: 8vw;
+        font-family: "Montserrat", sans-serif;
+        font-size: 32px;
     }
 
     body>main>section>div:nth-child(10)>h2 {
@@ -444,8 +409,8 @@
     }
 
     .titulo-seção>p {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 5vw;
+        font-family: "Montserrat", sans-serif;
+        font-size: 22px;
         color: var(--cor2);
     }
 
@@ -462,10 +427,6 @@
 
     .titulo-seção>div>button {
         font-size: 18px;
-    }
-
-    #novidades, #ofertas{
-        color: black;
     }
 
     .titulo-seção>div>button:first-child {
@@ -486,25 +447,6 @@
         height: auto;
         display: grid;
         justify-items: center;
-        gap: 10px;
-    }
-
-    #seção-produtos>div:nth-child(1),
-    #seção-produtos>div:nth-child(2) {
-        width: 100%;
-        height: auto;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .container-plantas {
-        width: 100%;
-        height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     @keyframes slideDireita {
@@ -540,27 +482,22 @@
     }
 
     #seção-produtos .produtos-plantas {
-        width: 40%;
-        height: 280px;
+        width: calc(33.333% - 20px);
+        height: 320px;
         margin: 10px;
         display: inline-block;
     }
 
     #container-novidades .produtos-plantas {
-        width: 40%;
-        height: 280px;
+        width: calc(33.333% - 20px);
+        height: 320px;
         margin: 10px;
         display: inline-block;
     }
 
-    #container-ofertas {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
     #container-ofertas .produtos-plantas {
-        width: 40%;
-        height: 280px;
+        width: calc(33.333% - 20px);
+        height: 320px;
         margin: 10px;
         display: inline-block;
     }
@@ -610,7 +547,7 @@
         visibility: visible; 
         opacity: 1; 
     }
-  
+
     .produtos-plantas:hover>.container-acessórios-produtos>.acessórios-produtos:hover {
         background-color: var(--cor2);
         color: white;
@@ -639,17 +576,17 @@
     }
 
     .mover-produtos-principais {
-        width: auto;
-        height: 10px;
-        position: relative;
-        top: -4vh;
+        width: 100%;
+        height: 1px;
         display: flex;
         justify-content: center;
+        position: relative;
+        top: -4vh;
+        margin-bottom: 3vh;
     }
 
     #container-novidades {
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         align-items: center;
     }
@@ -671,7 +608,7 @@
     }
 
     #container-promoção {
-        width: 50vw;
+        width: 30vw;
         height: 150px;
         padding: 15px;
         border: 2px solid white;
@@ -689,46 +626,47 @@
     }
 
     #container-promoção>div>h3 {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 7vw;
+        font-family: "Montserrat", sans-serif;
+        font-size: 35px;
     }
 
     #container-promoção>div>p:nth-child(2) {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 6vw;
+        font-family: "Montserrat", sans-serif;
+        font-size: 25px;
         margin-bottom: 0.5vh;
     }
 
     #container-promoção>div>p:nth-child(3) {
-        text-align: center;
-        font-size: small;
+        font-size: 15px;
     }
 
     #container-promoção>div>p>span {
-        font-family: "Montserrat", sans-serif !important;
-        font-size: 6vw;
+        font-family: "Montserrat", sans-serif;
+        font-size: 25px;
         color: var(--cor2);
     }
 
     .imagens-promoção {
-        width: 100%;
-        height: 210px;
-        margin: 0 10px;
+        width: 70%;
+        height: 300px;
+        margin: 30px 12px;
     }
 
     .imagens-promoção:first-child {
-        background-image: url("../img/fundos/pexels-cottonbro-studio-4503263.jpg");
+        background-image: url("../../img/fundos/pexels-cottonbro-studio-4503263.jpg");
         background-size: cover;
-        background-position: left;
+        margin-left: 24px;
     }
 
     .imagens-promoção:nth-child(3) {
-        background-image: url("../img/fundos/pexels-cottonbro-studio-4505171.jpg");
+        background-image: url("../../img/fundos/pexels-cottonbro-studio-4505171.jpg");
         background-size: cover;
-        background-position: center;
+        margin-right: 24px;
     }
 
     #informativos {
+        margin-top: 1.5vh;
+        margin-bottom: 5vh;
         width: 100%;
         height: auto;
         display: flex;
@@ -737,25 +675,15 @@
     }
 
     .informativos__sub-container {
-        width: 50%;
+        display: flex;
+        flex-direction: row;
     }
 
     .container-informativos {
-        height: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
+        padding-right: 20px;
+        height: 60px;
         display: flex;
         align-items: center;
-    }
-
-    @media screen and (max-width: 375px) {
-        #informativos>div:nth-child(2)>div:nth-child(2) {
-            margin-bottom: 0;
-        }
-    }
-
-    #informativos>div:nth-child(1)>div:nth-child(1),
-    #informativos>div:nth-child(1)>div:nth-child(2) {
         border-right: 1px solid var(--cor3);
     }
 
@@ -796,50 +724,17 @@
         justify-content: center;
     }
 
-    #navegação-filtros {
-        display: none;
-    }
-
-    .container-pontos-plantas {
+    .container-plantas {
         width: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .pontos-plantas {
-        width: 13px;
-        height: 13px;
-        background-color: #ccc;
-        border-radius: 50%;
-        margin: 0 5px;
-        display: inline-block;
-    }
-
-    .clicavel {
-        cursor: pointer;
-    }
-
-    .pontos-plantas.ativo {
-        background-color: #3a3a3a;
-    }
-
-    #container-categorias .container-plantas {
-        display: flex;
-        flex-wrap: wrap;
-    }
-
-    .container-exibição-produtos>.produtos-plantas {
-        width: calc(33.333%);
-        height: 240px;
-        transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    .produtos-plantas.visible {
-        opacity: 1;
-        transform: translateY(0);
+    #navegação-filtros {
+        width: 120px;
+        height: auto;
     }
 
     .filtros-produtos {
@@ -861,9 +756,10 @@
         width: 100%;
         height: 420px;
         margin: auto;
-        background-image: url("../img/fundos/testibg.png");
+        background-image: url("../../img/fundos/testibg.png");
         background-size: cover;
-        background-position: -210px 30px;
+        background-position: right 30px;
+        background-repeat: no-repeat;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -909,7 +805,7 @@
 
     #container-recomendações>div:nth-child(3)>p {
         margin-top: 2vh;
-        width: 68vw;
+        width: 62vw;
         text-align: center;
     }
 
@@ -974,6 +870,7 @@
 
     #container-blogs-maior {
         width: 100%;
+        height: auto;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -981,31 +878,29 @@
 
     #container-blogs {
         width: 100%;
-        height: auto;
+        height: 300px;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
     }
 
     .blogs {
-        width: 100%;
+        width: 50vw;
         height: 220px;
-        margin: 15px 15px;
+        margin: 0px 15px;
         display: flex;
-        justify-content: center;
         flex-direction: row;
     }
 
     .imagens-caixa-blogs {
-        width: 35vw;
+        width: 20vw;
         height: auto;
     }
 
     .texto-caixa-blogs {
-        width: 210px;
+        width: auto;
         height: auto;
-        padding-left: 20px;
+        padding-left: 10px;
     }
 
     .data-publicação-blogs {
@@ -1025,7 +920,7 @@
 
     .resumo-caixa-blog {
         text-align: left;
-        width: 100%;
+        width: 25vw;
     }
 
     .resumo-caixa-blog>p {
@@ -1049,7 +944,7 @@
 
     .botão-blog>button:hover {
         background-color: var(--cor2);
-        color: white !important;
+        color: white;
         transition: 0.2s linear;
     }
 
@@ -1059,16 +954,16 @@
     }
 
     .imagens-caixa-blogs:first-child {
-        background-image: url("../img/fundos/fundo3-blog.jpeg");
+        background-image: url("../../img/fundos/fundo3-blog.jpeg");
         background-position: left;
     }
 
     #container-blogs>div:nth-child(2)>div.imagens-caixa-blogs {
-        background-image: url("../img/fundos/fundo2-blog.jpeg");
+        background-image: url("../../img/fundos/fundo2-blog.jpeg");
     }
 
     #carrinho {
-        width: 73%;
+        width: 320px;
         height: 100vh;
         background-color: white;
         position: absolute;
@@ -1139,7 +1034,7 @@
     }
 
     #container-produtos {
-        overflow-y: auto;
+        overflow-y: hidden;
         height: auto;
         width: 100%;
     }
@@ -1301,7 +1196,7 @@
     }
 
     .container-mensagem {
-        width: calc(100% - 60px);
+        width: 450px;
         height: 250px;
         background-color: white;
         position: fixed;
@@ -1490,50 +1385,28 @@
     }
 
     #conatiner-contato {
-        width: 95%;
-        margin: 0 auto;
+        width: 100%;
         height: auto;
-        padding-bottom: 10px;
         margin-top: 5vh;
         display: flex;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
-        flex-direction: column;
-        border-bottom: 1px solid var(--cor3);
-    }
-
-    #conatiner-contato>div {
-        width: max-content;
-    }
-
-    #conatiner-contato>div:first-child {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        flex-direction: row;
     }
 
     #conatiner-contato>div:first-child>i {
-        display: none;
+        font-size: 20px;
+        padding-right: 5px;
     }
 
     #conatiner-contato>div:first-child>p {
         display: inline;
-        text-align: center;
-        font-size: 5vw;
-    }
-
-    #conatiner-contato>div:nth-child(2) {
-        margin-top: 10px;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
+        font-size: 20px;
     }
 
     #conatiner-contato>div:nth-child(2)>input[type="text"] {
         border: none;
         font-size: 18px;
-        width: 69%;
-        margin-left: 10px;
     }
 
     #conatiner-contato>div:nth-child(2)>input[type="text"]:focus {
@@ -1554,38 +1427,23 @@
     }
 
     .footer-container {
+        border-top: 1px solid var(--cor3);
         display: flex;
         flex-wrap: wrap;
-        flex-direction: row;
         justify-content: space-around;
         margin: 0 auto;
-        max-width: 97vw;
+        max-width: 90vw;
     }
 
     .footer-section {
-        width: 44%;
-    }
-
-    #footer > div.footer-container > div.footer-section.social {
-        width: 100%;
-    }
-
-    #footer > div.footer-container > div.footer-section.links {
-        text-align: center;
-    }
-
-    #footer > div.footer-container > div.footer-section.contact {
-        width: 56%;
-    }
-
-    #footer > div.footer-container > div.footer-section.contact > p:nth-child(4) {
-        font-size: 15px;
+        flex: 1;
+        min-width: 250px;
+        margin: 20px;
     }
 
     .footer-section h2 {
         font-size: 20px;
         margin-bottom: 20px;
-        text-align: center;
     }
 
     .footer-section p,
