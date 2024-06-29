@@ -835,6 +835,37 @@
         background-color: #3a3a3a;
     }
 
+    #mensagem-removida {
+        width: fit-content;
+        height: auto;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        display: none; 
+        position: fixed;
+        top: 3%;
+        left: 44%;
+        align-items: center;
+        border-radius: 3px;
+        opacity: 0; 
+        z-index: 1000; 
+        pointer-events: none; 
+    }
+
+    #mensagem-removida > i {
+        margin-right: 10px;
+    }
+
+    #mensagem-removida.mostrar {
+        display: flex; 
+        animation: fadeIn 0.5s ease-in-out forwards;
+        pointer-events: auto;
+    }
+
+    #mensagem-removida.esconder {
+        animation: fadeOut 0.5s ease-in-out forwards; 
+    }
+
     main>section>div:nth-child(12) {
         margin-top: 0;
     }
@@ -1271,6 +1302,74 @@
         left: 6px;
         z-index: 3;
         box-shadow: 10px 0px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .container-visualizador {
+        display: flex;
+        align-items: center;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .container-visualizador>div {
+        width: 50%;
+    }
+
+    .container-mensagem>div:first-child {
+        padding: 0;
+        transform: translateX(-10px);
+    }
+
+    .container-visualizador>div>img {
+        width: 100%;
+        height: 250px;
+    }
+
+    #container-X-visualização {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    #container-X-visualização>p,
+    #container-X-visualização>i {
+        font-size: 24px;
+    }
+
+    #container-notas-visualização {
+        width: 100%;
+        padding-bottom: 10px;
+        border-bottom: 1px solid var(--cor3);
+    }
+
+    #container-notas-visualização > p {
+        font-size: 18px;
+    }
+
+    #container-notas-visualização > p > i {
+        color: #FFC511;
+    }
+
+    #conatiner-preços-visualização > p:first-child{
+        font-size: 22px;
+        margin-top: 10px;
+    }
+
+    #conatiner-preços-visualização > p:nth-child(2) {
+        color: #414040;
+    }
+
+    aside:nth-child(8) > div > div:nth-child(2) > div:nth-child(4) > button {
+        width: 100%;
+        background-color: #4BA721;
+        border: none;
+        border-radius: 5px;
+        padding: 5px;
+        color: white;
+        margin-top: 15px;
     }
 
     #nome-item {

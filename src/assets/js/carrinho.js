@@ -55,7 +55,7 @@ function clicouCarrinho() {
         const arraySexta = removeElemento(iconeSexta, 0);
 
         iconeCarrinho.forEach((element, indice) => {
-            let mouseOver = false; 
+            let mouseOver = false;
 
             if (!element.classList.contains('clicado')) {
                 const posiçãoIcone = arraySexta[indice];
@@ -64,30 +64,25 @@ function clicouCarrinho() {
             }
 
             const handleMouseEnter = () => {
-                mouseOver = true; // Define que o mouse está sobre o íconeCarrinho
+                mouseOver = true;
                 const posiçãoIcone = arraySexta[indice];
-                // Ajusta a cor do íconeSexta dependendo do estado do íconeCarrinho
                 if (!element.classList.contains('clicado')) {
                     posiçãoIcone.style.color = 'white';
                     element.style.backgroundColor = '#47941a';
                 }
             };
 
-            // Manipulador de evento para quando o mouse sai do íconeCarrinho
             const handleMouseLeave = () => {
                 mouseOver = false;
                 const posiçãoIcone = arraySexta[indice];
-                // Restaura a cor do íconeSexta pra branco se o íconeCarrinho não tiver clicado
                 if (!element.classList.contains('clicado')) {
                     posiçãoIcone.style.color = 'black';
                     element.style.backgroundColor = 'white';
                 }
             };
 
-            // Manipulador de evento para clique no íconeCarrinho
             const handleCarrinhoClick = () => {
                 if (element.classList.contains('clicado')) {
-                    // Código para quando o ícone está clicado
                     element.style.backgroundColor = 'white';
                     const posiçãoIcone = arraySexta[indice];
                     posiçãoIcone.style.color = 'black';
@@ -118,18 +113,14 @@ function clicouCarrinho() {
                         }, 500);
                     }, 2000);
 
-                    // Chamar o método de remoção de item da classe ExibeCarrinho
                     const itemCarrinho = document.querySelector(`.container-produtos-${nomeProduto}`);
                     if (itemCarrinho) {
-                        // Obter o preço do produto a ser removido
                         const valorProduto = itemCarrinho.querySelector('.valor-produto').textContent;
                         const valoresNumericos = valorProduto.slice(8, 10);
 
                         ExibeCarrinho.subtotal -= Number(valoresNumericos);
                         const preçoFinal = window.document.querySelector('.preço-final');
                         const preçoFinalFinal = window.document.querySelector('#preço-final-final');
-                        console.log(preçoFinal);
-                        console.log(preçoFinalFinal)
                         preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal.toFixed(2).replace('.', ',')}`;
                         preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal.toFixed(2).replace('.', ',')}`;
 
@@ -141,10 +132,8 @@ function clicouCarrinho() {
                     return;
                 }
 
-                // Código para quando o ícone não está clicado
                 element.classList.add('clicado');
                 element.style.backgroundColor = '#47941a';
-                exibeConfirmação(element);
 
                 const posiçãoIcone = arraySexta[indice];
                 posiçãoIcone.style.color = 'white';
@@ -183,13 +172,13 @@ function clicouCarrinho() {
                 }
 
                 if (nome !== undefined && verificaPreço !== undefined && imagem !== undefined) {
+                    exibeMensagem(); // Exibe a mensagem de confirmação após adicionar o item
                     resolve([nome, verificaPreço, desconto, imagem]);
                 } else {
                     reject(new Error('Algumas informações necessárias estão faltando'));
                 }
             };
 
-            // Adiciona manipuladores de eventos para mouseenter, mouseleave e clique
             element.addEventListener('mouseenter', handleMouseEnter);
             element.addEventListener('mouseleave', handleMouseLeave);
             element.removeEventListener('click', element._handleCarrinhoClick);
@@ -197,16 +186,6 @@ function clicouCarrinho() {
             element._handleCarrinhoClick = handleCarrinhoClick;
         });
     });
-}
-
-function exibeConfirmação(elementoEscolhido) {
-    const selecionandoCor = window.getComputedStyle(elementoEscolhido);
-    const corEscolhida = selecionandoCor.backgroundColor;
-    const corEsperada = 'rgb(71, 148, 26)';
-
-    if (corEscolhida === corEsperada) {
-        exibeMensagem();
-    }
 }
 
 function exibeMensagem() {
@@ -258,6 +237,9 @@ class ExibeCarrinho {
         this.valorQuantia = valorQuantia;
         this.preçoItem = preçoItem;
         this.subtotalItem = 0;
+
+        this.nomeProduto = null; // Adicionar uma propriedade para armazenar o nome do produto
+        this.iconeLixo.addEventListener('click', () => this.removeMarcacao()); // Adicionar o evento de clique no ícone de lixeira
     }
 
     criaContainer() {
@@ -335,8 +317,6 @@ class ExibeCarrinho {
         }
     }
 
-    static subtotal = 0;
-
     async adicionaTexto(nome, itemEscolhido, mensagem) {
         try {
             if (nome !== undefined) {
@@ -394,6 +374,7 @@ class ExibeCarrinho {
                         const itemCarrinho = icone.closest('.container-produtos');
 
                         if (itemCarrinho) {
+
                             ExibeCarrinho.subtotal -= fazConta();
 
                             itemCarrinho.remove();
@@ -401,6 +382,7 @@ class ExibeCarrinho {
 
                             preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
                             preçoFinalFinal.textContent = `R$ ${ExibeCarrinho.subtotal},00`;
+                            
                         }
                     });
 
@@ -429,6 +411,20 @@ class ExibeCarrinho {
 
         atualizaPreco();
         removeItens();
+    }
+
+    removeMarcacao() {
+        const itensLoja = document.querySelectorAll('.produtos-plantas');
+        itensLoja.forEach(item => {
+            const nomeItem = item.querySelector('h3').textContent;
+            if (nomeItem === this.nomeProduto) {
+                const iconeCarrinho = item.querySelector('.fa-basket-shopping');
+                const containerCarrinho = item.querySelector('.sexta-carrinho');
+                containerCarrinho.style.backgroundColor = 'white';
+                iconeCarrinho.style.color = 'black';
+                containerCarrinho.classList.remove('clicado');
+            }
+        });
     }
 
     removerTodosItens() {
@@ -487,3 +483,35 @@ function adicionaItem() {
     })
 }
 adicionaItem();
+
+document.addEventListener("DOMContentLoaded", function() {
+    const produtos = document.querySelectorAll('.produtos-plantas');
+    
+    produtos.forEach(produto => {
+        const botaoVisualizacao = produto.querySelector('.visualização');
+
+        botaoVisualizacao.addEventListener('click', () => {
+            const nomeProduto = produto.querySelector('.container-preço-plantas h3').textContent;
+            const precoProduto = produto.querySelector('.container-preço-plantas p').textContent;
+            const imagemProduto = produto.querySelector('.container-imagens-produtos img').src;
+
+            exibirVisualizacao(nomeProduto, precoProduto, imagemProduto);
+        });
+    });
+});
+
+function exibirVisualizacao(nome, preco, imagem) {
+    const nomeElemento = document.querySelector("#nome-produto-visualização")
+    const precoElemento = document.querySelector("#preço-produto-visualização")
+    const calculoElemento = document.querySelector("#calculo-parcelas-visualização")
+    const imagemElemento = document.querySelector('#imagem-visualização');
+
+    if (nomeElemento && precoElemento && imagemElemento && calculoElemento) {
+        nomeElemento.textContent = nome;
+        precoElemento.textContent = preco;
+        calculoElemento.textContent = `Até 6x de R$ ${(parseFloat(preco.replace('R$', '').replace(',', '.')) / 6).toFixed(2).replace('.', ',')} sem juros`;
+        imagemElemento.src = imagem;
+    } else {
+        console.error('Um ou mais elementos não foram encontrados no DOM');
+    }
+}

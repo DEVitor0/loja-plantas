@@ -1301,7 +1301,12 @@
         flex-direction: row;
     }
 
-    .container-visualizador>div {
+    .container-visualizador {
+        display: flex;
+        align-items: center;
+    }
+
+    .container-visualizador>div{
         width: 50%;
     }
 
@@ -1312,11 +1317,13 @@
     .container-visualizador>div>img {
         width: 100%;
         height: 250px;
+        transform: translateX(-10px);
     }
 
     #container-X-visualização {
         width: 100%;
         display: flex;
+        align-items: center;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
