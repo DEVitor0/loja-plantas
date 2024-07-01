@@ -904,6 +904,8 @@
         width: 210px;
         height: auto;
         padding-left: 20px;
+        display: flex;
+        flex-direction: column;
     }
 
     .data-publicação-blogs {
@@ -943,11 +945,12 @@
         border-radius: 20px;
         margin-top: 10px;
         color: black !important;
+        align-self: flex-end;
     }
 
     .botão-blog>button:hover {
         background-color: var(--cor2);
-        color: white;
+        color: white !important;
         transition: 0.2s linear;
     }
 
