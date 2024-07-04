@@ -817,14 +817,15 @@
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         display: none; 
         position: fixed;
-        top: 3%;
-        left: 44%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
         align-items: center;
         border-radius: 3px;
         opacity: 0; 
         z-index: 1000; 
         pointer-events: none; 
-    }
+    }    
 
     #mensagem-removida > i {
         margin-right: 10px;

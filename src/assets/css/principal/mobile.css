@@ -639,12 +639,7 @@
     }
 
     .mover-produtos-principais {
-        width: auto;
-        height: 10px;
-        position: relative;
-        top: -4vh;
-        display: flex;
-        justify-content: center;
+        display: none;
     }
 
     #container-novidades {
@@ -835,6 +830,7 @@
         transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
         opacity: 0;
         transform: translateY(50px);
+        overflow-x: hidden;
     }
 
     .produtos-plantas.visible {
@@ -945,17 +941,36 @@
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         display: none; 
         position: fixed;
-        top: 3%;
-        left: 44%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
         align-items: center;
         border-radius: 3px;
         opacity: 0; 
         z-index: 1000; 
         pointer-events: none; 
-    }
+    }    
 
     #mensagem-removida > i {
         margin-right: 10px;
+    }
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0; 
+        }
+        100% {
+            opacity: 1; 
+        }
+    }
+    
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0; 
+        }
     }
 
     #mensagem-removida.mostrar {

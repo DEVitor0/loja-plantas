@@ -85,7 +85,7 @@ main .login-form .caixa-input input {
 }
 
 main .login-form .caixa-input input:focus {
-    border-color: var(--cor-padrao); 
+    border-color: var(--cor-padrao);
 }
 
 main .login-form .caixa-input input[type="submit"] {
@@ -96,7 +96,7 @@ main .login-form .caixa-input input[type="submit"] {
     cursor: pointer;
 }
 
-main .login-form .caixa-input i  {
+main .login-form .caixa-input i {
     position: absolute;
     color: var(--cor-padrao);
     font-size: 17px;
@@ -104,7 +104,7 @@ main .login-form .caixa-input i  {
 
 main .login-form .esqueci-senha a {
     color: var(--cor-padrao);
-    text-decoration: none;  
+    text-decoration: none;
 }
 
 main .login-form .ou {
@@ -120,10 +120,10 @@ main .login-form .midias-sociais {
 main .login-form .midias-sociais i {
     margin: 0 10px 10px 10px;
     font-size: 30px;
-    cursor: pointer; 
+    cursor: pointer;
 }
 
-main div.login-form div.midias-sociais  i.fa-brands.fa-apple {
+main div.login-form div.midias-sociais i.fa-brands.fa-apple {
     font-size: 37px;
 }
 
@@ -134,6 +134,45 @@ main .login-form .midias-sociais i:hover {
 main .login-form .singup-text a {
     color: var(--cor-padrao);
     text-decoration: none;
+}
+
+main .login-form .mensagem-erro {
+    width: 100%;
+    height: max-content;
+    background-color: rgb(219, 12, 12);
+    border-radius: 5px;
+    transition: opacity 0.2s ease-in;
+    animation: erro-appear 1s ease-in 2s forwards, erro-disappear 1.5s ease-out 1s forwards;
+    padding: 3px;
+}
+
+@keyframes erro-appear {
+    0% {
+        display: none;
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        display: block;
+    }
+}
+
+@keyframes erro-disappear {
+    from {
+        opacity: 1;
+        display: block;
+    }
+
+    to {
+        opacity: 0;
+        display: none;
+    }
+}
+
+main .login-form .mensagem-erro p {
+    text-align: center;
+    color: white;
 }
 
 main .login-img {

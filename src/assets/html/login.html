@@ -15,14 +15,14 @@
             <div class="login-form__titulo">
                 <a href="../../../index.html">Home/</a> Login
             </div>
-            <form action="" method="post">
+            <form id="formL" method="post">
                 <div class="caixa-input">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Digite seu email">
+                    <input type="text" id="emailL" placeholder="Digite seu email" autocomplete="email">
                 </div>
                 <div class="caixa-input">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Digite sua senha">
+                    <input type="password" id="senhaL" placeholder="Digite sua senha" autocomplete="current-password"> 
                 </div>
                 <div class="esqueci-senha">
                     <a href="#">Esqueceu a senha ?</a>
@@ -45,5 +45,6 @@
             <img src="../img/pessoas/login-imagem.jpg" alt="Imagem de login" width="100%">
         </div>
     </main>
+    <script src="../../../public/assets/js/registro.bundle.js"></script>
 </body>
 </html>

@@ -15,14 +15,14 @@
             <div class="login-form__titulo">
                 <a href="../../../index.html">Home/</a> Registro
             </div>
-            <form action="" method="post">
+            <form id="formR" method="post">
                 <div class="caixa-input">
                     <i class="fa-solid fa-envelope"></i>
-                    <input type="email" placeholder="Digite seu email">
+                    <input type="text" id="emailR" placeholder="Digite seu email" autocomplete="off">
                 </div>
                 <div class="caixa-input">
                     <i class="fa-solid fa-lock"></i>
-                    <input type="password" placeholder="Digite sua senha">
+                    <input type="password" id="senhaR" placeholder="Digite uma senha" autocomplete="new-password">
                 </div>
                 <div class="caixa-input">
                     <input type="submit" value="Registrar-se">
@@ -42,5 +42,6 @@
             <img src="../img/pessoas/registro-imagem.jpg" alt="Imagem de login" width="100%">
         </div>
     </main>
+    <script src="../../../public/assets/js/registro.bundle.js"></script>
 </body>
 </html>

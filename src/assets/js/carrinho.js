@@ -117,8 +117,9 @@ function clicouCarrinho() {
                     if (itemCarrinho) {
                         const valorProduto = itemCarrinho.querySelector('.valor-produto').textContent;
                         const valoresNumericos = valorProduto.slice(8, 10);
+                        const quantidade = parseInt(itemCarrinho.querySelector('.quantidade-produto').textContent);
 
-                        ExibeCarrinho.subtotal -= Number(valoresNumericos);
+                        ExibeCarrinho.subtotal -= Number(valoresNumericos) * quantidade;
                         const preçoFinal = window.document.querySelector('.preço-final');
                         const preçoFinalFinal = window.document.querySelector('#preço-final-final');
                         preçoFinal.textContent = `R$ ${ExibeCarrinho.subtotal.toFixed(2).replace('.', ',')}`;
@@ -317,6 +318,8 @@ class ExibeCarrinho {
         }
     }
 
+    static subtotal = 0;
+
     async adicionaTexto(nome, itemEscolhido, mensagem) {
         try {
             if (nome !== undefined) {
@@ -324,7 +327,6 @@ class ExibeCarrinho {
                 const paragrafo = criaContainer[itemEscolhido];
                 paragrafo.textContent = mensagem;
 
-                // Adiciona atributo data-produto para o nome do produto
                 if (itemEscolhido === 1) {
                     this.containerProdutos.setAttribute('data-produto', mensagem);
                     this.nomeProduto = mensagem;
