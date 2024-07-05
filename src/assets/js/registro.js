@@ -1,24 +1,25 @@
 class Formulario {
-    constructor(formulario, emailInserido, senhaInserida, senhasRegistradas = [], emailRegistrado = []) {
+    constructor(formulario, emailInserido, senhaInserida) {
         this.formulario = formulario;
         this.emailInserido = emailInserido;
-        this.emailRegistrado = emailRegistrado;
         this.senhaInserida = senhaInserida;
-        this.senhasRegistradas = senhasRegistradas;
+
+        this.emailRegistrado = JSON.parse(localStorage.getItem('emailsRegistrados')) || [];
+        this.senhasRegistradas = JSON.parse(localStorage.getItem('senhasRegistradas')) || [];
     }
 
     escutaFormulario() {
-        const formulario = window.document.querySelector(this.formulario);
+        const formulario = document.querySelector(this.formulario);
         if (formulario) {
             formulario.addEventListener('submit', (e) => {
                 e.preventDefault();
-                this.verificaEmail();
+                this.verificaDados();
             });
         }
     }
 
     mensagemErro(mensagem) {
-        const formulario = window.document.querySelector(this.formulario);
+        const formulario = document.querySelector(this.formulario);
         if (formulario) {
             const mensagemExistente = formulario.querySelector('.mensagem-erro');
             if (mensagemExistente) {
@@ -35,23 +36,29 @@ class Formulario {
         }
     }
 
-    verificaEmail() {
-        const email = window.document.querySelector(this.emailInserido);
-        const senha = window.document.querySelector(this.senhaInserida);
+    verificaDados() {
+        const email = document.querySelector(this.emailInserido);
+        const senha = document.querySelector(this.senhaInserida);
 
         if (email.value && senha.value) {
             if (email.value.indexOf('@') === -1 || email.value.indexOf('.') === -1) {
                 this.mensagemErro('Endereço de email incorreto');
             } else {
-                if (window.location.href === 'http://127.0.0.1:5500/src/assets/html/criar.html') {
+                if (window.location.href.includes('criar.html')) {
                     this.emailRegistrado.push(email.value);
                     this.senhasRegistradas.push(senha.value);
+                    localStorage.setItem('emailsRegistrados', JSON.stringify(this.emailRegistrado));
+                    localStorage.setItem('senhasRegistradas', JSON.stringify(this.senhasRegistradas));
+                    window.location.href = 'http://127.0.0.1:5500/index.html';
                 }
             }
 
-            if (window.location.href === 'http://127.0.0.1:5500/src/assets/html/login.html') {
-                if (this.emailRegistrado.indexOf(email.value) === -1) {
-                    this.mensagemErro('E-mail não encontrado! Verifique e tente novamente')
+            if (window.location.href.includes('login.html')) {
+                const indexEmail = this.emailRegistrado.indexOf(email.value);
+                if (indexEmail === -1 || this.senhasRegistradas[indexEmail] !== senha.value) {
+                    this.mensagemErro('E-mail ou senha incorretos. Tente novamente');
+                } else {
+                    window.location.href = 'http://127.0.0.1:5500/index.html';
                 }
             }
         } else {
@@ -59,9 +66,15 @@ class Formulario {
         }
     }
 }
-(function() {
 
+(function () {
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.location.href.includes('criar.html')) {
+            const f1 = new Formulario('#formR', '#emailR', '#senhaR');
+            f1.escutaFormulario();
+        } else {
+            const f2 = new Formulario('#formL', '#emailL', '#senhaL');
+            f2.escutaFormulario();
+        }
+    });
 })();
-
-const f2 = new Formulario('#formR', '#emailR', '#senhaR');
-f2.escutaFormulario();
