@@ -360,6 +360,7 @@ trocaProdutosExibidos();
     ];
 
     let currentIndex = 0;
+    // eslint-disable-next-line no-unused-vars
     let intervalId;
 
     function showRecommendation(index) {
@@ -465,7 +466,7 @@ document.addEventListener('DOMContentLoaded', function () {
             threshold: 0.1
         };
 
-        const observerCallback = (entries, observer) => {
+        const observerCallback = (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');

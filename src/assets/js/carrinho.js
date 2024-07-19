@@ -55,6 +55,7 @@ function clicouCarrinho() {
         const arraySexta = removeElemento(iconeSexta, 0);
 
         iconeCarrinho.forEach((element, indice) => {
+            // eslint-disable-next-line no-unused-vars
             let mouseOver = false;
 
             if (!element.classList.contains('clicado')) {
@@ -200,7 +201,7 @@ function verificaAlgo(funcionalidade, tag) {
     try {
         const itemSelecionado = funcionalidade.querySelector(tag);
         return itemSelecionado ? itemSelecionado.textContent : undefined;
-    } catch (error) {
+    } catch {
         return undefined;
     }
 }
@@ -370,7 +371,7 @@ class ExibeCarrinho {
             const preçoFinal = window.document.querySelector('.preço-final');
             const preçoFinalFinal = window.document.querySelector('#preço-final-final');
 
-            iconesLixeira.forEach((icone, index) => {
+            iconesLixeira.forEach((icone) => {
                 if (!icone.dataset.listenerAdded) {
                     icone.addEventListener('click', () => {
                         const itemCarrinho = icone.closest('.container-produtos');
@@ -439,7 +440,7 @@ class ExibeCarrinho {
                 const preçoFinal = window.document.querySelector('.preço-final');
                 const preçoFinalFinal = window.document.querySelector('#preço-final-final');
 
-                itensNoCarrinho.forEach((item, index) => {
+                itensNoCarrinho.forEach((item) => {
                     item.remove();
                 });
 
